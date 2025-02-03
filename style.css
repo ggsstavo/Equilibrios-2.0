@@ -7,6 +7,10 @@
     font-size: 15px;
 }
 
+:root{
+    --cor-primaria: red;
+}
+
 /* HEADER */
 
 .icone{
@@ -41,7 +45,7 @@ nav{
 }
 
 .nav-list a:hover{
-    color: red;
+    color: var(--cor-primaria);
 }
 
 .nav-list span{
@@ -50,7 +54,7 @@ nav{
 }
 
 .nav-list span:hover{
-    color: red;
+    color: var(--cor-primaria);
 }
 
 .nav-list i{
@@ -102,7 +106,7 @@ nav{
 
 .sidebar i{
     width: 100%;
-    color: red;
+    color: var(--cor-primaria);
     font-size: 30px;
     justify-content: center;
     margin-top: 20px;
@@ -244,7 +248,7 @@ nav{
 
 /* EMPRESA */
 
-/* TESTE */
+/* CARDS */
 
 .cards{
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -267,7 +271,7 @@ nav{
 
 .cards i{
     margin-bottom: 10px;
-    color: red;
+    color: var(--cor-primaria);
     height: 70px;
     font-size: 65px;
 }
@@ -278,43 +282,6 @@ nav{
     gap: 25px;
     justify-content: center;
 }
-
-/*  */
-
-.empresa{
-    font-family: 'Poppins', sans-serif;
-}
-
-.titulo{
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    text-transform: uppercase;
-    color: #0e0e0e;
-    margin: 10px 0px 0px 78px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 110%;
-}
-
-.empresa i{
-    margin: 100px 0px 10px 85px;
-    font-size: 500%;
-    color: #ff0d00;
-}
-
-.texto{
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    color: rgb(136, 136, 136);
-    text-align: left;
-    padding-right: 750px;
-    margin: 20px 78px;
-    letter-spacing: 1px;
-}
-
-/* .titulo i{
-    font-size: 200%;
-    margin: 0px 20px 0px 0px;
-    color: #ff0d00;
-} */
 
 /* PRODUTOS */
 
@@ -367,126 +334,6 @@ nav{
 }
 
 /* PRODUTOS BANNER */
-
-.slider{
-    margin: 0 auto;
-    width: 900px;
-    height: 400px;
-    overflow: hidden;
-}
-
-.slides{
-    width: 400%;
-    height: 400px;
-    display: flex;
-}
-
-.slides input{
-    display: none;
-}
-
-.slide{
-    width: 25%;
-    position: relative;
-}
-
-.slide img{
-    width: 300px;
-}
-
-.manual-navigation{
-    position: absolute;
-    width: 800px;
-    margin-top: -40px;
-    display: flex;
-    justify-content: center;
-}
-
-.manual-btn{
-    background-color: #c5c5c5;
-    border: 2px solid #929191;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
-}
-
-.manual-btn:not(:last-child){
-    margin-right: 15px;
-}
-
-.manual-btn:hover{
-    border: 2px solid red;
-    background-color: #FF8A8A;
-}
-
-#radio1:checked ~ .primeiro{
-    margin-left: 0;
-}
-
-#radio2:checked ~ .primeiro{
-    margin-left: -100%;
-}
-
-#radio3:checked ~ .primeiro{
-    margin-left: -200%;
-}
-
-#radio4:checked ~ .primeiro{
-    margin-left: -75%;
-}
-
-#radio5:checked ~ .primeiro{
-    margin-left: -85%;
-}
-
-#radio6:checked ~ .primeiro{
-    margin-left: -100%;
-}
-
-.navigation-auto div{
-    border: 2px solid #929191;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
-}
-
-.navigation-auto{
-    position: absolute;
-    width: 800px;
-    margin-top: 360px;
-    display: flex;
-    justify-content: center;
-}
-
-.navigation-auto div:not(:last-child){
-    margin-right: 15px;
-}
-
-#radio1:checked ~ .navigation-auto .auto-btn1{
-    background-color: #FF8A8A;
-}
-
-#radio2:checked ~ .navigation-auto .auto-btn2{
-    background-color: #FF8A8A;
-}
-
-#radio3:checked ~ .navigation-auto .auto-btn3{
-    background-color: #FF8A8A;
-}
-
-#radio4:checked ~ .navigation-auto .auto-btn4{
-    background-color: #FF8A8A;
-}
-
-#radio5:checked ~ .navigation-auto .auto-btn5{
-    background-color: #FF8A8A;
-}
-
-#radio6:checked ~ .navigation-auto .auto-btn6{
-    background-color: #FF8A8A;
-}
 
 /* Contêiner principal */
 .catalog {
@@ -543,7 +390,7 @@ nav{
 }
 
 .navigation input:checked + span {
-  background-color: red;
+  background-color: var(--cor-primaria);
 }
 
 .arrow-navigation {
@@ -620,10 +467,6 @@ nav{
         font-size: 14px;
     }
 }
-
-
-
-
 
 /* BANNER FLORESTA */
 
@@ -757,7 +600,7 @@ nav{
 }
 
 .informar a:hover{
-    color: red;
+    color: var(--cor-primaria);
 }
 
 .informar i{
@@ -775,7 +618,7 @@ nav{
     margin-top: -0.5rem;
     width: 15%;
     height: 0.1%;
-    background-color: red;
+    background-color: var(--cor-primaria);
     margin-bottom: 0.8rem;
 }
 
@@ -796,31 +639,6 @@ nav{
     border-bottom:  5px solid #F19ED2;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-/* .informar{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 100px;
-}
-
-.informar i{
-    font-size: 350%;
-    color: green;
-} */
-
-/* .contexto{
-    margin: 0px;
-    color: #000000;
-}
-
-.projetos{
-    display: flex;
-    margin: 0px;
-    width: 380px;
-    text-align: left;
-    flex-direction: column;
-} */
 
 /* CLIENTES */
 
@@ -998,7 +816,7 @@ nav{
 }
 
 .number h1{
-    color: red;
+    color: var(--cor-primaria);
     font-size: 4rem;
 }
 
@@ -1149,47 +967,6 @@ nav{
     color: rgb(34, 34, 34);
     font-size: clamp(1.5rem, 4vw + 1rem, 2.625rem);
 }
-
-.imagem{
-    width: 60vh;
-    height: 60vh;
-    margin-bottom: 215px;
-    margin-left: 80px;
-}
-
-.artigo{
-    display: flex;
-    flex-direction: column;
-}
-
-.mascara{
-    display: flex;
-    margin: -200px 0px 0px 80px;
-    color: rgb(136, 136, 136);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    text-align: left;
-    margin-bottom: 8px;
-}
-
-.mascara span{
-    padding: 0 8px;
-    font-weight: 300;
-}
-
-.mascara a{
-    color: rgb(136, 136, 136);
-    font-weight: 500;
-}
-
-.mascara a:hover{
-    text-decoration: underline solid rgb(155, 155, 155);
-}
-
-.mascara h4{
-    font-weight: 500;
-}
-
-
 
 .container-recordes{
     display: flex;
@@ -1580,7 +1357,7 @@ nav{
 
 footer {
     width: 100%;
-    color: red;
+    color: var(--cor-primaria);
     overflow: hidden; /* Previne problemas de overflow */
 }
 
