@@ -389,20 +389,16 @@ if (timelineSection && progressBar) {
         const sectionHeight = timelineSection.offsetHeight;
         const windowHeight = window.innerHeight;
         const scrollPosition = window.pageYOffset;
+        
+        // Ajustes para mobile
+        const mobileOffset = window.innerWidth <= 400 ? 0.15 : 0.3;
+        const start = sectionTop - windowHeight * mobileOffset;
+        const end = sectionTop + sectionHeight - windowHeight * (1 - mobileOffset);
 
-        // Calcula os limites da seção
-        const start = sectionTop - windowHeight * 0.3; // Começa a contar quando 30% da janela entrar na seção
-        const end = sectionTop + sectionHeight - windowHeight * 0.7; // Termina quando 70% da seção sair da janela
-
-        if (scrollPosition >= start && scrollPosition <= end) {
-            // Calcula a porcentagem de scroll dentro da seção
-            const progress = ((scrollPosition - start) / (end - start)) * 100;
-            progressBar.style.height = `${Math.min(progress, 100)}%`;
-        } else if (scrollPosition < start) {
-            progressBar.style.height = '0%';
-        } else {
-            progressBar.style.height = '100%';
-        }
+        let progress = ((scrollPosition - start) / (end - start)) * 100;
+        progress = Math.min(Math.max(progress, 0), 100);
+        
+        progressBar.style.height = `${progress}%`;
     });
 }
       </script>

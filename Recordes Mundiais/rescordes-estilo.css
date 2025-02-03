@@ -710,6 +710,87 @@ nav{
     }
 }
 
+@media screen and (max-width: 400px) {
+    .page-wrapper h2 {
+        font-size: 28px;
+        line-height: 1.1;
+        padding: 0 10px;
+    }
+
+    .paragrafo-largo {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    .timeline_item {
+        grid-template-columns: 1fr;
+        padding: 30px 0;
+        gap: 10px;
+    }
+
+    .timeline_progresso {
+        left: 15px; /* Posição fixa alinhada com a timeline */
+        width: 3px;
+        height: calc(100% - 30px);
+        top: 30px;
+    }
+
+    .timeline_circulo {
+        width: 12px;
+        height: 12px;
+        left: -0.5px; /* Alinhamento preciso com a linha */
+        transform: none;
+        margin-top: 15px;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .timeline_item {
+        grid-template-columns: 30px 1fr;
+        padding: 30px 0;
+        gap: 0;
+        margin-left: 10px;
+    }
+
+    .timeline_esquerda {
+        grid-column: 2;
+        text-align: left;
+        padding-right: 15px;
+        margin-left: 20px; /* Espaçamento da linha */
+    }
+
+    .timeline_direita {
+        grid-column: 2;
+        text-align: left;
+        padding-left: 15px;
+        margin-left: 20px; /* Espaçamento da linha */
+    }
+
+    .timeline_data-texto {
+        font-size: 24px;
+        text-align: left;
+        position: static;
+        margin-bottom: 10px;
+        padding-right: 10px;
+    }
+
+    .timeline_texto {
+        margin-left: 0;
+        margin-right: 10px;
+        padding: 15px;
+        position: relative;
+    }
+
+    .timeline_image-wrapper img {
+        max-width: calc(100% - 20px);
+        margin-left: 0;
+    }
+
+    .video-container {
+        margin: 0 10px 0 0;
+    }
+}
+
 
 
 .container-comparacao {
@@ -889,7 +970,310 @@ nav{
 
 .titulo-curiosidades h2{
     color: rgb(34, 34, 34);
-    font-size: 42px;
+    font-size: clamp(1.5rem, 4vw + 1rem, 2.625rem);
     margin-bottom: 25px;
     margin-top: 50px;
+}
+
+/* Media query para telas de 768px ou mais */
+@media screen and (max-width: 768px) {
+    .container-comparacao {
+        /* Mantém o layout flex, mas com espaçamento e alinhamento adaptados */
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 auto 30px;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .container-comparacao img,
+    .container-comparacao .manto-img {
+        /* Aumenta o tamanho das imagens para aproveitar a tela maior */
+        width: 48%;
+        height: 240px;
+        order: 1;
+        border-radius: 12px;
+    }
+
+    .onibus-section {
+        order: 2;
+        height: 240px;
+        width: 45%;
+        margin: 0;
+        position: relative;
+        padding-left: 20px;
+    }
+
+    .medidor {
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: #333;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .ruler-line {
+        width: 12px;
+        height: 2px;
+        background-color: #333;
+        left: 1px;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .ruler-line:nth-child(even) {
+        width: 8px;
+        opacity: 0.6;
+    }
+
+    .onibus-icons,
+    .manto-icons,
+    .sabonete-icons {
+        position: absolute;
+        left: 14px;
+        top: 0;
+        height: 100%;
+        width: 20px;
+        z-index: 3;
+    }
+
+    /* Posicionamento dos 12 ícones com espaçamento igual.
+       O incremento é calculado dividindo 100% em 11 partes (12 ícones): 100 / 11 ≈ 9.09% */
+       .onibus-icons i:nth-child(1),
+       .manto-icons i:nth-child(1),
+       .sabonete-icons i:nth-child(1) { top: 0%; }       /* 0% */
+       .onibus-icons i:nth-child(2),
+       .manto-icons i:nth-child(2),
+       .sabonete-icons i:nth-child(2) { top: 9.09%; }    /* ~9.09% */
+       .onibus-icons i:nth-child(3),
+       .manto-icons i:nth-child(3),
+       .sabonete-icons i:nth-child(3) { top: 18.18%; }   /* ~18.18% */
+       .onibus-icons i:nth-child(4),
+       .manto-icons i:nth-child(4),
+       .sabonete-icons i:nth-child(4) { top: 27.27%; }   /* ~27.27% */
+       .onibus-icons i:nth-child(5),
+       .manto-icons i:nth-child(5),
+       .sabonete-icons i:nth-child(5) { top: 36.36%; }   /* ~36.36% */
+       .onibus-icons i:nth-child(6),
+       .manto-icons i:nth-child(6),
+       .sabonete-icons i:nth-child(6) { top: 45.45%; }   /* ~45.45% */
+       .onibus-icons i:nth-child(7),
+       .manto-icons i:nth-child(7),
+       .sabonete-icons i:nth-child(7) { top: 54.55%; }   /* ~54.55% */
+       .onibus-icons i:nth-child(8),
+       .manto-icons i:nth-child(8),
+       .sabonete-icons i:nth-child(8) { top: 63.64%; }   /* ~63.64% */
+       .onibus-icons i:nth-child(9),
+       .manto-icons i:nth-child(9),
+       .sabonete-icons i:nth-child(9) { top: 72.73%; }   /* ~72.73% */
+       .onibus-icons i:nth-child(10),
+       .manto-icons i:nth-child(10),
+       .sabonete-icons i:nth-child(10) { top: 81.82%; }  /* ~81.82% */
+       .onibus-icons i:nth-child(11),
+       .manto-icons i:nth-child(11),
+       .sabonete-icons i:nth-child(11) { top: 90.91%; }  /* ~90.91% */
+       .onibus-icons i:nth-child(12),
+       .manto-icons i:nth-child(12),
+       .sabonete-icons i:nth-child(12) { top: 100%; }    /* 100% */
+   
+       /* Esconder ícones além do 12º */
+       .onibus-icons i:nth-child(n+13),
+       .manto-icons i:nth-child(n+13),
+       .sabonete-icons i:nth-child(n+13) {
+           display: none !important;
+       }
+
+    /* Linhas ajustadas para as 8 posições + final */
+    .ruler-line:nth-child(1) { top: 0%; }
+    .ruler-line:nth-child(2) { top: 10%; }
+    .ruler-line:nth-child(3) { top: 20%; }
+    .ruler-line:nth-child(4) { top: 30%; }
+    .ruler-line:nth-child(5) { top: 40%; }
+    .ruler-line:nth-child(6) { top: 50%; }
+    .ruler-line:nth-child(7) { top: 60%; }
+    .ruler-line:nth-child(8) { top: 70%; }
+    .ruler-line:nth-child(9) { top: 80%; }
+    .ruler-line:nth-child(10) { top: 90%; }
+    .ruler-line:nth-child(11) { top: 100%; }
+
+    .texto-comparacao {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    .texto-comparacao h1 {
+        font-size: 1.8rem;
+        margin-bottom: 6px;
+    }
+
+    .texto-comparacao p {
+        font-size: 1rem;
+    }
+
+    .manto-icons i { color: #4A90E2; }
+    .sabonete-icons i { color: #FF8A8A; }
+    
+    .label-onibus,
+    .label-manto,
+    .label-sabonete {
+        left: auto;
+        right: -120px; /* Mantém o label à direita */
+        top: -10px;
+        font-size: 12px;
+        padding: 4px 6px;
+        border: 2px solid #333;
+        border-radius: 8px;
+        white-space: nowrap;
+    }
+}
+
+/* Media query para telas menores */
+@media screen and (max-width: 400px) {
+    .container-comparacao {
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 10px 30px;
+        gap: 8px;
+        align-items: start;
+    }
+
+    .container-comparacao img {
+        width: 50%;
+        height: 160px;
+        order: 1;
+        border-radius: 12px;
+    }
+
+    .container-comparacao .manto-img{
+        width: 50%;
+        height: 160px;
+        order: 1;
+        border-radius: 12px;
+    }
+
+    .onibus-section {
+        order: 2;
+        height: 160px;
+        width: 45%;
+        margin: 0;
+        position: relative;
+        padding-left: 15px;
+    }
+
+    .medidor {
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: #333;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .ruler-line {
+        width: 12px;
+        height: 2px;
+        background-color: #333;
+        left: 1px;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .ruler-line:nth-child(even) {
+        width: 8px;
+        opacity: 0.6;
+    }
+
+    .onibus-icons,
+    .manto-icons,
+    .sabonete-icons {
+        position: absolute;
+        left: 14px;
+        top: 0;
+        height: 100%;
+        width: 20px;
+        z-index: 3;
+    }
+
+    /* Apenas 8 ícones com espaçamento de 12.5% */
+    .onibus-icons i:nth-child(1),
+    .manto-icons i:nth-child(1),
+    .sabonete-icons i:nth-child(1) { top: 0%; }     /* 0% */
+    .onibus-icons i:nth-child(2),
+    .manto-icons i:nth-child(2),
+    .sabonete-icons i:nth-child(2) { top: 12.5%; }  /* 12.5% */
+    .onibus-icons i:nth-child(3),
+    .manto-icons i:nth-child(3),
+    .sabonete-icons i:nth-child(3) { top: 25%; }    /* 25% */
+    .onibus-icons i:nth-child(4),
+    .manto-icons i:nth-child(4),
+    .sabonete-icons i:nth-child(4) { top: 37.5%; }  /* 37.5% */
+    .onibus-icons i:nth-child(5),
+    .manto-icons i:nth-child(5),
+    .sabonete-icons i:nth-child(5) { top: 50%; }    /* 50% */
+    .onibus-icons i:nth-child(6),
+    .manto-icons i:nth-child(6),
+    .sabonete-icons i:nth-child(6) { top: 62.5%; }  /* 62.5% */
+    .onibus-icons i:nth-child(7),
+    .manto-icons i:nth-child(7),
+    .sabonete-icons i:nth-child(7) { top: 75%; }    /* 75% */
+    .onibus-icons i:nth-child(8),
+    .manto-icons i:nth-child(8),
+    .sabonete-icons i:nth-child(8) { top: 87.5%; }  /* 87.5% */
+
+    /* Esconder ícones além do 8º */
+    .onibus-icons i:nth-child(n+9),
+    .manto-icons i:nth-child(n+9),
+    .sabonete-icons i:nth-child(n+9) {
+        display: none !important;
+    }
+
+    /* Linhas ajustadas para 8 posições + final */
+    .ruler-line:nth-child(1) { top: 0%; }
+    .ruler-line:nth-child(2) { top: 10%; }
+    .ruler-line:nth-child(3) { top: 20%; }
+    .ruler-line:nth-child(4) { top: 30%; }
+    .ruler-line:nth-child(5) { top: 40%; }
+    .ruler-line:nth-child(6) { top: 50%; }
+    .ruler-line:nth-child(7) { top: 60%; }
+    .ruler-line:nth-child(8) { top: 70%; }
+    .ruler-line:nth-child(9) { top: 80%; }
+    .ruler-line:nth-child(10) { top: 90%; }
+    .ruler-line:nth-child(11) { top: 100%; }
+
+    .texto-comparacao {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    .texto-comparacao h1 {
+        font-size: 1.4rem;
+        margin-bottom: 6px;
+    }
+
+    .texto-comparacao p {
+        font-size: 0.85rem;
+    }
+
+    .manto-icons i { color: #4A90E2; }
+    .sabonete-icons i { color: #FF8A8A; }
+    
+    .label-onibus,
+    .label-manto,
+    .label-sabonete {
+        left: auto;
+        right: -100px; /* Movendo para o lado direito */
+        top: -10px;
+        font-size: 10px;
+        padding: 2px 4px; /* Reduzindo o padding */
+        border: 2px solid #333;
+        border-radius: 6px;
+        white-space: nowrap;
+    }
 }
