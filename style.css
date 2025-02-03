@@ -49,7 +49,7 @@ nav{
 }
 
 .nav-list span{
-    color: #FF8A8A;
+    color: #CC3333;
     transition: 0.5s;
 }
 
@@ -278,7 +278,7 @@ nav{
 }
 
 .cards p{
-    color: rgb(116, 116, 116);
+    color: #555555;
 }
 
 .cards i{
@@ -607,7 +607,7 @@ nav{
 }
 
 .informar a{
-    color: rgb(116, 116, 116);
+    color: #555555;
     transition: 0.3s;
 }
 
@@ -669,7 +669,7 @@ nav{
 
 .clientes p{
     font-size: clamp(0.9375rem, 0.5vw + 0.8rem, 1rem);
-    color: rgb(136, 136, 136);
+    color: #757575;
     max-width: 800px; /* Limita largura para melhor leitura */
     margin: 0 auto; /* Centraliza */
     padding: 0 15px; /* Previne colagem nas bordas */
@@ -1161,7 +1161,7 @@ nav{
     font-weight: 500;
     margin: 0;
     font-size: 1em;
-    color: rgb(155, 155, 155);
+    color: #6B6B6B;
 }
 
 .small-images a{
@@ -1178,17 +1178,17 @@ nav{
 }
 
 .small-images p{
-    color: rgb(136, 136, 136);
+    color: #757575;
 }
 
 .text a:nth-child(1){
-    color: rgb(155, 155, 155);
+    color: #6B6B6B;
     font-size: 15px;
 }
 
 .text span{
     padding: 0px 10px;
-    color: rgb(155, 155, 155);
+    color: #6B6B6B;
     font-weight: 300;
     font-size: 1.2em;
 }
@@ -1362,7 +1362,7 @@ nav{
 
 .mapa p{
     font-size: clamp(0.9375rem, 0.5vw + 0.8rem, 1rem);
-    color: rgb(136, 136, 136);
+    color: #757575;
 }
 
 /* FOOTER */
@@ -1571,7 +1571,7 @@ footer {
 }
 
 .footer-desenvolvido a{
-    color: #888888;
+    color: #E0E0E0;
     font-size: 0.9rem;
     transition: 0.5s;
 }
