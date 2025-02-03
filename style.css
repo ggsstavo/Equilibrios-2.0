@@ -327,13 +327,13 @@ nav{
 .produtos h1{
     margin-bottom: 10px;
     color: rgb(34, 34, 34);
-    font-size: 42px;
+    font-size: clamp(1.5rem, 4vw + 1rem, 2.625rem);
 }
 
 .produtos p{
-    font-size: 15px;
+    font-size: clamp(0.9375rem, 0.5vw + 0.8rem, 1rem);
     color: rgb(136, 136, 136);
-    margin-bottom: 50px;
+    margin-bottom: clamp(1.5rem, 5vw, 3.125rem);
 }
 
 .saiba{
@@ -726,7 +726,7 @@ nav{
 .sustentabilidade h1{
     margin-bottom: 50px;
     color: rgb(34, 34, 34);
-    font-size: 42px;
+    font-size: clamp(1.5rem, 4vw + 1rem, 2.625rem);
 }
 
 .grid-informar{
@@ -832,14 +832,17 @@ nav{
 }
 
 .clientes h1{
-    margin-bottom: 10px;
+    margin-bottom: clamp(0.5rem, 1.5vw, 10px);
     color: rgb(34, 34, 34);
-    font-size: 42px;
+    font-size: clamp(1.5rem, 4vw + 1rem, 2.625rem);
 }
 
 .clientes p{
-    font-size: 15px;
+    font-size: clamp(0.9375rem, 0.5vw + 0.8rem, 1rem);
     color: rgb(136, 136, 136);
+    max-width: 800px; /* Limita largura para melhor leitura */
+    margin: 0 auto; /* Centraliza */
+    padding: 0 15px; /* Previne colagem nas bordas */
 }
 
 /* SLIDER */
@@ -1144,7 +1147,7 @@ nav{
 
 .recordes h1{
     color: rgb(34, 34, 34);
-    font-size: 42px;
+    font-size: clamp(1.5rem, 4vw + 1rem, 2.625rem);
 }
 
 .imagem{
@@ -1406,11 +1409,26 @@ nav{
   }
 
   @media (max-width: 800px) {
+
+    .container-recordes{
+        height: auto;
+        padding: 50px 0;
+    }
+
+    .recordes {
+        margin-top: 40px;
+    }
+
+    .recordes h1 {
+        font-size: 32px;
+        padding: 0 15px;
+    }
+
     .images-wrapper {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 20px;
+      gap: 15px;
     }
   
     .main-image {
@@ -1477,7 +1495,7 @@ nav{
     /* Exibindo o conteúdo de recorde de forma simples no mobile */
     .main-image .mobile-recorde {
       display: block; /* Exibe no mobile */
-      padding: 0px 15px;
+      padding: 10px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -1547,11 +1565,14 @@ nav{
 
 .mapa h1{
     color: rgb(34, 34, 34);
-    font-size: 42px;
+    font-size: clamp(1.5rem, 4vw + 1rem, 2.625rem);
+    padding: 0 15px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .mapa p{
-    font-size: 15px;
+    font-size: clamp(0.9375rem, 0.5vw + 0.8rem, 1rem);
     color: rgb(136, 136, 136);
 }
 
