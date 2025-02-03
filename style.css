@@ -311,7 +311,7 @@ nav{
 
 .produtos p{
     font-size: clamp(0.9375rem, 0.5vw + 0.8rem, 1rem);
-    color: rgb(136, 136, 136);
+    color: #757575;
     margin-bottom: clamp(1.5rem, 5vw, 3.125rem);
 }
 
@@ -1165,7 +1165,7 @@ nav{
 }
 
 .small-images a{
-    color: #007bff;
+    color: #0D6EFD;
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;
@@ -1597,8 +1597,8 @@ footer {
     position: relative;
     width: 100%;
     height: 150px; /* Altura das ondas */
-    margin-top: -10px; /* Ajuste fino para sobreposição */
     overflow: hidden;
+    top: 2px;
   }
   
   .waves-container svg {
@@ -1652,6 +1652,10 @@ footer {
     .footer-sustentabilidade .linha {
         width: 35%;
         margin: 0 auto 15px !important; /* Centraliza linha */
+    }
+
+    .waves-container{
+        top: 4px
     }
 }
 
