@@ -1295,23 +1295,23 @@ nav{
         font-weight: 500;
         margin: 0;
         font-size: 1em;
-        color: rgb(155, 155, 155);
+        color: #6B6B6B;
     }
   
     .main-image .mobile-recorde p {
       font-size: 0.85em;
-      color: rgb(136, 136, 136);
+      color: #757575;
     }
   
     .main-image .mobile-recorde span {
         padding: 0px 10px;
-        color: rgb(155, 155, 155);
+        color: #6B6B6B;
         font-weight: 300;
         font-size: 1.2em;
     }
   
     .main-image .mobile-recorde a {
-        color: #007bff;
+        color: #0D6EFD;
         text-decoration: none;
         font-size: 18px;
         font-weight: 500;
@@ -1608,7 +1608,7 @@ footer {
     height: 100%;
   }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
     #footer_content {
         grid-template-columns: repeat(3, 1fr);
         padding: 3rem 2rem;
