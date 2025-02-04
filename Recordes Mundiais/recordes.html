@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Equilibrios Camisetas Promocionais: confecção de camisetas promocionais com tecidos de alta qualidade e designs personalizados. Sustentabilidade, inovação e atendimento especializado para empresas. Solicite seu projeto!">
+  <meta name="keywords" content="confeccção têxtil, tecidos sustentáveis, camisetas promocionais">
+  <meta name="author" content="Gustavo Carvalho">
     <link rel="stylesheet" href="rescordes-estilo.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +19,7 @@
         <nav>
             <div class="icone">
                 <a href="../index.html">
-                    <img src="../images/logo.webp" alt="">
+                    <img src="../images/logo.webp" alt="Equilibrios | Home">
                 </a>
             </div>
             <ul class="nav-list">
@@ -29,7 +32,7 @@
                 <li class="menu-buttom" onclick=showSidebar()><a href="#"><i class="fa-solid fa-bars"></i></a></li>
             </ul>
             <ul class="nav-list sidebar">
-                <a href=""><img src="../images/logo.webp" alt=""></a>
+                <a href=""><img src="../images/logo.webp" alt="Equilibrios | Home"></a>
                 <li><a href="">Produtos</a></li>
                 <li><a href="">Sustentabilidade</a></li>
                 <li><a href="">Quem somos</a></li>
@@ -99,9 +102,14 @@
                             </div>
                             <div class="timeline_video-wrapper">
                                 <div class="video-container">
-                                    <iframe src="https://www.youtube.com/embed/cpUtlQjouts?rel=0&modestbranding=1&controls=1"
-                                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-                                        loading="lazy" title="Maior Camiseta Do Mundo" sandbox="allow-scripts allow-same-origin"></iframe>
+                                    <!-- Placeholder ajustado pixel-perfect -->
+                                    <div class="youtube-placeholder" data-video-id="cpUtlQjouts" data-params="?rel=0&modestbranding=1&controls=1"
+                                        onclick="loadYouTubeIframe(this)">
+                                    
+                                        <img src="https://img.youtube.com/vi/cpUtlQjouts/mqdefault.jpg" alt="Pré-visualização" class="youtube-thumbnail">
+                                    
+                                        <div class="play-button"></div>
+                                    </div>
                                 </div>
                             </div>
                                 <div class="timeline_link">
@@ -136,9 +144,14 @@
                             </div>
                             <div class="timeline_video-wrapper">
                                 <div class="video-container">
-                                    <iframe src="https://www.youtube.com/embed/rp4wUcGO3NA?rel=0&modestbranding=1&controls=1&autoplay=0"
-                                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-                                        loading="lazy" title="Maior Manto Do Mundo" sandbox="allow-scripts allow-same-origin"></iframe>
+                                    <div class="youtube-placeholder" data-video-id="rp4wUcGO3NA" data-params="?rel=0&modestbranding=1&controls=1&autoplay=0"
+                                        data-title="Maior Manto Do Mundo" onclick="loadYouTubeIframe(this)">
+                                    
+                                        <img src="https://img.youtube.com/vi/rp4wUcGO3NA/mqdefault.jpg" alt="Pré-visualização do Manto"
+                                            class="youtube-thumbnail">
+                                    
+                                        <div class="play-button"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="timeline_image-wrapper">
@@ -166,10 +179,14 @@
                             </div>
                             <div class="timeline_video-wrapper">
                                 <div class="video-container">
-                                    <iframe src="https://www.youtube.com/embed/sOFtJgEEUlo?rel=0&modestbranding=1&controls=1&autoplay=0"
-                                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-                                        loading="lazy" title="Maior Máscara Do Mundo"
-                                        sandbox="allow-scripts allow-same-origin"></iframe>
+                                    <div class="youtube-placeholder" data-video-id="sOFtJgEEUlo" data-params="?rel=0&modestbranding=1&controls=1&autoplay=0"
+                                        data-title="Maior Máscara Do Mundo" onclick="loadYouTubeIframe(this)">
+                                    
+                                        <img src="https://img.youtube.com/vi/sOFtJgEEUlo/mqdefault.jpg" alt="Pré-visualização da Máscara"
+                                            class="youtube-thumbnail">
+                                    
+                                        <div class="play-button"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="timeline_link mascara_link">
@@ -400,6 +417,35 @@ if (timelineSection && progressBar) {
         
         progressBar.style.height = `${progress}%`;
     });
+}
+
+
+
+
+
+
+function loadYouTubeIframe(element) {
+    const videoId = element.getAttribute('data-video-id');
+    const params = new URLSearchParams(element.getAttribute('data-params'));
+    const title = element.getAttribute('data-title');
+    
+    // Garante autoplay=1 após o clique (mesmo se original era 0)
+    params.set('autoplay', '1');
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?${params}`;
+    
+    // Mantém configurações originais específicas deste vídeo
+    iframe.setAttribute('allow', 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('loading', 'lazy');
+    iframe.setAttribute('title', title);
+    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
+
+    // Mantém o layout idêntico ao container original
+    iframe.classList.add('youtube-iframe');
+    
+    element.parentNode.replaceChild(iframe, element);
 }
       </script>
 </body>
