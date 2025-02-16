@@ -70,7 +70,7 @@ nav{
 .sidebar{
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -150%;
     height: 100vh;
     width: 250px;
     z-index: 999;
@@ -405,6 +405,132 @@ textarea {
 .address-space {
     margin-bottom: 15px;
     line-height: 1.7;
+}
+
+.page-titulo{
+    margin-top: 50px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  
+  .page-titulo h1{
+    margin-bottom: 10px;
+    color: rgb(34, 34, 34);
+    font-size: clamp(1.5rem, 4vw + 1rem, 2.625rem);
+  }
+  
+  .page-titulo p{
+    font-size: clamp(0.9375rem, 0.5vw + 0.8rem, 1rem);
+    color: #757575;
+    margin-bottom: clamp(1.5rem, 5vw, 3.125rem);
+  }
+
+#container-accordion {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  max-width: 800px;
+  width: 90%;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.accordion {
+  background-color: #fff;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.accordion:hover {
+  transform: translateY(-2px);
+}
+
+.accordion-header {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  width: 100%;
+  padding: 20px;
+  border: none;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.accordion-header:hover {
+  background: #e9ecef;
+}
+
+.accordion-header span {
+  flex: 1;
+  text-align: left;
+  margin-right: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accordion-body {
+  color: #444;
+  font-size: 15px;
+  line-height: 1.6;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-out;
+  opacity: 0;
+  padding: 0 20px;
+}
+
+.accordion-body.active {
+  max-height: 600px;
+  opacity: 1;
+  padding: 20px;
+}
+
+.accordion-arrow {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  color: #555;
+}
+
+.accordion.active .accordion-arrow {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  #container-accordion {
+      width: 100%;
+      padding: 0 15px;
+  }
+
+  .accordion-header {
+      padding: 16px;
+      font-size: 16px;
+  }
+  
+  .accordion-body {
+      font-size: 14px;
+      padding: 0 15px;
+  }
+
+  .accordion-body.active {
+      padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .accordion-header {
+      padding: 14px;
+      font-size: 15px;
+  }
+  
+  .accordion-body {
+      font-size: 13.5px;
+  }
 }
 
 /* FOOTER */
