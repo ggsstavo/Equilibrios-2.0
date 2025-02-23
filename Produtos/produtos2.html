@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./produtos2.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <section>
+        <div class="heading">
+            <h2>Catálogo</h2>
+        </div>
+        <div class="container-cards">
+            <div class="card">
+                <div class="card-inner">
+                    <div class="box">
+                        <div class="title-tag">
+                            <span>Camisetas</span>
+                        </div>
+                        <div class="img-box">
+                            <img src="../images banner/1.webp" alt="">
+                        </div>
+                        <div class="icon">
+                            <span>
+                                <a href="">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <a href="">Ver Mais</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <div class="box">
+                        <div class="title-tag">
+                            <span>Polo</span>
+                        </div>
+                        <div class="img-box">
+                            <img src="../images banner/2.webp" alt="">
+                        </div>
+                        <div class="icon">
+                            <span>
+                                <a href="">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <a href="">Ver Mais</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <div class="box">
+                        <div class="title-tag">
+                            <span>Aventais</span>
+                        </div>
+                        <div class="img-box">
+                            <img src="../images banner/3.webp" alt="">
+                        </div>
+                        <div class="icon">
+                            <span>
+                                <a href="">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <a href="">Ver Mais</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <div class="box">
+                        <div class="title-tag">
+                            <span>Sacolas</span>
+                        </div>
+                        <div class="img-box">
+                            <img src="../images banner/4.webp" alt="">
+                        </div>
+                        <div class="icon">
+                            <span>
+                                <a href="">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <a href="">Ver Mais</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <div class="box">
+                        <div class="title-tag">
+                            <span>Sacochilas</span>
+                        </div>
+                        <div class="img-box">
+                            <img src="../images banner/5.webp" alt="">
+                        </div>
+                        <div class="icon">
+                            <span>
+                                <a href="">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <a href="">Ver Mais</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <div class="box">
+                        <div class="title-tag">
+                            <span>Máscaras</span>
+                        </div>
+                        <div class="img-box">
+                            <img src="../images banner/6.webp" alt="">
+                        </div>
+                        <div class="icon">
+                            <span>
+                                <a href="">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <a href="">Ver Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="pagination">
+        <button class="page-btn arrow prev">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn arrow next">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    // Dados dos cards para cada página
+    const cardData = {
+        1: [
+            { title: 'Camisetas', img: '../images banner/1.webp' },
+            { title: 'Polo', img: '../images banner/2.webp' },
+            { title: 'Aventais', img: '../images banner/3.webp' },
+            { title: 'Sacolas', img: '../images banner/4.webp' },
+            { title: 'Sacochilas', img: '../images banner/5.webp' },
+            { title: 'Máscaras', img: '../images banner/6.webp' }
+        ],
+        2: [
+            { title: 'Ecológico', img: '../images banner/7.webp' },
+            { title: 'Inverno', img: '../images banner/8.webp' },
+            { title: 'Esportivos', img: '../images banner/9.webp' },
+            { title: 'Brindes', img: '../images banner/10.webp' },
+            { title: 'Toalhas', img: '../images banner/11.webp' },
+            { title: 'Bebês', img: '../images banner/12.webp' }
+        ],
+        3: [
+        { title: 'Corporativos', img: '../images banner/13.webp' }
+        ]
+    };
+
+    const cards = document.querySelectorAll('.card');
+    const paginationButtons = document.querySelectorAll('.page-btn:not(.arrow)');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    
+    function updateCards(pageNumber) {
+        const data = cardData[pageNumber];
+        
+        // Animação de saída
+        cards.forEach(card => {
+            card.classList.add('card-out');
+        });
+
+        setTimeout(() => {
+            // Atualiza conteúdo
+            cards.forEach((card, index) => {
+                if(data[index]) {
+                    card.querySelector('.title-tag span').textContent = data[index].title;
+                    const img = card.querySelector('img');
+                    
+                    // Suaviza troca de imagem
+                    img.style.opacity = 0;
+                    img.src = data[index].img;
+                    img.alt = data[index].title;
+                    
+                    img.onload = () => {
+                        img.style.opacity = 1;
+                        card.classList.remove('card-out');
+                        card.classList.add('card-in');
+                        
+                        // Remove animação de entrada após conclusão
+                        setTimeout(() => {
+                            card.classList.remove('card-in');
+                        }, 500);
+                    };
+                }
+            });
+        }, 300); // Tempo correspondente à duração da animação de saída
+    }
+
+    function setActiveButton(activePage) {
+        paginationButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.textContent == activePage);
+        });
+    }
+
+    const style = document.createElement('style');
+    style.textContent = `
+        .card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        .card-out {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+        }
+        
+        .card-in {
+            animation: cardEnter 0.6s ease-out forwards;
+        }
+        
+        @keyframes cardEnter {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) rotateX(15deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
+            }
+        }
+        
+        .card img {
+            transition: opacity 0.4s ease;
+        }
+
+        .card .card-inner .box .img-box:hover img {
+        transition: transform 0.3s linear !important;
+    }
+    `;
+    document.head.appendChild(style);
+
+    // Event listeners
+    paginationButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const page = parseInt(btn.textContent);
+            updateCards(page);
+            setActiveButton(page);
+            currentPage = page;
+        });
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if(currentPage > 1) {
+            currentPage--;
+            updateCards(currentPage);
+            setActiveButton(currentPage);
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+    const totalPages = Object.keys(cardData).length;
+    if(currentPage < totalPages) {
+        currentPage++;
+        updateCards(currentPage);
+        setActiveButton(currentPage);
+    }
+});
+
+    // Inicialização
+    let currentPage = 1;
+    updateCards(1);
+    setActiveButton(1);
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,446 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    border: none;
+    font-size: 15px;
+}
+
+.heading h2{
+    text-align: center;
+    font-size: 34px;
+    margin: 60px 0px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.container-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.card{
+    width: 300px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    will-change: transform, opacity;
+}
+
+.card .card-inner {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    clip-path: inset(0 round 25px 25px 0 25px);
+}
+
+.card .card-inner .box .img-box img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #6c6c6d2d;
+    cursor: pointer;
+    /* Aplica o recorte com os mesmos raios */
+    clip-path: inset(0 round 25px 25px 0 25px);
+    transition: transform 0.3s linear, clip-path 0.3s linear;
+    will-change: transform, clip-path;
+}
+
+.card .card-inner .box .img-box:hover img {
+    transform: scale(1.1);
+    /* Reaplica o mesmo clip-path para manter as bordas arredondadas */
+    clip-path: inset(0 round 25px 25px 0 25px);
+}
+
+.icon{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 96px;
+    height: 96px;
+    border-top-left-radius: 50px;
+    padding: 12px;
+    background-color: #fff;
+}
+
+.icon::after{
+    position: absolute;
+    content: "";
+    top: -18px;
+    right: 0;
+    background: transparent;
+    width: 18px;
+    height: 18px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0.313rem 0.313rem 0 0.313rem #fff;
+}
+
+.icon::before{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: -18px;
+    background: transparent;
+    width: 18px;
+    height: 18px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 10px 10px 0 10px #fff;
+}
+
+.icon span{
+    transform: rotate(-40deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    background-color: #64B5F6;
+    transition: all 0.3s linear;
+}
+
+.card:nth-child(2) .icon span{
+    background-color: #1565C0;
+}
+
+.card:nth-child(3) .icon span{
+    background-color: #2E7D32;
+}
+
+.card:nth-child(4) .icon span{
+    background-color: #4CAF50;
+}
+
+.card:nth-child(5) .icon span{
+    background-color: #FF8A65;
+}
+
+.card:nth-child(6) .icon span{
+    background-color: #1A237E;
+}
+
+.icon i{
+    color: #fff;
+    font-size: 24px;
+}
+
+.icon:hover span{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.content h3{
+    font-size: 34px;
+    margin-bottom: 0px;
+}
+
+.content a {
+    display: inline-block;
+    font-size: 20px;
+    margin-bottom: 0px;
+    background-color: #E53935;
+    padding: 12px 24px;
+    border-radius: 20px;
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: underline;
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.content a:hover {
+    background-color: #C62828;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 40px 0;
+}
+
+.page-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #E53935;
+    background: transparent;
+    color: #E53935;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.page-btn.active {
+    background: #E53935;
+    color: white;
+}
+
+.page-btn:hover:not(.active) {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(229, 57, 53, 0.3);
+}
+
+/* Novas regras apenas para as setas */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 40px 0;
+}
+
+.page-btn.arrow {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: #E53935;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.page-btn.arrow:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.page-btn.arrow.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f0f0f0;
+    color: #666;
+}
+
+.page-btn.arrow i {
+    font-size: 18px;
+}
+
+.title-tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 140px; /* Largura ajustada */
+    height: 40px; /* Altura ajustada */
+    background-color: #fff;
+    border-bottom-right-radius: 20px; /* Suaviza a curva */
+    padding: 6px 12px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+/* Criando o efeito arredondado nos cantos */
+.title-tag::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    border-top-left-radius: 15px;
+    box-shadow: -6px -6px 0 6px #fff;
+}
+
+.title-tag::before {
+    content: "";
+    position: absolute;
+    right: -10px;
+    bottom: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    border-top-left-radius: 15px;
+    box-shadow: -0.2rem -0.2rem 0 0.2rem #fff;
+}
+
+.title-tag span {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 20px;
+    background-color: #6c6c6d2d;
+    border-radius: 15px;
+    color: black; /* Cor do texto ajustada para melhor legibilidade */
+    text-transform: uppercase; /* Deixa o título mais destacado */
+}
+
+@media (max-width: 768px) {
+    .heading h2 {
+        font-size: 28px;
+        margin: 40px 0;
+    }
+
+    .container-cards {
+        gap: 40px;
+        padding: 0 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .card .card-inner {
+        height: 0;
+        padding-top: 133.33%; /* Mantém a proporção 3:4 */
+        clip-path: inset(0 round 20px 20px 0 20px);
+    }
+
+    .card .card-inner .box .img-box img {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        clip-path: inset(0 round 20px 20px 0 20px);
+    }
+
+    .content h3 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .content a {
+        font-size: 18px;
+        padding: 12px 24px;
+    }
+
+    .title-tag {
+        width: 130px;
+        height: 38px;
+    }
+
+    .title-tag span {
+        font-size: 13px;
+        padding: 5px 18px;
+    }
+
+    .icon {
+        width: 85px;
+        height: 85px;
+        padding: 10px;
+    }
+
+    .icon span {
+        width: 70px;
+        height: 70px;
+    }
+
+    .icon i {
+        font-size: 22px;
+    }
+
+    /* Ajuste fino nas sombras */
+    .icon::after,
+    .icon::before {
+        box-shadow: 0.25rem 0.25rem 0 0.25rem #fff;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading h2 {
+        font-size: 24px;
+        margin: 30px 0;
+    }
+
+    .container-cards {
+        gap: 30px;
+        padding: 0 15px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .card .card-inner {
+        height: 0;
+        padding-top: 133.33%; /* Mantém proporção 3:4 (300x400) */
+        position: relative;
+        clip-path: inset(0 round 15px 15px 0 15px);
+    }
+
+    .card .card-inner .box .img-box img {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        clip-path: inset(0 round 15px 15px 0 15px);
+    }
+
+    .content h3 {
+        font-size: 22px;
+    }
+
+    .content a {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    .title-tag {
+        width: 140px;
+        height: 40px; 
+        border-bottom-right-radius: 25px;
+        padding: 8px 15px;
+    }
+
+    .title-tag::after {
+        bottom: -12px;
+        width: 12px;
+        height: 12px;
+        border-top-left-radius: 18px;
+    }
+
+    .title-tag::before {
+        right: -12px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .title-tag span {
+        font-size: 14px;
+        padding: 6px 22px;
+        border-radius: 18px;
+    }
+
+    .icon {
+        width: 85px;
+        height: 85px;
+        padding: 10px;
+    }
+
+    .icon::after {
+        top: -15px;
+        width: 15px;
+        height: 15px;
+        box-shadow: 0.25rem 0.25rem 0 0.25rem #fff;
+    }
+
+    .icon::before {
+        left: -15px;
+        width: 15px;
+        height: 15px;
+    }
+
+    .icon span {
+        width: 65px;
+        height: 65px;
+    }
+
+    .icon i {
+        font-size: 24px;
+    }
+}
