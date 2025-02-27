@@ -611,6 +611,15 @@ nav{
     transition: 0.3s;
 }
 
+.informar .link-titulo{
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #000000;
+    font-size: 18px;
+    display: block;
+    width: fit-content;
+}
+
 .informar a:hover{
     color: var(--cor-primaria);
 }
@@ -626,7 +635,7 @@ nav{
     text-decoration: underline;
 }
 
-.informar .linha{
+.informar .linha-sustentabilidade{
     margin-top: -0.5rem;
     width: 15%;
     height: 0.1%;
