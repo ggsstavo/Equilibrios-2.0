@@ -25,7 +25,7 @@
         </a>
       </div>
       <ul class="nav-list">
-        <li class="hideOnMobile"><a href="">Produtos</a></li>
+        <li class="hideOnMobile"><a href="../Produtos/produtos2.html">Produtos</a></li>
         <li class="hideOnMobile"><a href="../Sustentabilidade/sustentabilidade.html">Sustentabilidade</a></li>
         <li class="hideOnMobile"><a href="../Quem Somos/quemsomos.html">Quem somos</a></li>
         <li class="hideOnMobile"><a href="#clientes">Clientes</a></li>
@@ -35,7 +35,7 @@
       </ul>
       <ul class="nav-list sidebar">
         <a href="../index.html"><img src="../images/logo.webp" alt="Equilibrios | Home"></a>
-        <li><a href="">Produtos</a></li>
+        <li><a href="../Produtos/produtos2.html">Produtos</a></li>
         <li><a href="../Sustentabilidade/sustentabilidade.html">Sustentabilidade</a></li>
         <li><a href="../Quem Somos/quemsomos.html">Quem somos</a></li>
         <li><a href="#clientes" onclick="hideSidebar"()>Clientes</a></li>
@@ -119,12 +119,14 @@
                         <option value="SC">Santa Catarina</option>
                         <option value="PR">Paraná</option>
                         <option value="RS">Rio Grande do Sul</option>
+                        <option value="OUTROS">Outros</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <select id="city" disabled required>
                         <option value="">Selecione a Cidade</option>
                     </select>
+                    <input type="text" id="cityInput" placeholder="Digite sua cidade" style="display: none;" disabled required>
                 </div>
             </div>
 
@@ -150,7 +152,7 @@
     <div id="container-accordion">
       <div class="accordion">
           <button class="accordion-header">
-              <span>Como posso entrar em contato com a Equilibrios?</span>
+              <span>Como entrar em contato com a Equilibrios?</span>
               <i class="fa-solid fa-chevron-down accordion-arrow"></i>
           </button>
 
@@ -172,7 +174,7 @@
 
       <div class="accordion">
           <button class="accordion-header">
-              <span>É possível agendar uma reunião presencial com a equipe da Equilibrios?</span>
+              <span>É possível agendar uma reunião com a equipe da Equilibrios?</span>
               <i class="fa-solid fa-chevron-down accordion-arrow"></i>
           </button>
 
@@ -352,24 +354,43 @@
 
 
 
-       function loadCities() {
-            const uf = document.getElementById('uf').value;
-            const citySelect = document.getElementById('city');
-            citySelect.disabled = !uf;
-            
-            const cities = {
-                'SC': ['Florianópolis', 'Blumenau', 'Joinville', 'Navegantes'],
-                'PR': ['Curitiba', 'Londrina', 'Maringá', 'Foz do Iguaçu'],
-                'RS': ['Porto Alegre', 'Caxias do Sul', 'Pelotas', 'Santa Maria']
-            };
+    function loadCities() {
+    const uf = document.getElementById('uf').value;
+    const citySelect = document.getElementById('city');
+    const cityInput = document.getElementById('cityInput');
+    
+    // Resetar estados
+    cityInput.style.display = 'none';
+    cityInput.disabled = true;
+    cityInput.required = false;
+    citySelect.style.display = 'block';
+    citySelect.required = true;
 
-            citySelect.innerHTML = '<option value="">Selecione a Cidade</option>';
-            if (uf) {
-                cities[uf].forEach(city => {
-                    citySelect.innerHTML += `<option value="${city}">${city}</option>`;
-                });
-            }
-        }
+    if (uf === 'OUTROS') {
+        // Esconder select e mostrar input
+        citySelect.style.display = 'none';
+        citySelect.disabled = true;
+        cityInput.style.display = 'block';
+        cityInput.disabled = false;
+        cityInput.required = true;
+        citySelect.required = false;
+    } else if (uf) {
+        // Carregar cidades normais
+        const cities = {
+            'SC': ['Florianópolis', 'Blumenau', 'Joinville', 'Navegantes'],
+            'PR': ['Curitiba', 'Londrina', 'Maringá', 'Foz do Iguaçu'],
+            'RS': ['Porto Alegre', 'Caxias do Sul', 'Pelotas', 'Santa Maria']
+        };
+
+        citySelect.innerHTML = '<option value="">Selecione a Cidade</option>';
+        cities[uf].forEach(city => {
+            citySelect.innerHTML += `<option value="${city}">${city}</option>`;
+        });
+        citySelect.disabled = false;
+    } else {
+        citySelect.disabled = true;
+    }
+}
 
 
 
