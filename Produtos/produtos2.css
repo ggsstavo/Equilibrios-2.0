@@ -274,6 +274,75 @@ nav{
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+/* PESQUISAR */
+
+/* No CSS existente substitua o .input-group */
+#container-search {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: #cecece;
+    padding: 8px 16px 8px 8px;
+    border-radius: 24px;
+    gap: 8px;
+    width: 100%;
+    max-width: 500px;
+    border: 2px solid transparent;
+    transition: border 0.3s ease;
+}
+
+.input-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    min-width: 32px;
+    min-height: 32px;
+    background-color: red;
+    color: #fff;
+}
+
+.input-field{
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    height: 100%;
+}
+
+.input-field:focus{
+    outline: none;
+}
+
+.input-field::placeholder {
+    color: #333; /* Cor mais escura */
+    opacity: 1; /* Garante que não fique translúcido */
+}
+
+.input-group:focus-within {
+    border-color: red;
+}
+
+@media (max-width: 480px) {
+    .input-group {
+        max-width: 300px;
+        padding: 6px 12px 6px 6px;
+    }
+    
+    .input-icon {
+        min-width: 28px;
+        min-height: 28px;
+    }
+    
+    .input-field {
+        font-size: 14px;
+    }
+}
+
 .container-cards{
     display: flex;
     flex-direction: row;

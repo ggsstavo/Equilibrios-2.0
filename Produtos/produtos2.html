@@ -62,6 +62,16 @@
     </nav>
 </section>
 
+<div id="container-search">
+    <div class="input-group">
+        <div class="input-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <input type="text" id="search" class="input-field" placeholder="Pesquisar">
+    </div>
+</div>
+
 
     <section>
         <div class="heading">
@@ -75,11 +85,11 @@
                             <span>Camisetas</span>
                         </div>
                         <div class="img-box">
-                            <img src="../images banner/1.webp" alt="">
+                            <img src="../images banner/1.webp" alt="Produto 1">
                         </div>
                         <div class="icon">
                             <span>
-                                <a href="">
+                                <a href="./comprar/comprar.html">
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </span>
@@ -87,7 +97,7 @@
                     </div>
                 </div>
                 <div class="content">
-                    <a href="">Ver Mais</a>
+                    <a href="./comprar/comprar.html">Ver Mais</a>
                 </div>
             </div>
             <div class="card">
@@ -97,7 +107,7 @@
                             <span>Polo</span>
                         </div>
                         <div class="img-box">
-                            <img src="../images banner/2.webp" alt="">
+                            <img src="../images banner/2.webp" alt="Produto 2">
                         </div>
                         <div class="icon">
                             <span>
@@ -119,7 +129,7 @@
                             <span>Aventais</span>
                         </div>
                         <div class="img-box">
-                            <img src="../images banner/3.webp" alt="">
+                            <img src="../images banner/3.webp" alt="Produto 3">
                         </div>
                         <div class="icon">
                             <span>
@@ -141,7 +151,7 @@
                             <span>Sacolas</span>
                         </div>
                         <div class="img-box">
-                            <img src="../images banner/4.webp" alt="">
+                            <img src="../images banner/4.webp" alt="Produto 4">
                         </div>
                         <div class="icon">
                             <span>
@@ -163,7 +173,7 @@
                             <span>Sacochilas</span>
                         </div>
                         <div class="img-box">
-                            <img src="../images banner/5.webp" alt="">
+                            <img src="../images banner/5.webp" alt="Produto 5">
                         </div>
                         <div class="icon">
                             <span>
@@ -185,7 +195,7 @@
                             <span>Máscaras</span>
                         </div>
                         <div class="img-box">
-                            <img src="../images banner/6.webp" alt="">
+                            <img src="../images banner/6.webp" alt="Produto 6">
                         </div>
                         <div class="icon">
                             <span>
@@ -512,6 +522,148 @@
     updateCards(1);
     setActiveButton(1);
 });
+
+
+
+
+
+
+
+
+
+const cardData = {
+    1: [
+        { title: 'Camisetas', img: '../images banner/1.webp' },
+        { title: 'Polo', img: '../images banner/2.webp' },
+        { title: 'Aventais', img: '../images banner/3.webp' },
+        { title: 'Sacolas', img: '../images banner/4.webp' },
+        { title: 'Sacochilas', img: '../images banner/5.webp' },
+        { title: 'Máscaras', img: '../images banner/6.webp' }
+    ],
+    2: [
+        { title: 'Ecológico', img: '../images banner/7.webp' },
+        { title: 'Inverno', img: '../images banner/8.webp' },
+        { title: 'Esportivos', img: '../images banner/9.webp' },
+        { title: 'Brindes', img: '../images banner/10.webp' },
+        { title: 'Toalhas', img: '../images banner/11.webp' },
+        { title: 'Bebês', img: '../images banner/12.webp' }
+    ],
+    3: [
+        { title: 'Empresas', img: '../images banner/13.webp' }
+    ]
+};
+
+let allProducts = [];
+Object.values(cardData).forEach(page => {
+    allProducts = allProducts.concat(page);
+});
+
+// Elementos da DOM
+const searchInput = document.getElementById('search');
+const cards = document.querySelectorAll('.card');
+const pagination = document.querySelector('.pagination');
+const containerCards = document.querySelector('.container-cards');
+
+// Variável para controlar animações
+let isSearching = false;
+
+// Configurar pesquisa
+searchInput.addEventListener('input', (e) => {
+    const searchTerm = formatString(e.target.value);
+    const filteredProducts = allProducts.filter(product => 
+        formatString(product.title).includes(searchTerm)
+    );
+
+    isSearching = searchTerm.length > 0;
+    
+    // Adiciona/remove classe para controle de animações
+    containerCards.classList.toggle('no-animation', isSearching);
+
+    if(isSearching) {
+        showSearchResults(filteredProducts);
+        pagination.style.display = 'none';
+    } else {
+        resetSearch();
+        pagination.style.display = 'flex';
+    }
+});
+
+// Função para formatar o texto da pesquisa
+function formatString(value) {
+    return value
+        .toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .trim();
+}
+
+// Mostrar resultados da pesquisa sem animação
+function showSearchResults(results) {
+    cards.forEach((card, index) => {
+        if(results[index]) {
+            updateCardContent(card, results[index]);
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// Atualizar conteúdo do card
+function updateCardContent(card, product) {
+    const titleElement = card.querySelector('.title-tag span');
+    const imgElement = card.querySelector('img');
+    
+    titleElement.textContent = product.title;
+    imgElement.src = product.img;
+    imgElement.alt = product.title;
+}
+
+// Resetar pesquisa com animações
+function resetSearch() {
+    containerCards.classList.remove('no-animation');
+    cards.forEach(card => {
+        card.style.display = 'block';
+    });
+    updateCards(currentPage); // Garante que os cards corretos serão exibidos
+}
+
+// Sistema de paginação (mantido com animações)
+let currentPage = 1;
+
+function updateCards(pageNumber) {
+    const data = cardData[pageNumber];
+    
+    cards.forEach((card, index) => {
+        if(data[index]) {
+            updateCardContent(card, data[index]);
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    
+    currentPage = pageNumber;
+}
+
+// Adicione este CSS
+const animationStyles = document.createElement('style');
+animationStyles.textContent = `
+    .container-cards.no-animation .card {
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .card {
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: cardEnter 0.6s ease-out forwards;
+    }
+    
+    @keyframes cardEnter {
+        0% { opacity: 0; transform: translateY(20px) rotateX(15deg); }
+        100% { opacity: 1; transform: translateY(0) rotateX(0); }
+    }
+`;
+document.head.appendChild(animationStyles);
     </script>
 </body>
 </html>
