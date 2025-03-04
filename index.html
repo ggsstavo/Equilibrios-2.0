@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script defer src="app.js"></script>
-<link rel="preload" as="image" href="./images/img1 (1).webp" imagesrcset="./images/img1 (1).webp" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" href="./images/img1 (1).webp" as="image">
 </head>
 
 <body>
@@ -776,78 +776,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-// Substitua o código de loading por este
-document.addEventListener('DOMContentLoaded', () => {
-  const gridContainer = document.querySelector('.grid-container');
-  const cards = document.querySelectorAll('.cards');
-  
-  // 1. Medir o tamanho real dos cards
-  const firstCard = cards[0];
-  const cardHeight = firstCard.offsetHeight;
-  const cardWidth = firstCard.offsetWidth;
 
-  // 2. Criar skeletons com dimensões exatas
-  const createSkeletons = () => {
-    const fragment = document.createDocumentFragment();
-    
-    for(let i = 0; i < cards.length; i++) {
-      const skeleton = document.createElement('div');
-      skeleton.className = 'skeleton-card';
-      skeleton.style.height = `${cardHeight}px`;
-      skeleton.style.width = `${cardWidth}px`;
-      skeleton.innerHTML = `
-        <div class="skeleton-icon"></div>
-        <div class="skeleton-title"></div>
-        <div class="skeleton-text"></div>
-      `;
-      fragment.appendChild(skeleton);
-    }
-    
-    gridContainer.prepend(fragment);
-  };
-
-  // 3. Carregamento otimizado
-  const loadContent = async () => {
-    // Exibir skeletons primeiro
-    requestAnimationFrame(() => {
-      createSkeletons();
-      gridContainer.style.opacity = '1';
-    });
-
-    // Simular carga de conteúdo
-    await new Promise(resolve => setTimeout(resolve, 100));
-    
-    // Remover skeletons suavemente
-    document.querySelectorAll('.skeleton-card').forEach((skeleton, index) => {
-      requestAnimationFrame(() => {
-        skeleton.style.transition = 'opacity 0.3s ease';
-        skeleton.style.opacity = '0';
-        setTimeout(() => skeleton.remove(), 300);
-      });
-    });
-    
-    // Mostrar cards reais
-    cards.forEach(card => {
-      card.style.display = 'block';
-      card.style.animation = 'fadeIn 0.5s ease';
-    });
-  };
-
-  // 4. Iniciar carga quando visível
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        loadContent();
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { 
-    threshold: 0.1,
-    rootMargin: '200px 0px' // Carrega antes de entrar na viewport
-  });
-
-  observer.observe(gridContainer);
-});
   </script>
 </body>
 </html>
