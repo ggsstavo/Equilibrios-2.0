@@ -642,13 +642,13 @@ document.querySelectorAll('.navigation input').forEach((input, index) => {
     });
 });
 
-// Controle de toque para mobile
-let touchStartX = 0;
+/// Modifique o evento touchstart
 imageBanner.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
     clearInterval(autoSlideInterval);
-});
+}, { passive: true }); // Adicione esta opção
 
+// Modifique o evento touchend
 imageBanner.addEventListener('touchend', e => {
     const touchEndX = e.changedTouches[0].clientX;
     const diff = touchStartX - touchEndX;
@@ -658,9 +658,9 @@ imageBanner.addEventListener('touchend', e => {
         else if (currentIndex > 0) currentIndex -= 2;
     }
     autoSlideInterval = setInterval(showNextImage, 4500);
-});
+}, { passive: true }); // Adicione esta opção
 
-// Atualizar ao redimensionar
+// Modifique o evento resize
 window.addEventListener('resize', () => {
     settings = getSettings();
     imageWidth = images[0].clientWidth + settings.gap;
@@ -668,10 +668,7 @@ window.addEventListener('resize', () => {
     imageBanner.style.transform = `translateX(${-settings.clonesQty * imageWidth}px)`;
     currentIndex = 0;
     updateNavigation();
-});
-
-// Iniciar slideshow
-autoSlideInterval = setInterval(showNextImage, 4500);
+}, { passive: true }); // Adicione esta opção
 
 
 
