@@ -901,17 +901,32 @@ nav{
 
 .marca {
     width: 100%;
-    min-height: 300px; /* Alterado para altura flexível */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./images/internet.webp);
-    background-size: cover;
-    background-position: center;
+    min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
     box-sizing: border-box;
     margin-top: 50px;
-    font-family: system-ui, sans-serif; /* Simplificação da fonte */
+    position: relative;
+    overflow: hidden;
+    font-family: system-ui, sans-serif;
+}
+
+.banner-marca {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    z-index: 2;
 }
 
 .conteudo-banner {
@@ -920,6 +935,7 @@ nav{
     margin: 0 auto;
     width: 100%; /* Garante que não ultrapasse a largura do container */
     padding: 0 15px; /* Prevenção de colisão com bordas */
+    z-index: 3;
 }
 
 .marca h1 {
@@ -1349,7 +1365,7 @@ nav{
     }
 
     .main-image .mobile-recorde a:nth-child(1){
-        color: rgb(155, 155, 155);
+        color: #6B6B6B;
         font-size: 15px;
     }
   }
