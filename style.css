@@ -330,7 +330,7 @@ nav{
 }
 
 .saiba a{
-    background-color: #ff0d00;
+    background-color: #e60000;
     padding: 9px 23px 9px 23px;
     border-radius: 20px;
     font-size: 100%;
@@ -958,7 +958,7 @@ nav{
     display: inline-flex; /* Melhor alinhamento */
     align-items: center;
     justify-content: center;
-    background-color: #ff0d00;
+    background-color: #e60000;
     color: #fff;
     padding: 12px 30px; /* Aumento do touch area */
     border-radius: 25px;
