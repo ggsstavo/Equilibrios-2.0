@@ -1207,8 +1207,8 @@ img, .texto-comparacao, .onibus-icons i, .manto-icons i, .sabonete-icons i {
     .label-manto,
     .label-sabonete {
         left: auto;
-        right: -120px; /* Mantém o label à direita */
-        top: -10px;
+        right: -130px; /* Mantém o label à direita */
+        top: 10px;
         font-size: 12px;
         padding: 4px 6px;
         border: 2px solid #333;
@@ -1358,8 +1358,8 @@ img, .texto-comparacao, .onibus-icons i, .manto-icons i, .sabonete-icons i {
     .label-manto,
     .label-sabonete {
         left: auto;
-        right: -100px; /* Movendo para o lado direito */
-        top: -10px;
+        right: -110px; /* Movendo para o lado direito */
+        top: 10px;
         font-size: 10px;
         padding: 2px 4px; /* Reduzindo o padding */
         border: 2px solid #333;
