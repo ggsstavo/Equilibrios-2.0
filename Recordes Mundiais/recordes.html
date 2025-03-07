@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script defer src="app.js"></script>
+<script defer src="recordes.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -87,7 +87,7 @@
                     </div>
                     <div class="timeline_item">
                         <div class="timeline_esquerda">
-                          <div class="timeline_data-texto">Outubro 2014</div>
+                          <div class="timeline_data-texto autoBLur">Outubro 2014</div>
                         </div>
                         <div class="timeline_centro">
                             <div class="timeline_circulo"></div>
@@ -95,7 +95,7 @@
                         <div class="timeline_direita">
                             <h3 class="timeline_titulo" data-ordem="1">RECORDE A MAIOR CAMISETA DO MUNDO</h3>
                             <div class="margin-bottom-medium">
-                                <div class="timeline_texto texto-camiseta">
+                                <div class="timeline_texto texto-camiseta autoShow">
                                     Em <span>outubro de 2014</span>, a <span>Equilibrios</span> entrou para o <span>Guinness World Records</span> confeccionando a 
                                     Maior Camiseta Ecológica do Mundo <span>(MCM-ECO)</span>. A peça foi reconhecida pessoalmente pelo juiz 
                                     do Guinness, <span>Carlos Martinez</span>, que atestou seus <span>93,2 metros</span> de altura, e que ainda foi 
@@ -114,7 +114,7 @@
                                     </div>
                                 </div>
                             </div>
-                                <div class="timeline_link">
+                                <div class="timeline_link autoShow">
                                     <p>Assista a todos os vídeos desse grande feito em: <a href="https://www.youtube.com/user/maiorcamisetadomundo/videos"
                                             target="_blank">A Maior Camiseta do Mundo - YouTube</a></p>
                                     <p>Saiba mais sobre esse recorde em: <a href="URL_DO_SITE_DE_DETALHES" target="_blank">Detalhes da Maior
@@ -128,15 +128,15 @@
                     </div>
                     <div class="timeline_item">
                         <div class="timeline_esquerda">
-                            <div class="timeline_data-texto">Fevereiro 2018</div>
+                            <div class="timeline_data-texto autoBLur">Fevereiro 2018</div>
                         </div>
                         <div class="timeline_centro">
                             <div class="timeline_circulo"></div>
                         </div>
                         <div class="timeline_direita">
-                            <h3 class="timeline_titulo" data-ordem="2">Recorde O MAIOR MANTO DO MUNDO</h3>
+                            <h3 class="timeline_titulo autoShow" data-ordem="2">Recorde O MAIOR MANTO DO MUNDO</h3>
                             <div class="margin-bottom-medium">
-                                <div class="timeline_texto texto-manto">
+                                <div class="timeline_texto texto-manto autoShow">
                                     Em <span>fevereiro de 2018</span>, a Equilibrios confeccionou um manto de <span>1.059,8 m²</span> para ser utilizado 
                                     na tradicional procissão de <span>Nossa Senhora dos Navegantes</span>, padroeira da cidade sede da 
                                     empresa. O <span>manto estendido</span> cobriu os vários fiéis que participavam do evento na ocasião.  
@@ -163,15 +163,15 @@
                     </div>
                     <div class="timeline_item">
                         <div class="timeline_esquerda">
-                            <div class="timeline_data-texto">Maio 2020</div>
+                            <div class="timeline_data-texto autoBLur">Maio 2020</div>
                         </div>
                         <div class="timeline_centro">
                             <div class="timeline_circulo"></div>
                         </div>
                         <div class="timeline_direita">
-                            <h3 class="timeline_titulo">RECORDE A MAIOR MÁSCARA DO MUNDO</h3>
+                            <h3 class="timeline_titulo autoShow">RECORDE A MAIOR MÁSCARA DO MUNDO</h3>
                             <div class="margin-bottom-medium">
-                                <div class="timeline_texto texto-mascara">
+                                <div class="timeline_texto texto-mascara autoShow">
                                     Em <span>2020</span>, em um momento extremamente difícil para todo o mundo por conta da pandemia da <span>Covid-19</span>, 
                                     a <span>Equilibrios</span> juntou forças e resolveu chamar a atenção das pessoas para a importância do uso 
                                     das <span>máscaras de proteção</span>. Assim, confeccionamos uma <span>máscara gigante</span>, com tamanho aproximado de 
@@ -191,7 +191,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="timeline_link mascara_link">
+                            <div class="timeline_link mascara_link autoShow">
                                 <p>Saiba mais sobre esse recorde em:
                                     <a href="https://www.equilibrios.com.br/projeto/campanha-proteja-se-use-mascara" target="_blank">
                                         Campanha: Proteja-se, Use Máscara!
@@ -512,81 +512,5 @@
           <a href="">Desenvolvido por: Gustavo Carvalho</a>
         </div>
       </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-      <script>
-        function showSidebar(){
-      const sidebar = document.querySelector('.sidebar')
-      sidebar.classList.add('open');
-    }
-    function hideSidebar(){
-      const sidebar = document.querySelector('.sidebar')
-      sidebar.classList.remove('open');
-    }
-
-
-
-
-    const progressBar = document.querySelector('.timeline_progresso-barra');
-const timelineSection = document.querySelector('.section-timeline');
-
-if (timelineSection && progressBar) {
-    window.addEventListener('scroll', function() {
-        const sectionTop = timelineSection.offsetTop;
-        const sectionHeight = timelineSection.offsetHeight;
-        const windowHeight = window.innerHeight;
-        const scrollPosition = window.pageYOffset;
-        
-        // Ajustes para mobile
-        const mobileOffset = window.innerWidth <= 400 ? 0.15 : 0.3;
-        const start = sectionTop - windowHeight * mobileOffset;
-        const end = sectionTop + sectionHeight - windowHeight * (1 - mobileOffset);
-
-        let progress = ((scrollPosition - start) / (end - start)) * 100;
-        progress = Math.min(Math.max(progress, 0), 100);
-        
-        progressBar.style.height = `${progress}%`;
-    });
-}
-
-
-
-
-
-
-function loadYouTubeIframe(element) {
-    const videoId = element.getAttribute('data-video-id');
-    const params = new URLSearchParams(element.getAttribute('data-params'));
-    const title = element.getAttribute('data-title');
-    
-    // Garante autoplay=1 após o clique (mesmo se original era 0)
-    params.set('autoplay', '1');
-
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?${params}`;
-    
-    // Mantém configurações originais específicas deste vídeo
-    iframe.setAttribute('allow', 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-    iframe.setAttribute('allowfullscreen', '');
-    iframe.setAttribute('loading', 'lazy');
-    iframe.setAttribute('title', title);
-    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
-
-    // Mantém o layout idêntico ao container original
-    iframe.classList.add('youtube-iframe');
-    
-    element.parentNode.replaceChild(iframe, element);
-}
-      </script>
 </body>
 </html>

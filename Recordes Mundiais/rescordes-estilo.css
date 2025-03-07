@@ -414,6 +414,37 @@ nav{
     background-color: #6c6c6d2d;
 }
 
+.autoBLur{
+    animation: autoBLurAnimation linear both;
+    animation-timeline: view();
+}
+@keyframes autoBLurAnimation{
+    0%{
+        filter: blur(10px);
+    }
+    20%, 65%{
+        filter: blur(0px);
+    }
+    100%{
+        filter: blur(10px);
+    }
+}
+
+.autoShow {
+    animation: autoShowAnimation both;
+    animation-timeline: view(70% 5%);
+}
+@keyframes autoShowAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(200px) scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 .texto-camiseta span{
     color: #f080bf;
 }
@@ -841,6 +872,7 @@ nav{
     align-items: center;
     gap: 40px;
     margin-bottom: 80px;
+    overflow: hidden;
 }
 
 .container-comparacao img {
@@ -861,6 +893,14 @@ nav{
     font-size: 1.4rem;
     margin-bottom: 12px;
     color: rgb(34, 34, 34);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    backdrop-filter: blur(4px);
+    border-radius: 25px;
+    position: relative;
+    z-index: 1;
 }
 
 .texto-comparacao span{
@@ -1014,6 +1054,10 @@ nav{
     margin-top: 50px;
 }
 
+img, .texto-comparacao, .onibus-icons i, .manto-icons i, .sabonete-icons i {
+    will-change: transform, opacity;
+}
+
 /* Media query para telas de 768px ou mais */
 @media screen and (max-width: 768px) {
     .container-comparacao {
@@ -1151,6 +1195,9 @@ nav{
 
     .texto-comparacao p {
         font-size: 1rem;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin: 0.5rem;
     }
 
     .manto-icons i { color: #4A90E2; }
@@ -1298,6 +1345,10 @@ nav{
 
     .texto-comparacao p {
         font-size: 0.85rem;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 0.25rem;
+        line-height: 1.4;
     }
 
     .manto-icons i { color: #4A90E2; }
