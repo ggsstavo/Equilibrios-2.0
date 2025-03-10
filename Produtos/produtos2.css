@@ -599,10 +599,13 @@ nav{
     font-size: 14px;
     font-weight: 600;
     padding: 6px 20px;
+    min-width: 125px;
+    text-align: center;
     background-color: #6c6c6d2d;
     border-radius: 15px;
-    color: black; /* Cor do texto ajustada para melhor legibilidade */
-    text-transform: uppercase; /* Deixa o título mais destacado */
+    color: black;
+    text-transform: uppercase;
+    z-index: 3;
 }
 
 @media (max-width: 768px) {

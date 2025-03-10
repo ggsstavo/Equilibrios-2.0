@@ -640,6 +640,12 @@ body {
     }
 }
 
+@media (max-width: 620px) {
+  .dots-container {
+      display: none;
+  }
+}
+
 @media (max-width: 576px) {
     .arrow {
         width: 35px;
