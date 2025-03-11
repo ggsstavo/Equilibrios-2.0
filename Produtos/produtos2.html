@@ -78,6 +78,12 @@
             <h2>Catálogo</h2>
         </div>
         <div class="container-cards">
+            <div class="not-found">
+                <i class="fa-solid fa-ghost"></i>
+                <h2>404 - Produto Não Encontrado</h2>
+                <p>Desculpe, não encontramos resultados para sua pesquisa.</p>
+                <button onclick="resetSearch()">Voltar ao Catálogo</button>
+            </div>
             <div class="card">
                 <div class="card-inner">
                     <div class="box">
@@ -664,6 +670,67 @@ animationStyles.textContent = `
     }
 `;
 document.head.appendChild(animationStyles);
+
+
+
+
+
+
+
+
+
+const notFoundSection = document.createElement('div');
+notFoundSection.className = 'not-found';
+notFoundSection.innerHTML = `
+    <i class="fa-solid fa-ghost"></i>
+    <h2>404 - Produto Não Encontrado</h2>
+    <p>Desculpe, não encontramos resultados para sua pesquisa.</p>
+    <button onclick="resetSearch()">Voltar ao Catálogo</button>
+`;
+
+// Insira a seção 404 após o container de cards
+containerCards.parentNode.insertBefore(notFoundSection, containerCards.nextSibling);
+
+// Modifique a função showSearchResults
+function showSearchResults(results) {
+    let hasResults = false;
+    
+    cards.forEach((card, index) => {
+        if(results[index]) {
+            updateCardContent(card, results[index]);
+            card.style.display = 'block';
+            hasResults = true;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    // Controle da exibição da mensagem 404
+    if(!hasResults) {
+        containerCards.style.display = 'none';
+        pagination.style.display = 'none';
+        notFoundSection.classList.add('show');
+    } else {
+        containerCards.style.display = 'flex';
+        pagination.style.display = 'none';
+        notFoundSection.classList.remove('show');
+    }
+}
+
+// Modifique a função resetSearch
+function resetSearch() {
+    searchInput.value = '';
+    containerCards.classList.remove('no-animation');
+    containerCards.style.display = 'flex';
+    pagination.style.display = 'flex';
+    notFoundSection.classList.remove('show');
+    
+    cards.forEach(card => {
+        card.style.display = 'block';
+    });
+    
+    updateCards(currentPage);
+}
     </script>
 </body>
 </html>

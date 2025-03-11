@@ -1187,3 +1187,102 @@ footer {
   padding-top: 30px;
 }
 }
+
+
+
+
+
+
+
+
+
+.not-found {
+    display: none;
+    text-align: center;
+    padding: 50px 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.not-found.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.not-found i {
+    max-width: 300px;
+    margin-bottom: 30px;
+    font-size: 120px;
+    color: #696969;
+    display: inline-block;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* Animação de flutuação */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Sombra animada */
+.not-found i::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 20px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    filter: blur(5px);
+    animation: shadow 3s ease-in-out infinite;
+}
+
+/* Animação da sombra */
+@keyframes shadow {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateX(-50%) scale(0.8);
+        opacity: 0.4;
+    }
+}
+
+.not-found h2 {
+    font-size: 2rem;
+    color: #E53935;
+    margin-bottom: 15px;
+}
+
+.not-found p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.not-found button {
+    background-color: #E53935;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.not-found button:hover {
+    background-color: #C62828;
+    transform: translateY(-2px);
+}
