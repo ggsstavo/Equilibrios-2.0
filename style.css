@@ -9,6 +9,7 @@
 
 :root{
     --cor-primaria: red;
+    --main-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 /* HEADER */
@@ -263,7 +264,7 @@ nav{
 /* CARDS */
 
 .cards{
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--main-font);
     padding: 2em;
     border-radius: 10px;
     background-color: #6c6c6d2d;
@@ -300,7 +301,7 @@ nav{
 .produtos{
     margin-top: 50px;
     text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--main-font);
 }
 
 .produtos h1{
@@ -326,7 +327,7 @@ nav{
     color: rgb(34, 34, 34);
     font-size: 20px;
     font-weight: 400;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--main-font);
 }
 
 .saiba a{
@@ -335,7 +336,7 @@ nav{
     border-radius: 20px;
     font-size: 100%;
     font-weight: 600;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--main-font);
     transition: 0.5s;
     color: #fff;
 }
@@ -491,8 +492,8 @@ nav{
     padding: 40px 20px;
     box-sizing: border-box;
     margin: 50px 0;
-    position: relative; /* Adicionado */
-    overflow: hidden; /* Adicionado */
+    position: relative;
+    overflow: hidden;
 }
 
 .banner-floresta {
@@ -520,7 +521,7 @@ nav{
 
 .floresta h1 {
     color: #fff;
-    font-size: clamp(1.4rem, 3.2vw, 1.9rem); /* Redução sutil nos valores */
+    font-size: clamp(1.4rem, 3.2vw, 1.9rem);
     text-transform: uppercase;
     font-family: system-ui, sans-serif;
     line-height: 1.3;
@@ -557,7 +558,7 @@ nav{
     }
     
     .floresta h1 {
-        font-size: clamp(1.3rem, 3vw, 1.7rem); /* Redução adicional para tablet */
+        font-size: clamp(1.3rem, 3vw, 1.7rem);
     }
     
     .floresta p {
@@ -573,7 +574,7 @@ nav{
     }
     
     .floresta h1 {
-        font-size: clamp(1.2rem, 2.8vw, 1.5rem); /* Redução progressiva para mobile */
+        font-size: clamp(1.2rem, 2.8vw, 1.5rem);
     }
     
     @keyframes baixo {
@@ -591,7 +592,7 @@ nav{
 .sustentabilidade{
     margin-top: 50px;
     text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--main-font);
 }
 
 .sustentabilidade h1{
@@ -608,7 +609,7 @@ nav{
 }
 
 .informar{
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+    font-family: var(--main-font);
     padding: 2em;
     border-radius: 10px;
     background-color: #6c6c6d2d;
@@ -682,7 +683,7 @@ nav{
 .clientes{
     margin-top: 50px;
     text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--main-font);
     margin-bottom: 50px;
 }
 
@@ -780,7 +781,7 @@ nav{
 }
 
 .spinner-wrapper p {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--main-font);
     margin: 0;
     color: #333;
     font-size: 14px;
@@ -830,11 +831,11 @@ nav{
 .numeros{
     margin-top: 50px;
     text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--main-font);
 }
 
 .numeros h1{
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
     margin-bottom: 10px;
     color: rgb(34, 34, 34);
 }
@@ -854,7 +855,7 @@ nav{
 
 .number h1{
     color: var(--cor-primaria);
-    font-size: 4rem;
+    font-size: clamp(2rem, 1rem + 4vw, 4rem);
 }
 
 .number p{
@@ -874,24 +875,12 @@ nav{
 }
 
 @media (max-width: 800px) {
-    .numeros h1 {
-        font-size: 1.8rem;
-    }
-    .number h1 {
-        font-size: 3rem;
-    }
     .grid-numbers {
         gap: 80px;
     }
 }
 
 @media (max-width: 400px) {
-    .numeros h1 {
-        font-size: 1.5rem;
-    }
-    .number h1 {
-        font-size: 2rem;
-    }
     .grid-numbers {
         gap: 50px;
     }
@@ -910,7 +899,7 @@ nav{
     margin-top: 50px;
     position: relative;
     overflow: hidden;
-    font-family: system-ui, sans-serif;
+    font-family: var(--main-font);
 }
 
 .banner-marca {
@@ -940,7 +929,7 @@ nav{
 
 .marca h1 {
     color: #fff;
-    font-size: clamp(1.4rem, 3.2vw, 2rem); /* Valores reduzidos */
+    font-size: clamp(1.4rem, 3.2vw, 2rem);
     line-height: 1.3;
     margin: 0 auto 15px;
     max-width: 90%;
@@ -949,26 +938,26 @@ nav{
 .marca p {
     color: #fff;
     font-size: clamp(0.85rem, 1.6vw, 1rem);
-    margin: 0 auto 25px; /* Centralização vertical */
-    max-width: 85%; /* Melhor leitura em mobile */
-    line-height: 1.5; /* Melhoria na legibilidade */
+    margin: 0 auto 25px;
+    max-width: 85%;
+    line-height: 1.5;
 }
 
 .marca .orçamento {
-    display: inline-flex; /* Melhor alinhamento */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     background-color: #e60000;
     color: #fff;
-    padding: 12px 30px; /* Aumento do touch area */
+    padding: 12px 30px;
     border-radius: 25px;
     font-size: clamp(0.9rem, 1.6vw, 1rem);
     text-decoration: none;
     transition: all 0.3s ease;
     font-weight: 600;
-    width: fit-content; /* Adaptação ao conteúdo */
-    margin: 0 auto; /* Centralização horizontal */
-    white-space: nowrap; /* Prevenção de quebra */
+    width: fit-content;
+    margin: 0 auto;
+    white-space: nowrap;
 }
 
 .marca .orçamento:hover {
@@ -985,7 +974,7 @@ nav{
     }
     
     .marca h1 {
-        max-width: 100%; /* Aproveitamento total da largura */
+        max-width: 100%;
     }
 }
 
@@ -998,13 +987,13 @@ nav{
     
     .marca .orçamento {
         padding: 10px 20px;
-        width: 100%; /* Largura total em mobile */
-        max-width: 280px; /* Limite máximo */
-        white-space: normal; /* Quebra permitida */
+        width: 100%;
+        max-width: 280px;
+        white-space: normal;
     }
     
     .marca p {
-        max-width: 95%; /* Ajuste fino para textos longos */
+        max-width: 95%;
     }
 }
 
@@ -1013,7 +1002,7 @@ nav{
 .recordes{
     margin-top: 80px;
     text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--main-font);
 }
 
 .recordes h1{
@@ -1026,7 +1015,7 @@ nav{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--main-font);
     padding: 0 20px;
 }
 
@@ -1390,7 +1379,7 @@ nav{
 .mapa{
     margin-top: 50px;
     text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--main-font);
 }
 
 .mapa h1{
