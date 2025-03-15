@@ -71,38 +71,59 @@ function loadYouTubeIframe(element) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Configuração do Observer para as seções de comparação
-  const comparacaoObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-          if(entry.isIntersecting) {
-              const container = entry.target;
-              
-              // Animação da imagem (entrada pela esquerda)
-              const img = container.querySelector('img');
-              img.style.transform = 'translateX(0)';
-              img.style.opacity = '1';
+    const comparacaoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                const container = entry.target;
+                
+                // Animação da imagem
+                const img = container.querySelector('img');
+                img.style.transform = 'translateX(0)';
+                img.style.opacity = '1';
+  
+                // Animação do texto
+                const texto = container.querySelector('.texto-comparacao');
+                texto.style.transform = 'translateX(0)';
+                texto.style.opacity = '1';
+  
+                // Animação dos ícones
+                const iconsContainer = container.querySelector('.onibus-icons, .manto-icons, .sabonete-icons');
+                if(iconsContainer && !iconsContainer.dataset.animated) {
+                    iconsContainer.dataset.animated = true;
+                    const icons = Array.from(iconsContainer.children);
+                    
+                    icons.forEach((icon, index) => {
+                        setTimeout(() => {
+                            icon.style.transform = 'translateY(0)';
+                            icon.style.opacity = '1';
+                        }, index * 50);
+                    });
+                }
+  
+                // NOVA ANIMAÇÃO DA LISTA (ESQUERDA)
+                const destaquesList = container.querySelector('.destaque-list');
+                if(destaquesList && !destaquesList.dataset.animated) {
+                    destaquesList.dataset.animated = true;
+                    const items = destaquesList.querySelectorAll('p');
+                    
+                    items.forEach((item, index) => {
+                        // Configuração INICIAL (fora da tela)
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateX(100%)';
+                        
+                        // Transition COM DELAY PROGRESSIVO (150ms por item)
+                        item.style.transition = `all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 150}ms`;
 
-              // Animação do texto (entrada pela direita)
-              const texto = container.querySelector('.texto-comparacao');
-              texto.style.transform = 'translateX(0)';
-              texto.style.opacity = '1';
-
-              // Animação dos ícones com delay
-              const iconsContainer = container.querySelector('.onibus-icons, .manto-icons, .sabonete-icons');
-              if(iconsContainer && !iconsContainer.dataset.animated) {
-                  iconsContainer.dataset.animated = true;
-                  const icons = Array.from(iconsContainer.children);
-                  
-                  icons.forEach((icon, index) => {
-                      setTimeout(() => {
-                          icon.style.transform = 'translateY(0)';
-                          icon.style.opacity = '1';
-                      }, index * 50); // Delay de 50ms entre cada ícone
-                  });
-              }
-          }
-      });
-  }, { threshold: 0.2 });
+                        // Pequeno timeout para sincronizar
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateX(0)';
+                        }, 50);
+                    });
+                }
+            }
+        });
+    }, { threshold: 0.2 });
 
   // Observar todas as seções de comparação
   document.querySelectorAll('.container-comparacao').forEach(section => {

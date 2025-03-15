@@ -288,7 +288,7 @@ nav{
 /* Estilo de parágrafo largo */
 .paragrafo-largo {
     font-family: var(--main-font);
-    font-size: clamp(20px, 0.54347826vw + 11.82608696px, 22.5px);
+    font-size: clamp(16px, 0.54347826vw + 11.82608696px, 22.5px);
     line-height: 1.5;
     text-align: center;
     color: #555;
@@ -365,7 +365,7 @@ nav{
 /* Estilo para a data na linha do tempo */
 .timeline_data-texto {
     font-family: var(--main-font);
-    color: black;
+    color: hsl(0, 0%, 12%);
     letter-spacing: -0.03em;
     font-size: 48px;
     font-weight: 500;
@@ -396,7 +396,8 @@ nav{
     color: rgb(34, 34, 34);
     padding: 1.5em;
     border-radius: 10px;
-    background-color: #6c6c6d2d;
+    background-color: hsl(0,0%,90%);
+    box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.05);
 }
 
 .autoBLur{
@@ -629,7 +630,7 @@ nav{
     margin-bottom: 2rem;
     font-size: 1.5em;
     text-align: center;
-    color: rgb(102, 102, 102);
+    color: hsl(0, 0%, 20%);
     text-transform: uppercase;
 }
 
@@ -966,49 +967,128 @@ nav{
 
 
 .container-comparacao {
-    height: 600px;
-    padding: 20px;
-    margin: 0 40px;
+    min-height: 600px;
+    padding: 40px 5%;
+    margin: 0 auto 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 40px;
     margin-bottom: 80px;
+    max-width: 1400px;
     overflow: hidden;
 }
 
 .container-comparacao img {
-    width: 100%;
+    width: min(40%, 600px);
     height: 500px;
+    aspect-ratio: 16/9;
     border-radius: 20px;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 
 .texto-comparacao h1 {
     font-family: var(--main-font);
-    font-size: 3.3rem;
-    margin-bottom: 8px;
+    font-size: clamp(2rem, 5vw + 1rem, 2.9rem);
+    margin-bottom: 1rem;
     color: #F0A8D0;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .texto-comparacao p {
     font-family: var(--main-font);
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    color: rgb(34, 34, 34);
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 2rem;
-    backdrop-filter: blur(4px);
+    font-size: clamp(1.1rem, 1.5vw + 0.8rem, 1.2rem);
+    margin-bottom: 1.5rem;
+    color: hsl(0, 0%, 13%);
+    background: hsla(0, 0%, 100%, 0.96);
+    box-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.08);
+    border: 1px solid hsl(0, 0%, 85%);
+    padding: 1.75rem;
+    backdrop-filter: blur(6px);
+    line-height: 1.6;
     border-radius: 25px;
     position: relative;
+    border-radius: 20px;
     z-index: 1;
 }
 
-.texto-comparacao span{
-    font-family: inherit;
-    font-size: inherit;
-    text-decoration: underline;
+/* Lista de Destaques */
+.destaque-list p {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform, opacity;
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+    color: hsl(0, 0%, 25%);
+}
+
+.destaque-list p::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 50%; /* Antes: top: 2em */
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    background: hsl(330, 70%, 35%);
+    border-radius: 50%;
+}
+
+.destaque-list span {
+    font-weight: 600;
+    color: hsl(0, 0%, 15%);
+    display: inline-block;
+    padding: 0.1rem 0.3rem;
+    background: hsla(330, 70%, 85%, 0.3);
+    border-radius: 4px;
+}
+
+.manto-destaque p::before {
+    background: hsl(210, 70%, 35%); /* Cor do título */
+}
+
+.manto-destaque span {
+    background: hsla(210, 70%, 85%, 0.3); /* Fundo azul claro */
+    color: hsl(210, 70%, 25%); /* Texto mais escuro */
+}
+
+.mascara-destaque p::before {
+    background: hsl(0, 0%, 40%); /* Cinza médio */
+}
+
+.mascara-destaque span {
+    color: hsl(0, 0%, 25%); /* Cinza escuro */
+    background: hsla(0, 0%, 85%, 0.3); /* Cinza claro transparente */
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+    .destaque-list p {
+        padding-left: 1.5rem;
+    }
+    
+    .destaque-list p::before {
+        width: 0.8rem;
+        height: 0.8rem;
+        top: 2em;
+    }
+}
+
+@media (max-width: 400px) {
+    .destaque-list p::before {
+        width: 0.6rem;
+        height: 0.6rem;
+        top: 2em;
+        left: 4px;
+    }
 }
 
 .onibus-section {
@@ -1121,7 +1201,7 @@ nav{
 .label-manto{
     font-family: var(--main-font);
     position: absolute;
-    right: -150px;
+    right: -130px;
     top: 1%;
     transform: translateY(-50%);
     font-size: 14px;
@@ -1150,10 +1230,13 @@ nav{
 }
 
 .titulo-curiosidades h2{
-    color: rgb(34, 34, 34);
+    color: hsl(0, 0%, 13%);
     font-size: clamp(1.5rem, 4vw + 1rem, 2.625rem);
-    margin-bottom: 25px;
-    margin-top: 50px;
+    margin: 50px 0 25px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+    text-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.05);
 }
 
 img, .texto-comparacao, .onibus-icons i, .manto-icons i, .sabonete-icons i {
@@ -1167,9 +1250,9 @@ img, .texto-comparacao, .onibus-icons i, .manto-icons i, .sabonete-icons i {
         height: auto;
         flex-direction: row;
         flex-wrap: wrap;
-        margin: 0 auto 30px;
+        margin: 0 20px 80px;
         gap: 16px;
-        align-items: flex-start;
+        min-height: auto;
     }
 
     .container-comparacao img,
@@ -1291,12 +1374,10 @@ img, .texto-comparacao, .onibus-icons i, .manto-icons i, .sabonete-icons i {
     }
 
     .texto-comparacao h1 {
-        font-size: 1.8rem;
         margin-bottom: 6px;
     }
 
     .texto-comparacao p {
-        font-size: 1rem;
         padding: 1.5rem;
         border-radius: 12px;
         margin: 0.5rem;
