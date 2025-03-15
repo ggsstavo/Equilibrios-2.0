@@ -267,19 +267,20 @@ nav{
     font-family: var(--main-font);
     padding: 2em;
     border-radius: 10px;
-    background-color: #6c6c6d2d;
+    background-color: hsl(0,0%,90%);
+    box-shadow: 0 3px 10px hsla(0, 0%, 0%, 0.08);
     text-align: left;
 }
 
 .cards h2{
     margin-bottom: 15px;
     font-weight: 600;
-    color: #000000;
+    color: hsl(0, 0%, 10%);
     font-size: 18px;
 }
 
 .cards p{
-    color: #555555;
+    color: hsl(0, 0%, 30%);
 }
 
 .cards i{
@@ -612,26 +613,27 @@ nav{
     font-family: var(--main-font);
     padding: 2em;
     border-radius: 10px;
-    background-color: #6c6c6d2d;
+    background-color: hsl(0,0%,90%);
+    box-shadow: 0 3px 10px hsla(0, 0%, 0%, 0.08);
     text-align: left;
 }
 
 .informar h2{
     margin-bottom: 15px;
     font-weight: 600;
-    color: #000000;
+    color: hsl(0, 0%, 10%);
     font-size: 18px;
 }
 
 .informar a{
-    color: #555555;
+    color: hsl(0, 0%, 30%);
     transition: 0.3s;
 }
 
 .informar .link-titulo{
     margin-bottom: 15px;
     font-weight: 600;
-    color: #000000;
+    color: hsl(0, 0%, 10%);
     font-size: 18px;
     display: block;
     width: fit-content;
