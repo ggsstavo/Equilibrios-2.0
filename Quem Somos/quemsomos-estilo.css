@@ -205,12 +205,12 @@ nav{
 .banner h1 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   color: rgb(102, 102, 102);
-  font-size: 45px;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.8125rem);
 }
 
 .breadcrumb {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 0.7rem + 0.5vw, 1rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -239,27 +239,11 @@ nav{
   .banner {
       height: 200px;
   }
-
-  .banner h1 {
-      font-size: 2rem;
-  }
-
-  .breadcrumb {
-      font-size: 0.9rem;
-  }
 }
 
 @media (max-width: 400px) {
   .banner {
       height: 150px;
-  }
-
-  .banner h1 {
-      font-size: 1.5rem;
-  }
-
-  .breadcrumb {
-      font-size: 0.8rem;
   }
 }
 
@@ -360,7 +344,7 @@ nav{
 .page-titulo{
   margin-top: 50px;
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: var(--main-font);
 }
 
 .page-titulo h1{
@@ -385,6 +369,7 @@ nav{
   --secondary-color: #636e72;
   --highlight-color: #e74c3c;
   --cor-primaria: red;
+  --main-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .container {
@@ -395,7 +380,7 @@ nav{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: var(--main-font);
 }
 
 .typing-container {

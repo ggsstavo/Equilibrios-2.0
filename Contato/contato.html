@@ -28,7 +28,7 @@
         <li class="hideOnMobile"><a href="../Produtos/produtos2.html">Produtos</a></li>
         <li class="hideOnMobile"><a href="../Sustentabilidade/sustentabilidade.html">Sustentabilidade</a></li>
         <li class="hideOnMobile"><a href="../Quem Somos/quemsomos.html">Quem somos</a></li>
-        <li class="hideOnMobile"><a href="#clientes">Clientes</a></li>
+        <li class="hideOnMobile"><a href="../index.html#clientes">Clientes</a></li>
         <li class="hideOnMobile"><a href="../Contato/contato.html">Contato</a></li>
         <li class="hideOnMobile"><a href="../Recordes Mundiais/recordes.html"><span>Recordes Mundiais</span></a></li>
         <li class="menu-buttom" onclick=showSidebar()><a href="#"><i class="fa-solid fa-bars"></i></a></li>
@@ -38,7 +38,7 @@
         <li><a href="../Produtos/produtos2.html">Produtos</a></li>
         <li><a href="../Sustentabilidade/sustentabilidade.html">Sustentabilidade</a></li>
         <li><a href="../Quem Somos/quemsomos.html">Quem somos</a></li>
-        <li><a href="#clientes" onclick="hideSidebar"()>Clientes</a></li>
+        <li><a href="../index.html#clientes" onclick="hideSidebar()">Clientes</a></li>
         <li><a href="../Contato/contato.html">Contato</a></li>
         <li><a href="../Recordes Mundiais/recordes.html"><span>Recordes Mundiais</span></a></li>
         <div class="logos-container">
@@ -77,29 +77,29 @@
 
             <div class="info-item">
                 <i class="fa-solid fa-map-location-dot"></i>
-                <a href="https://www.google.com/maps/uv?pb=!1s0x94d8cd71cc8c3ce1%3A0x4a9e81a368d0be63!3m1!7e115!4s%2Fmaps%2Fplace%2FEquilibrios%2BCamisetas%2BPromocionais%2Bmaps%2F%40-26.8593388%2C-48.6882517%2C3a%2C75y%2C200.7h%2C90t%2Fdata%3D*213m4*211e1*213m2*211sk86qZb0vR0XWOJqVqlFlhg*212e0*214m2*213m1*211s0x94d8cd71cc8c3ce1%3A0x4a9e81a368d0be63%3Fsa%3DX%26ved%3D2ahUKEwj22fj-nKuLAxXMkZUCHQVVAsUQpx96BAgUEAA!5sEquilibrios%20Camisetas%20Promocionais%20maps%20-%20Google%20Search!15sCgIgAQ&imagekey=!1e2!2sk86qZb0vR0XWOJqVqlFlhg&cr=le_a7&hl=en&ved=1t%3A206134&ictx=111" target="_blank">
+                <a href="https://www.google.com/maps/uv?pb=!1s0x94d8cd71cc8c3ce1%3A0x4a9e81a368d0be63!3m1!7e115!4s%2Fmaps%2Fplace%2FEquilibrios%2BCamisetas%2BPromocionais%2Bmaps%2F%40-26.8593388%2C-48.6882517%2C3a%2C75y%2C200.7h%2C90t%2Fdata%3D*213m4*211e1*213m2*211sk86qZb0vR0XWOJqVqlFlhg*212e0*214m2*213m1*211s0x94d8cd71cc8c3ce1%3A0x4a9e81a368d0be63%3Fsa%3DX%26ved%3D2ahUKEwj22fj-nKuLAxXMkZUCHQVVAsUQpx96BAgUEAA!5sEquilibrios%20Camisetas%20Promocionais%20maps%20-%20Google%20Search!15sCgIgAQ&imagekey=!1e2!2sk86qZb0vR0XWOJqVqlFlhg&cr=le_a7&hl=en&ved=1t%3A206134&ictx=111" target="_blank" rel="noopener noreferrer">
                     Acessar Google Maps
                 </a>
             </div>
 
             <div class="info-item">
                 <i class="fas fa-phone"></i>
-                <a href="tel:4734081500">47 3408-1500</a>
+                <a href="https://wa.me/554734081500" target="_blank" rel="noopener noreferrer">47 3408-1500</a>
             </div>
 
             <div class="info-item">
                 <i class="fas fa-envelope"></i>
-                <a href="mailto:vendas@equilibrios.com.br">vendas@equilibrios.com.br</a>
+                <a href="mailto:vendas@equilibrios.com.br?subject=Orçamento&body=Gostaria de solicitar um orçamento" target="_blank" rel="noopener noreferrer">vendas@equilibrios.com.br</a>
             </div>
         </div>
 
         <form class="contact-form">
             <div class="form-row">
                 <div class="form-group">
-                    <input type="text" placeholder="Nome Completo" required>
+                    <input type="text" placeholder="Nome Completo" id="name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder="Seu melhor email" required>
+                    <input type="email" placeholder="Seu melhor email" id="email" inputmode="email" required>
                 </div>
             </div>
 
@@ -108,7 +108,7 @@
                     <input type="text" placeholder="Empresa">
                 </div>
                 <div class="form-group">
-                    <input type="tel" placeholder="Telefone" required>
+                    <input type="tel" placeholder="Telefone" id="phone" inputmode="numeric" required>
                 </div>
             </div>
 
