@@ -1,11 +1,32 @@
-function showSidebar(){
-    const sidebar = document.querySelector('.sidebar')
-    sidebar.classList.add('open');
-  }
-  function hideSidebar(){
-    const sidebar = document.querySelector('.sidebar')
-    sidebar.classList.remove('open');
-  }
+function showSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.classList.add('open');
+}
+
+function hideSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.classList.remove('open');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Fecha a sidebar ao clicar em links internos
+  const sidebarLinks = document.querySelectorAll('.sidebar a');
+  sidebarLinks.forEach(link => {
+      link.addEventListener('click', hideSidebar);
+  });
+
+  // Fecha a sidebar ao clicar fora ou no menu button
+  document.addEventListener('click', function(event) {
+      const sidebar = document.querySelector('.sidebar');
+      const menuButton = document.querySelector('.menu-buttom');
+
+      if (sidebar.classList.contains('open') && 
+          !sidebar.contains(event.target) &&
+          !event.target.closest('.menu-buttom')) {
+          hideSidebar();
+      }
+  });
+});
 
   // PRECISA FAZER COM QUE QUANDO CLICAR NO #CLIENTES A SIDEBAR SE FECHA INDO PARA O LADO E NAO NAO SENDO MAIS EXIBIDA
 
@@ -256,28 +277,67 @@ window.addEventListener('resize', () => {
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.querySelector('.loading-overlay');
-  const firstImage = document.querySelector('.item-slider:first-child img');
+  const carrossel = document.querySelector('.carrossel');
+  const container = document.querySelector('.container-slider');
+  
+  // Abortar se elementos críticos não existirem
+  if (!overlay || !carrossel || !container) return;
+
+  const images = carrossel.querySelectorAll('img');
+  let loadedImages = 0;
+  let hasErrors = false;
 
   const hideOverlay = () => {
-  overlay.classList.add('hidden');
-  setTimeout(() => {
-      overlay.remove();
-      // Adiciona classe ao container quando o loading terminar
-      document.querySelector('.container-slider').classList.add('loaded');
-  }, 500);
-};
+      overlay.classList.add('hidden');
+      setTimeout(() => {
+          overlay.remove();
+          container.classList.add('loaded');
+      }, 500);
+  };
 
-  // Verificação direta do carregamento
-  if(firstImage.complete) {
+  // Caso sem imagens
+  if (images.length === 0) {
       hideOverlay();
-  } else {
-      firstImage.addEventListener('load', hideOverlay);
+      return;
   }
 
-  // Fallback de tempo seguro
-  setTimeout(hideOverlay, 19000); // 19s = 18s animação + 1s margem
+  // Verificador de estado de carregamento
+  const checkLoadingState = () => {
+      // Esconder se pelo menos uma imagem carregou
+      if (loadedImages > 0) hideOverlay();
+      
+      // Esconder após 2s se todas falharem
+      if (loadedImages === 0 && hasErrors) {
+          setTimeout(hideOverlay, 2000);
+      }
+  };
+
+  // Gerenciador de eventos para imagens
+  const handleImageLoad = (success = true) => {
+      loadedImages += success ? 1 : 0;
+      hasErrors = hasErrors || !success;
+      checkLoadingState();
+  };
+
+  // Monitorar todas as imagens
+  images.forEach(img => {
+      if (img.complete) {
+          handleImageLoad(img.naturalHeight > 0);
+      } else {
+          img.addEventListener('load', () => handleImageLoad(true));
+          img.addEventListener('error', () => handleImageLoad(false));
+      }
+  });
+
+  // Fallback otimizado
+  let timeout = setTimeout(() => {
+      if (loadedImages === 0) hideOverlay();
+  }, 19000);
+
+  // Cancelar timeout se necessário
+  overlay.addEventListener('transitionend', () => clearTimeout(timeout));
 });
 
 
@@ -286,3 +346,80 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+const menuLinks = document.querySelectorAll('.nav-list a[href^="#"], .sidebar a[href^="#"]');
+let isAnimating = false;
+let lastClick = 0;
+
+function smoothScrollTo(targetPosition, duration = 1200) {
+  const startPosition = window.pageYOffset;
+  const distance = targetPosition - startPosition;
+  let startTime = null;
+
+  isAnimating = true;
+
+  function animation(currentTime) {
+    if (!startTime) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const progress = Math.min(timeElapsed / duration, 1);
+    
+    const ease = progress < 0.5 
+      ? 2 * progress * progress 
+      : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+    window.scrollTo(0, startPosition + distance * ease);
+
+    if (timeElapsed < duration) {
+      requestAnimationFrame(animation);
+    } else {
+      isAnimating = false;
+    }
+  }
+
+  requestAnimationFrame(animation);
+}
+
+function handleScroll(event) {
+  event.preventDefault();
+  if (isAnimating || Date.now() - lastClick < 1000) return;
+  lastClick = Date.now();
+
+  const targetUrl = new URL(event.target.href);
+  const currentUrl = new URL(window.location.href);
+
+  // Cross-page navigation
+  if (targetUrl.pathname !== currentUrl.pathname) {
+    window.location.href = targetUrl.href;
+    return;
+  }
+
+  const hash = targetUrl.hash;
+  const target = document.querySelector(hash);
+  
+  if (target) {
+    const header = document.querySelector('header');
+    const headerHeight = header ? header.offsetHeight : 90;
+    const targetPosition = target.offsetTop - headerHeight;
+    
+    smoothScrollTo(targetPosition);
+    history.pushState(null, null, hash);
+  }
+}
+
+function handleHashScroll() {
+  const hash = window.location.hash;
+  if (hash) {
+    const target = document.querySelector(hash);
+    if (target) {
+      const header = document.querySelector('header');
+      const headerHeight = header ? header.offsetHeight : 90;
+      const targetPosition = target.offsetTop - headerHeight;
+      
+      smoothScrollTo(targetPosition, 800); // Animação mais rápida
+    }
+  }
+}
+
+// Event Listeners
+document.addEventListener('DOMContentLoaded', handleHashScroll);
+window.addEventListener('popstate', handleHashScroll);
+menuLinks.forEach(link => link.addEventListener('click', handleScroll));

@@ -44,7 +44,7 @@
         <li><a href="./Produtos/produtos2.html">Produtos</a></li>
         <li><a href="./Sustentabilidade/sustentabilidade.html">Sustentabilidade</a></li>
         <li><a href="./Quem Somos/quemsomos.html">Quem somos</a></li>
-        <li><a href="#clientes" onclick="hideSidebar()">Clientes</a></li>
+        <li><a href="#clientes">Clientes</a></li>
         <li><a href="./Contato/contato.html">Contato</a></li>
         <li><a href="./Recordes Mundiais/recordes.html"><span>Recordes Mundiais</span></a></li>
         <li class="logos-container">
@@ -73,14 +73,14 @@
               <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
           </a>
       </li>
-      <div class="fechar-wrapper">
-        <div class="fechar" onclick="hideSidebar()">
-            <button aria-label="Fechar menu">
-                <i class="fa-regular fa-circle-xmark"></i>
-            </button>
-            <p>fechar</p>
-        </div>
+      <li class="fechar-wrapper"> <!-- Alterado para li -->
+    <div class="fechar" onclick="hideSidebar()">
+        <button aria-label="Fechar menu">
+            <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+        <p>fechar</p>
     </div>
+</li>
       </ul>
     </nav>
   </header>
@@ -240,14 +240,13 @@
   </section>
 
   <div class="container-slider">
-    <!-- Overlay DEVE vir antes do carrossel -->
     <div class="loading-overlay">
       <div class="spinner-wrapper">
           <p>Carregando clientes</p>
           <div class="css-spinner"></div>
       </div>
   </div>
-    <div class="carrossel">
+    <div class="carrossel real-carrossel">
       <div class="item-slider" style="--delay: 1s"><img src="./images clientes/item1_1.webp" alt="" loading="lazy"></div>
       <div class="item-slider" style="--delay: 2s"><img src="./images clientes/item1_2.webp" alt="" loading="lazy"></div>
       <div class="item-slider" style="--delay: 3s"><img src="./images clientes/item1_3.webp" alt="" loading="lazy"></div>
@@ -309,7 +308,7 @@
     <div class="container-recordes">
       <div class="images-wrapper">
         <div class="main-image">
-          <img src="./images/mascara (1).webp" loading="lazy" decoding="async" fetchpriority="low" alt="Main Article">
+          <img src="./images/mascara (1).webp" loading="lazy" decoding="async" fetchpriority="low" alt="Main Article" width="100" height="133">
           <div class="info">
             <h2>Atingindo o Impossível!</h2>
             <p>De Navegantes para o Mundo.</p>

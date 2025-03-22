@@ -16,7 +16,7 @@
 
 .icone{
     margin-right: -80px;
-    margin-top: 10px
+    margin-top: 10px;
 }
 
 nav{
@@ -90,6 +90,8 @@ nav{
     justify-content: flex-start;
     transition: 0.75s ease-out;
     z-index: 2000;
+    border-radius: 15px 0 0 15px;
+    overflow: hidden;
 }
 
 .nav-list button,
@@ -637,13 +639,6 @@ nav{
     background-color: hsl(0,0%,90%);
     box-shadow: 0 3px 10px hsla(0, 0%, 0%, 0.08);
     text-align: left;
-}
-
-.informar h2{
-    margin-bottom: 15px;
-    font-weight: 600;
-    color: hsl(0, 0%, 10%);
-    font-size: 18px;
 }
 
 .informar a{
