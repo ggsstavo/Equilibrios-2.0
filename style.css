@@ -1051,20 +1051,6 @@ nav{
     border-radius: 10px;
 }
 
-.main-image img,
-.small-images img,
-.mobile-recorde img {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-/* Classe que será adicionada via JavaScript */
-.main-image img.loaded,
-.small-images img.loaded,
-.mobile-recorde img.loaded {
-  opacity: 1;
-}
-
 .main-image img{
     width: 400px;
     height: auto;
