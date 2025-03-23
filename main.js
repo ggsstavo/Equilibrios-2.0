@@ -456,12 +456,6 @@ document.querySelectorAll(`
   // Mantém o lazy loading nativo como fallback
   img.loading = 'lazy';
   
-  // Move o src para data-src (exceto se já estiver carregado)
-  if (!img.complete) {
-    img.dataset.src = img.src;
-    img.removeAttribute('src');
-  }
-  
   // Inicia a observação
   recordesObserver.observe(img);
 });
