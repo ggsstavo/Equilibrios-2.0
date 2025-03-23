@@ -282,61 +282,77 @@ document.addEventListener("DOMContentLoaded", () => {
   const carrossel = document.querySelector('.carrossel');
   const container = document.querySelector('.container-slider');
   
-  // Abortar se elementos críticos não existirem
   if (!overlay || !carrossel || !container) return;
 
-  const images = carrossel.querySelectorAll('img');
+  const loadImage = (img) => {
+    return new Promise((resolve, reject) => {
+      if (img.dataset.src && !img.src) {
+        img.src = img.dataset.src;
+        img.onload = () => resolve();
+        img.onerror = () => reject();
+      } else {
+        resolve();
+      }
+    });
+  };
+
+  const loadVisibleImages = async () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loadImage(entry.target).then(() => {
+            loadedImages++;
+            checkLoadingState();
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '200px',
+      threshold: 0.01
+    });
+
+    document.querySelectorAll('.item-slider img').forEach(img => {
+      observer.observe(img);
+    });
+  };
+
+  const hideOverlay = () => {
+    overlay.classList.add('hidden');
+    setTimeout(() => {
+      overlay.remove();
+      container.classList.add('loaded');
+    }, 500);
+  };
+
   let loadedImages = 0;
   let hasErrors = false;
 
-  const hideOverlay = () => {
-      overlay.classList.add('hidden');
-      setTimeout(() => {
-          overlay.remove();
-          container.classList.add('loaded');
-      }, 500);
-  };
-
-  // Caso sem imagens
-  if (images.length === 0) {
-      hideOverlay();
-      return;
-  }
-
-  // Verificador de estado de carregamento
-  const checkLoadingState = () => {
-      // Esconder se pelo menos uma imagem carregou
-      if (loadedImages > 0) hideOverlay();
-      
-      // Esconder após 2s se todas falharem
-      if (loadedImages === 0 && hasErrors) {
-          setTimeout(hideOverlay, 2000);
-      }
-  };
-
-  // Gerenciador de eventos para imagens
-  const handleImageLoad = (success = true) => {
-      loadedImages += success ? 1 : 0;
-      hasErrors = hasErrors || !success;
+  // Carrega 4 imagens imediatamente para suavizar animação
+  const initialImages = Array.from(document.querySelectorAll('.item-slider:nth-child(-n+4) img'));
+  Promise.all(initialImages.map(loadImage))
+    .then(() => {
+      loadedImages += initialImages.length;
       checkLoadingState();
+    })
+    .catch(() => hasErrors = true);
+
+  // Restante das imagens
+  loadVisibleImages();
+
+  const checkLoadingState = () => {
+    if (loadedImages >= 4) hideOverlay();
+    
+    if (loadedImages === 0 && hasErrors) {
+      setTimeout(hideOverlay, 2000);
+    }
   };
 
-  // Monitorar todas as imagens
-  images.forEach(img => {
-      if (img.complete) {
-          handleImageLoad(img.naturalHeight > 0);
-      } else {
-          img.addEventListener('load', () => handleImageLoad(true));
-          img.addEventListener('error', () => handleImageLoad(false));
-      }
-  });
-
-  // Fallback otimizado
+  // Fallback
   let timeout = setTimeout(() => {
-      if (loadedImages === 0) hideOverlay();
+    if (loadedImages === 0) hideOverlay();
   }, 19000);
 
-  // Cancelar timeout se necessário
   overlay.addEventListener('transitionend', () => clearTimeout(timeout));
 });
 

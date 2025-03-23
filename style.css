@@ -751,6 +751,12 @@ nav{
 .item-slider img{
     width: 100%;
     border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.container-slider.loaded .item-slider img{
+    opacity: 1;
 }
 
 .container-slider.loaded:hover .item-slider {
