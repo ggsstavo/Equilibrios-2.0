@@ -423,3 +423,45 @@ function handleHashScroll() {
 document.addEventListener('DOMContentLoaded', handleHashScroll);
 window.addEventListener('popstate', handleHashScroll);
 menuLinks.forEach(link => link.addEventListener('click', handleScroll));
+
+// Observer apenas para as imagens dos containers específicos
+const recordesObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const img = entry.target;
+      
+      // Garante que o src só seja carregado uma vez
+      if (!img.src && img.dataset.src) {
+        img.src = img.dataset.src;
+      }
+
+      // Adiciona a classe quando a imagem estiver carregada
+      img.onload = () => img.classList.add('loaded');
+      
+      // Otimização: Para de observar após o primeiro trigger
+      recordesObserver.unobserve(img);
+    }
+  });
+}, { 
+  rootMargin: '200px', // Carrega 200px antes de entrar na tela
+  threshold: 0.1 
+});
+
+// Seleciona apenas as imagens dentro dos containers desejados
+document.querySelectorAll(`
+  .main-image img,
+  .small-images img,
+  .mobile-recorde img
+`).forEach(img => {
+  // Mantém o lazy loading nativo como fallback
+  img.loading = 'lazy';
+  
+  // Move o src para data-src (exceto se já estiver carregado)
+  if (!img.complete) {
+    img.dataset.src = img.src;
+    img.removeAttribute('src');
+  }
+  
+  // Inicia a observação
+  recordesObserver.observe(img);
+});
