@@ -459,3 +459,28 @@ document.querySelectorAll(`
   // Inicia a observação
   recordesObserver.observe(img);
 });
+
+const mapObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+      if (entry.isIntersecting) {
+          const container = entry.target;
+          const iframe = container.querySelector('iframe');
+          
+          if (iframe && !iframe.src && iframe.dataset.src) {
+              iframe.src = iframe.dataset.src;
+              iframe.onload = () => {
+                  container.classList.add('loaded'); // Container
+                  iframe.classList.add('loaded'); // Iframe
+              };
+          }
+          mapObserver.unobserve(container);
+      }
+  });
+}, { 
+  rootMargin: '300px', 
+  threshold: 0.01 
+});
+
+document.querySelectorAll('.map').forEach(container => {
+  mapObserver.observe(container);
+});
