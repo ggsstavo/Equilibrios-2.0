@@ -1,11 +1,32 @@
-function showSidebar(){
-    const sidebar = document.querySelector('.sidebar')
+function showSidebar() {
+    const sidebar = document.querySelector('.sidebar');
     sidebar.classList.add('open');
   }
-  function hideSidebar(){
-    const sidebar = document.querySelector('.sidebar')
+  
+  function hideSidebar() {
+    const sidebar = document.querySelector('.sidebar');
     sidebar.classList.remove('open');
   }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    // Fecha a sidebar ao clicar em links internos
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', hideSidebar);
+    });
+  
+    // Fecha a sidebar ao clicar fora ou no menu button
+    document.addEventListener('click', function(event) {
+        const sidebar = document.querySelector('.sidebar');
+        const menuButton = document.querySelector('.menu-buttom');
+  
+        if (sidebar.classList.contains('open') && 
+            !sidebar.contains(event.target) &&
+            !event.target.closest('.menu-buttom')) {
+            hideSidebar();
+        }
+    });
+  });
 
 
 
@@ -152,4 +173,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
       comparacaoObserver.observe(section);
   });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+        root: null,
+        rootMargin: '100px',
+        threshold: 0.1
+    };
+
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                
+                // Carrega a imagem se estiver usando lazy loading
+                if (img.dataset.src && !img.src) {
+                    img.src = img.dataset.src;
+                }
+
+                // Garante o efeito mesmo se a imagem estiver em cache
+                const loadHandler = () => {
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                };
+
+                if (img.complete) {
+                    loadHandler();
+                } else {
+                    img.addEventListener('load', loadHandler);
+                    img.addEventListener('error', () => observer.unobserve(img));
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observa todas as imagens da timeline
+    document.querySelectorAll('.timeline_image-wrapper img').forEach(img => {
+        img.loading = 'lazy';  // Otimização extra
+        imageObserver.observe(img);
+    });
 });
