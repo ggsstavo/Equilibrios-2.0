@@ -17,41 +17,69 @@
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="icone">
-                <a href="../../index.html">
-                    <img src="../../images/logo.webp" alt="Equilibrios | Home">
-                </a>
-            </div>
-            <ul class="nav-list">
-                <li class="hideOnMobile"><a href="../../Produtos/produtos2.html">Produtos</a></li>
-                <li class="hideOnMobile"><a href="../../Sustentabilidade/sustentabilidade.html">Sustentabilidade</a></li>
-                <li class="hideOnMobile"><a href="../../Quem Somos/quemsomos.html">Quem somos</a></li>
-                <li class="hideOnMobile"><a href="">Clientes</a></li>
-                <li class="hideOnMobile"><a href="../../Contato/contato.html">Contato</a></li>
-                <li class="hideOnMobile"><a href="../../Recordes Mundiais/recordes.html"><span>Recordes Mundiais</span></a></li>
-                <li class="menu-buttom" onclick=showSidebar()><a href="#"><i class="fa-solid fa-bars"></i></a></li>
-            </ul>
-            <ul class="nav-list sidebar">
-                <a href="../../index.html"><img src="../../images/logo.webp" alt="Equilibrios | Home"></a>
-                <li><a href="../../Produtos/produtos2.html">Produtos</a></li>
-                <li><a href="../../Sustentabilidade/sustentabilidade.html">Sustentabilidade</a></li>
-                <li><a href="../../Quem Somos/quemsomos.html">Quem somos</a></li>
-                <li><a href="">Clientes</a></li>
-                <li><a href="../../Contato/contato.html">Contato</a></li>
-                <li><a href="../../Recordes Mundiais/recordes.html"><span>Recordes Mundiais</span></a></li>
-                <div class="logos-container">
-                    <a href=""><i class="fa-brands fa-youtube"></i></a>
-                    <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href=""><i class="fa-brands fa-twitter"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                </div>
-                <div class="fechar" onclick=hideSidebar()><a href="#"><i class="fa-regular fa-circle-xmark"></a></i></div>
-                <p>fechar</p>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <div class="icone">
+        <li class="logo-item">
+        <a href="../../index.html">
+          <abbr title="Home"><img src="../../images/logo.webp" alt="Equilibrios | Home"></abbr>
+        </a>
+      </li>
+      </div>
+      <ul class="nav-list">
+        <li class="hideOnMobile"><a href="../../Produtos/produtos2.html">Produtos</a></li>
+        <li class="hideOnMobile"><a href="../../Sustentabilidade/sustentabilidade.html">Sustentabilidade</a></li>
+        <li class="hideOnMobile"><a href="../../Quem Somos/quemsomos.html">Quem somos</a></li>
+        <li class="hideOnMobile"><a href="#clientes">Clientes</a></li>
+        <li class="hideOnMobile"><a href="../../Contato/contato.html">Contato</a></li>
+        <li class="hideOnMobile"><a href="../../Recordes Mundiais/recordes.html"><span>Recordes Mundiais</span></a></li>
+        <li class="menu-buttom" onclick=showSidebar()><button aria-label="Abrir menu de navegação"><i class="fa-solid fa-bars" aria-hidden="true"></i></button></li>
+      </ul>
+      <ul class="nav-list sidebar">
+        <a href="../../index.html"><img src="../../images/logo.webp" alt="Equilibrios | Home"></a>
+        <li><a href="../../Produtos/produtos2.html">Produtos</a></li>
+        <li><a href="../../Sustentabilidade/sustentabilidade.html">Sustentabilidade</a></li>
+        <li><a href="../../Quem Somos/quemsomos.html">Quem somos</a></li>
+        <li><a href="#clientes">Clientes</a></li>
+        <li><a href="../../Contato/contato.html">Contato</a></li>
+        <li><a href="../../Recordes Mundiais/recordes.html"><span>Recordes Mundiais</span></a></li>
+        <li class="logos-container">
+          <a href="https://www.youtube.com/user/blogequilibrios" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             aria-label="YouTube (abre em nova janela)">
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.facebook.com/equilibriospromocionais" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             aria-label="Facebook (abre em nova janela)">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.instagram.com/equilibrios.camisetas/" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             aria-label="Instagram (abre em nova janela)">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/equilibrioscamisetaspromocionais" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             aria-label="LinkedIn (abre em nova janela)">
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+          </a>
+      </li>
+      <li class="fechar-wrapper"> <!-- Alterado para li -->
+    <div class="fechar" onclick="hideSidebar()">
+        <button aria-label="Fechar menu">
+            <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+        <p>fechar</p>
+    </div>
+</li>
+      </ul>
+    </nav>
+  </header>
 
     <section class="banner">
         <h1>Produtos</h1>
@@ -65,7 +93,7 @@
     <div class="container">
         <!-- Slider -->
         <div class="slider-container">
-            <div class="slider">
+            <div class="slider" id="productSlider">
                 <div class="slide active"><img src="./comprar-imagens/camiseta_1.webp" alt="Camiseta 1"></div>
                 <div class="slide"><img src="./comprar-imagens/camiseta_2.webp" alt="Camiseta 2"></div>
                 <div class="slide"><img src="./comprar-imagens/camiseta_3.webp" alt="Camiseta 3"></div>
@@ -111,7 +139,7 @@
                 <p>Poliamida Fitness</p>
             </div>
 
-            <p class="destaque">Personalizamos a sua camiseta da maneira que você imaginar!!</p>
+            <p class="destaque" id="textoPersonalizacao">Personalizamos a sua camiseta da maneira que você imaginar!!</p>
 
         <div class="container-accordion">
             <div class="accordion">
@@ -268,141 +296,389 @@
         </div>
       </footer>
 
-    <script>
-        // Slider Aprimorado
+      <script>
+        // Sistema de Parâmetros URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const produtoSelecionado = urlParams.get('produto');
+        
+        // Banco de Dados de Produtos
+        const produtos = {
+            'camisetas': {
+                titulo: 'Camisetas',
+                mensagemPersonalizacao: 'Personalizamos a sua camiseta da maneira que você imaginar!!',
+                subtitulo: 'Diversas opções de Malhas e Tecidos para sua escolha:',
+                imagens: [
+                    './comprar-imagens/camiseta_1.webp',
+                    './comprar-imagens/camiseta_2.webp',
+                    './comprar-imagens/camiseta_3.webp',
+                    './comprar-imagens/camiseta_4.webp',
+                    './comprar-imagens/camiseta_5.webp',
+                    './comprar-imagens/camiseta_6.webp',
+                    './comprar-imagens/camiseta_7.webp',
+                    './comprar-imagens/camiseta_8.webp',
+                    './comprar-imagens/camiseta_9.webp',
+                    './comprar-imagens/camiseta_10.webp',
+                    './comprar-imagens/camiseta_11.webp',
+                    './comprar-imagens/camiseta_12.webp',
+                    './comprar-imagens/camiseta_13.webp',
+                    './comprar-imagens/camiseta_14.webp',
+                    './comprar-imagens/camiseta_15.webp',
+                    './comprar-imagens/camiseta_16.webp',
+                    './comprar-imagens/camiseta_17.webp',
+                    './comprar-imagens/camiseta_18.webp',
+                    './comprar-imagens/camiseta_19.webp',
+                    './comprar-imagens/camiseta_informar_20.webp',
+                    './comprar-imagens/camiseta_informar_21.webp',
+                ],
+                medidas: './medidas/camiseta_tamanho.webp',
+                especificacoes: [
+                    '100% algodão',
+                    'PA Ecológica reciclada de garrafas PET',
+                    'PV (malha fria)',
+                    'DRY Esportiva',
+                    '100% poliéster (sublimática)',
+                    'Poliamida Fitness'
+                ],
+                config: {
+            exibirMedidas: true,
+            exibirAvisoVariacao: true
+        }
+            },
+            'polo': {
+                titulo: 'Camisetas Polos',
+                mensagemPersonalizacao: 'Customize sua polo com designs exclusivos!',
+                subtitulo: 'Modelos premium para seu negócio:',
+                imagens: [
+                    './comprar-imagens/polo_1.webp',
+                    './comprar-imagens/polo_2.webp',
+                    './comprar-imagens/polo_3.webp',
+                    './comprar-imagens/polo_4.webp',
+                    './comprar-imagens/polo_5.webp',
+                    './comprar-imagens/polo_6.webp',
+                    './comprar-imagens/polo_7.webp',
+                    './comprar-imagens/polo_8.webp',
+                    './comprar-imagens/polo_9.webp',
+                    './comprar-imagens/polo_10.webp',
+                    './comprar-imagens/polo_11.webp',
+                    './comprar-imagens/polo_12.webp',
+                    './comprar-imagens/camiseta_informar_21.webp',
+                ],
+                medidas: './medidas/polo_tamanho.webp',
+                especificacoes: [
+                    'Piquet PA Ecológico reciclado de garrafas PET',
+                    'Malha PA Ecológica reciclada de garrafas PET',
+                    'Malha PV (malha fria)',
+                    'Malha 100% algodão',
+                    'DRY Esportivo',
+                    '100% poliéster (sublimática)',
+                    ' Poliamida Fitness'
+                ],
+                config: {
+            exibirMedidas: true,
+            exibirAvisoVariacao: true
+        }
+            },
+            'aventais': {
+        titulo: 'Aventais',
+        mensagemPersonalizacao: 'Aventais personalizados para suas necessidades!',
+        subtitulo: 'Proteção e estilo para diversos usos:',
+        imagens: [
+            './comprar-imagens/aventais_1.webp',
+            './comprar-imagens/aventais_2.webp',
+            './comprar-imagens/aventais_3.webp',
+            './comprar-imagens/aventais_4.webp',
+            './comprar-imagens/aventais_5.webp',
+            './comprar-imagens/aventais_6.webp',
+            './comprar-imagens/aventais_7.webp',
+            './comprar-imagens/aventais_8.webp',
+            './comprar-imagens/aventais_9.webp',
+            './comprar-imagens/aventais_10.webp',
+            './comprar-imagens/aventais_11.webp',
+            './comprar-imagens/aventais_12.webp',
+            './comprar-imagens/aventais_13.webp',
+            './comprar-imagens/aventais_14.webp',
+            './comprar-imagens/camiseta_informar_21.webp'
+        ],
+        medidas: './medidas/avental_tamanho.webp',
+        especificacoes: [
+            '100% Poliéster',
+            'Brim 100% Algodão',
+            'TNT - Tecido não Tecido',
+            'Lona crua 100% Algodão',
+            'Ecológico',
+            'Nylon',
+            'Napa',
+            'Bagum',
+            'PVC'
+        ],
+        config: {
+        exibirMedidas: false,
+        exibirAvisoVariacao: false
+    }
+    },
+    'sacolas': {
+        titulo: 'Sacolas',
+        mensagemPersonalizacao: 'Personalize suas sacolas com sua marca!',
+        subtitulo: 'Soluções práticas e sustentáveis para suas necessidades:',
+        imagens: [
+            './comprar-imagens/sacolas_1.webp',
+            './comprar-imagens/sacolas_2.webp',
+            './comprar-imagens/sacolas_3.webp',
+            './comprar-imagens/sacolas_4.webp',
+            './comprar-imagens/sacolas_5.webp',
+            './comprar-imagens/sacolas_6.webp',
+            './comprar-imagens/sacolas_7.webp',
+            './comprar-imagens/sacolas_8.webp',
+            './comprar-imagens/sacolas_9.webp',
+            './comprar-imagens/sacolas_10.webp',
+            './comprar-imagens/sacolas_11.webp',
+            './comprar-imagens/sacolas_12.webp',
+            './comprar-imagens/camiseta_informar_21.webp'
+        ],
+        medidas: './medidas/sacola_tamanho.webp',
+        especificacoes: [
+            'Linha ECOBAG feitas 100% de garrafas PET recicladas',
+            'Lona 100% Algodão CRU',
+            'Brim',
+            'TNT',
+            '100% Poliéster',
+            'Produção ecológica'
+        ],
+        config: {
+        exibirMedidas: false,
+        exibirAvisoVariacao: false
+    }
+    },
+    'sacochilas': {
+        titulo: 'Sacochilas',
+        mensagemPersonalizacao: 'Sacochilas personalizadas para seu dia a dia!',
+        subtitulo: 'Praticalidade e estilo em diferentes modelos:',
+        imagens: [
+            './comprar-imagens/sacochilas_1.webp',
+            './comprar-imagens/sacochilas_2.webp',
+            './comprar-imagens/sacochilas_3.webp',
+            './comprar-imagens/sacochilas_4.webp',
+            './comprar-imagens/sacochilas_5.webp',
+            './comprar-imagens/sacochilas_6.webp',
+            './comprar-imagens/camiseta_informar_21.webp'
+        ],
+        medidas: './medidas/sacochila_tamanho.webp',
+        especificacoes: [
+            'Item versátil e com ótimo custo x benefício',
+            'Altamente personalizável em suas cores, recortes e estampas',
+            'Alças acolchoadas reguláveis',
+            'Fechamento seguro',
+            'Nylon Impermeável',
+            'Microfibra 100% Poliéster',
+            'TNT'
+        ],
+        config: {
+            exibirMedidas: false,   // Oculta accordion de medidas
+            exibirAvisoVariacao: false // Oculta aviso de variação
+        }
+    },
+    'mascaras': {
+        titulo: 'Máscaras',
+        mensagemPersonalizacao: 'Máscaras personalizadas com segurança e estilo!',
+        subtitulo: 'Proteção e conforto para diferentes necessidades:',
+        imagens: [
+            './comprar-imagens/mascaras_1.webp',
+            './comprar-imagens/mascaras_2.webp',
+            './comprar-imagens/mascaras_3.webp',
+            './comprar-imagens/mascaras_4.webp',
+            './comprar-imagens/mascaras_5.webp',
+            './comprar-imagens/mascaras_6.webp',
+            './comprar-imagens/camiseta_informar_21.webp'
+        ],
+        medidas: './medidas/mascara_tamanho.webp', // Mantido mesmo se não for exibir
+        especificacoes: [
+            'Meia malha Ecológica 50% algodão e 50% poliéster de fio PET',
+            'Certificação por laboratório credenciado pelo INMETRO',
+            'Personalizadas em suas cores e estampas',
+            'Anatômicas e principalmente eficazes',
+            'Modelo Comercial, acabamento em costura overlock',
+            'Modelo Comfort, acabamento superior e inferior em debrum',
+            'Modelo Comfort Plus, acabamento superior, inferior e laterais em debrum'
+        ],
+        config: {
+            exibirMedidas: false,    // Oculta accordion de medidas
+            exibirAvisoVariacao: false // Oculta aviso de variação
+        }
+    }
+        };
+        
+    
+        // Verificação de Produto Válido
+        if (!produtoSelecionado || !produtos[produtoSelecionado]) {
+            window.location.href = '../produtos2.html';
+        }
+    
+        // Sistema de Slider Dinâmico
         const slider = document.querySelector('.slider');
-        const slides = document.querySelectorAll('.slide');
         const dotsContainer = document.querySelector('.dots-container');
         let currentIndex = 0;
         let autoPlayInterval;
-
-        // Inicialização
+    
         function initSlider() {
-            // Criar dots
-            slides.forEach((_, index) => {
+            // Limpar dots existentes
+            dotsContainer.innerHTML = '';
+            
+            // Criar novos dots
+            document.querySelectorAll('.slide').forEach((_, index) => {
                 const dot = document.createElement('div');
                 dot.classList.add('dot');
                 dot.addEventListener('click', () => goToSlide(index));
                 dotsContainer.appendChild(dot);
             });
-
-            // Atualizar estado inicial
+    
             updateSlider();
         }
-
-        // Atualizar slider
+    
         function updateSlider() {
-            // Atualizar posição
             slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-            
-            // Atualizar dots
             document.querySelectorAll('.dot').forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentIndex);
             });
-
-            // Atualizar slides
-            slides.forEach((slide, index) => {
+            document.querySelectorAll('.slide').forEach((slide, index) => {
                 slide.classList.toggle('active', index === currentIndex);
             });
         }
-
-        // Navegação
+    
         function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
+            currentIndex = (currentIndex + 1) % slider.children.length;
             updateSlider();
             resetAutoPlay();
         }
-
+    
         function prevSlide() {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            currentIndex = (currentIndex - 1 + slider.children.length) % slider.children.length;
             updateSlider();
             resetAutoPlay();
         }
-
+    
         function goToSlide(index) {
             currentIndex = index;
             updateSlider();
             resetAutoPlay();
         }
-
+    
         // Auto-play
         function startAutoPlay() {
             autoPlayInterval = setInterval(nextSlide, 8000);
         }
-
+    
         function resetAutoPlay() {
             clearInterval(autoPlayInterval);
             startAutoPlay();
         }
-
-        // Swipe para mobile
-        let touchStartX = 0;
-        const SWIPE_THRESHOLD = 50;
-
-        slider.addEventListener('touchstart', e => {
-            touchStartX = e.touches[0].clientX;
-        });
-
-        slider.addEventListener('touchend', e => {
-            const touchEndX = e.changedTouches[0].clientX;
-            const deltaX = touchStartX - touchEndX;
-
-            if (Math.abs(deltaX) > SWIPE_THRESHOLD) {
-                deltaX > 0 ? nextSlide() : prevSlide();
-            }
-        });
-
-        // Iniciar
-        initSlider();
-        startAutoPlay();
-
-        // Event listeners
-        document.querySelector('.prev').addEventListener('click', prevSlide);
-        document.querySelector('.next').addEventListener('click', nextSlide);
-
-
-
-
-
-
-        function showSidebar(){
-    const sidebar = document.querySelector('.sidebar')
-    sidebar.classList.add('open');
-  }
-  function hideSidebar(){
-    const sidebar = document.querySelector('.sidebar')
-    sidebar.classList.remove('open');
-  }
-
-
-
-
-
-
-
-
-
-
-  document.querySelectorAll('.accordion').forEach(accordion => {
-    const header = accordion.querySelector('.accordion-header');
-    const body = accordion.querySelector('.accordion-body');
     
-    header.addEventListener('click', () => {
-        const isActive = accordion.classList.contains('active');
-        
-        // Fecha todos os accordions
-        document.querySelectorAll('.accordion').forEach(item => {
-            item.classList.remove('active');
-            item.querySelector('.accordion-body').classList.remove('active');
-        });
-        
-        // Abre apenas o clicado se não estava ativo
-        if (!isActive) {
-            accordion.classList.add('active');
-            body.classList.add('active');
+        // Swipe para Mobile
+        function configurarSwipe() {
+            let touchStartX = 0;
+            const SWIPE_THRESHOLD = 50;
+    
+            slider.addEventListener('touchstart', e => {
+                touchStartX = e.touches[0].clientX;
+            });
+    
+            slider.addEventListener('touchend', e => {
+                const touchEndX = e.changedTouches[0].clientX;
+                const deltaX = touchStartX - touchEndX;
+    
+                if (Math.abs(deltaX) > SWIPE_THRESHOLD) {
+                    deltaX > 0 ? nextSlide() : prevSlide();
+                }
+            });
         }
-    });
-});
+    
+        // Carregar Conteúdo do Produto
+        function carregarConteudoProduto() {
+            const produto = produtos[produtoSelecionado];
+            
+            // Atualizar conteúdo textual
+            document.getElementById('productTitle').textContent = produto.titulo;
+            document.getElementById('textoPersonalizacao').textContent = produto.mensagemPersonalizacao;
+            document.getElementById('productSubtitle').textContent = produto.subtitulo;
+            document.getElementById('productSpecs').innerHTML = produto.especificacoes
+                .map(spec => `<p>${spec}</p>`)
+                .join('');
+            document.getElementById('measurementImage').src = produto.medidas;
+
+            const accordion = document.querySelector('.container-accordion');
+const aviso = document.querySelector('.aviso');
+
+accordion.style.display = produto.config.exibirMedidas ? 'block' : 'none';
+aviso.style.display = produto.config.exibirAvisoVariacao ? 'block' : 'none';
+
+    
+            // Gerar slides dinâmicos
+            slider.innerHTML = produto.imagens
+                .map(img => `<div class="slide"><img src="${img}" alt="${produto.titulo}"></div>`)
+                .join('');
+    
+            // Reiniciar componentes
+            initSlider();
+            startAutoPlay();
+            configurarSwipe();
+        }
+    
+        // Menu Sidebar
+        function showSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('open');
+        }
+    
+        function hideSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('open');
+        }
+    
+        // Accordion
+        function configurarAccordion() {
+            document.querySelectorAll('.accordion').forEach(accordion => {
+                const header = accordion.querySelector('.accordion-header');
+                const body = accordion.querySelector('.accordion-body');
+                
+                header.addEventListener('click', () => {
+                    const isActive = accordion.classList.contains('active');
+                    
+                    document.querySelectorAll('.accordion').forEach(item => {
+                        item.classList.remove('active');
+                        item.querySelector('.accordion-body').classList.remove('active');
+                    });
+                    
+                    if (!isActive) {
+                        accordion.classList.add('active');
+                        body.classList.add('active');
+                    }
+                });
+            });
+        }
+    
+        // Inicialização Geral
+        document.addEventListener('DOMContentLoaded', () => {
+            carregarConteudoProduto();
+            configurarAccordion();
+    
+            // Event Listeners do Menu
+            document.querySelector('.prev').addEventListener('click', prevSlide);
+            document.querySelector('.next').addEventListener('click', nextSlide);
+            
+            document.querySelectorAll('.sidebar a').forEach(link => {
+                link.addEventListener('click', hideSidebar);
+            });
+    
+            document.addEventListener('click', (event) => {
+                const sidebar = document.querySelector('.sidebar');
+                const menuButton = document.querySelector('.menu-buttom');
+    
+                if (sidebar.classList.contains('open') && 
+                    !sidebar.contains(event.target) &&
+                    !event.target.closest('.menu-buttom')) {
+                    hideSidebar();
+                }
+            });
+        });
     </script>
 </body>
 </html>
