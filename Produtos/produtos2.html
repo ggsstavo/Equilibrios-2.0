@@ -121,14 +121,14 @@
                         <div class="title-tag">
                             <span>Camisetas</span>
                         </div>
-                        <a href="./comprar/comprar.html?produto=camisetas">
+                        <a href="./comprar/comprar.html?produto=camisetas" class="product-link">
                         <div class="img-box">
                             <img src="../images banner/1.webp" alt="Produto 1">
                         </div>
                         </a>
                         <div class="icon">
                             <span>
-                                <a href="./comprar/comprar.html?produto=camisetas">
+                                <a href="./comprar/comprar.html?produto=camisetas" class="product-link">
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </span>
@@ -136,7 +136,7 @@
                     </div>
                 </div>
                 <div class="content">
-                    <a href="./comprar/comprar.html?produto=camisetas">Ver Mais</a>
+                    <a href="./comprar/comprar.html?produto=camisetas" class="product-link">Ver Mais</a>
                 </div>
             </div>
             <div class="card">
@@ -405,95 +405,87 @@
       </footer>
     <script>
         function showSidebar() {
-  const sidebar = document.querySelector('.sidebar');
-  sidebar.classList.add('open');
-}
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.add('open');
+    }
 
-function hideSidebar() {
-  const sidebar = document.querySelector('.sidebar');
-  sidebar.classList.remove('open');
-}
+    function hideSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.remove('open');
+    }
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Fecha a sidebar ao clicar em links internos
-  const sidebarLinks = document.querySelectorAll('.sidebar a');
-  sidebarLinks.forEach(link => {
-      link.addEventListener('click', hideSidebar);
-  });
-
-  // Fecha a sidebar ao clicar fora ou no menu button
-  document.addEventListener('click', function(event) {
-      const sidebar = document.querySelector('.sidebar');
-      const menuButton = document.querySelector('.menu-buttom');
-
-      if (sidebar.classList.contains('open') && 
-          !sidebar.contains(event.target) &&
-          !event.target.closest('.menu-buttom')) {
-          hideSidebar();
-      }
-  });
-});
-
-
-
-
-
-
-
-
-
-
-        document.addEventListener('DOMContentLoaded', () => {
-    // Dados dos cards para cada página
-    const cardData = {
-        1: [
-            { title: 'Camisetas', img: '../images banner/1.webp' },
-            { title: 'Polo', img: '../images banner/2.webp' },
-            { title: 'Aventais', img: '../images banner/3.webp' },
-            { title: 'Sacolas', img: '../images banner/4.webp' },
-            { title: 'Sacochilas', img: '../images banner/5.webp' },
-            { title: 'Máscaras', img: '../images banner/6.webp' }
-        ],
-        2: [
-            { title: 'Ecológico', img: '../images banner/7.webp', },
-            { title: 'Inverno', img: '../images banner/8.webp' },
-            { title: 'Esportivos', img: '../images banner/9.webp' },
-            { title: 'Brindes', img: '../images banner/10.webp' },
-            { title: 'Toalhas', img: '../images banner/11.webp' },
-            { title: 'Bebês', img: '../images banner/12.webp' }
-        ],
-        3: [
-        { title: 'Empresas', img: '../images banner/13.webp' }
-        ]
-    };
-
-    const cards = document.querySelectorAll('.card');
-    const paginationButtons = document.querySelectorAll('.page-btn:not(.arrow)');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    
-    function updateCards(pageNumber) {
-        const data = cardData[pageNumber];
-        
-        // Animação de saída
-        cards.forEach(card => {
-            card.classList.add('card-out');
+    document.addEventListener('DOMContentLoaded', function() {
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', hideSidebar);
         });
 
-        setTimeout(() => {
+        document.addEventListener('click', function(event) {
+            const sidebar = document.querySelector('.sidebar');
+            const menuButton = document.querySelector('.menu-buttom');
+
+            if (sidebar.classList.contains('open') && 
+                !sidebar.contains(event.target) &&
+                !event.target.closest('.menu-buttom')) {
+                hideSidebar();
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const cardData = {
+            1: [
+                { title: 'Camisetas', img: '../images banner/1.webp', link: 'camisetas' },
+                { title: 'Polo', img: '../images banner/2.webp', link: 'polo' },
+                { title: 'Aventais', img: '../images banner/3.webp', link: 'aventais' },
+                { title: 'Sacolas', img: '../images banner/4.webp', link: 'sacolas' },
+                { title: 'Sacochilas', img: '../images banner/5.webp', link: 'sacochilas' },
+                { title: 'Máscaras', img: '../images banner/6.webp', link: 'mascaras' }
+            ],
+            2: [
+                { title: 'Ecológico', img: '../images banner/7.webp', link: 'ecologico' },
+                { title: 'Inverno', img: '../images banner/8.webp', link: 'inverno' },
+                { title: 'Esportivos', img: '../images banner/9.webp', link: 'esportivo' },
+                { title: 'Brindes', img: '../images banner/10.webp', link: 'brindes' },
+                { title: 'Toalhas', img: '../images banner/11.webp', link: 'toalhas' },
+                { title: 'Bebês', img: '../images banner/12.webp', link: 'bebe' }
+            ],
+            3: [
+                { title: 'Empresas', img: '../images banner/13.webp', link: 'empresas' }
+            ]
+        };
+
+        const cards = document.querySelectorAll('.card');
+        const paginationButtons = document.querySelectorAll('.page-btn:not(.arrow)');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentPage = 1;
+
+        function updateCards(pageNumber) {
+            const data = cardData[pageNumber];
+            
+            cards.forEach(card => {
+                card.classList.add('card-out');
+            });
+
+            setTimeout(() => {
                 cards.forEach((card, index) => {
                     if(data[index]) {
+                        const links = card.querySelectorAll('a');
+                        const productLink = data[index].link;
+                        
+                        // Atualiza links
+                        links.forEach(link => {
+                            link.href = `./comprar/comprar.html?produto=${productLink}`;
+                        });
+
                         const iconSpan = card.querySelector('.icon span');
                         const titleTag = card.querySelector('.title-tag span');
                         const img = card.querySelector('img');
 
-                        // Atualiza cor do ícone
                         iconSpan.style.backgroundColor = data[index].color;
-                        
-                        // Atualiza conteúdo
                         titleTag.textContent = data[index].title;
                         
-                        // Suaviza troca de imagem
                         img.style.opacity = 0;
                         img.src = data[index].img;
                         img.alt = data[index].title;
@@ -512,289 +504,148 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300);
         }
 
-    function setActiveButton(activePage) {
-        paginationButtons.forEach(btn => {
-            btn.classList.toggle('active', btn.textContent == activePage);
-        });
-    }
+        function setActiveButton(activePage) {
+            paginationButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.textContent == activePage);
+            });
+        }
 
-    const style = document.createElement('style');
-    style.textContent = `
-        .card {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-        
-        .card-out {
-            opacity: 0;
-            transform: translateY(20px) scale(0.95);
-        }
-        
-        .card-in {
-            animation: cardEnter 0.6s ease-out forwards;
-        }
-        
-        @keyframes cardEnter {
-            0% {
-                opacity: 0;
-                transform: translateY(20px) rotateX(15deg);
-            }
-            100% {
+        const style = document.createElement('style');
+        style.textContent = `
+            .card {
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
                 opacity: 1;
-                transform: translateY(0) rotateX(0);
+                transform: translateY(0) scale(1);
             }
-        }
-        
-        .card img {
-            transition: opacity 0.4s ease;
-        }
+            
+            .card-out {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            
+            .card-in {
+                animation: cardEnter 0.6s ease-out forwards;
+            }
+            
+            @keyframes cardEnter {
+                0% { opacity: 0; transform: translateY(20px) rotateX(15deg); }
+                100% { opacity: 1; transform: translateY(0) rotateX(0); }
+            }
+            
+            .card img {
+                transition: opacity 0.4s ease;
+            }
 
-        .card .card-inner .box .img-box:hover img {
-        transition: transform 0.3s linear !important;
-    }
+            .card .card-inner .box .img-box:hover img {
+                transition: transform 0.3s linear !important;
+            }
 
-        .icon span {
+            .icon span {
                 transition: all 0.3s linear, background-color 0.5s ease !important;
             }
-    `;
-    document.head.appendChild(style);
+        `;
+        document.head.appendChild(style);
 
-    // Event listeners
-    paginationButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const page = parseInt(btn.textContent);
-            updateCards(page);
-            setActiveButton(page);
-            currentPage = page;
+        // Event listeners
+        paginationButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const page = parseInt(btn.textContent);
+                currentPage = page;
+                updateCards(page);
+                setActiveButton(page);
+            });
         });
-    });
 
-    prevBtn.addEventListener('click', () => {
-        if(currentPage > 1) {
-            currentPage--;
+        prevBtn.addEventListener('click', () => {
+            if(currentPage > 1) {
+                currentPage--;
+                updateCards(currentPage);
+                setActiveButton(currentPage);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const totalPages = Object.keys(cardData).length;
+            if(currentPage < totalPages) {
+                currentPage++;
+                updateCards(currentPage);
+                setActiveButton(currentPage);
+            }
+        });
+
+        // Inicialização
+        updateCards(1);
+        setActiveButton(1);
+
+        // Sistema de pesquisa
+        const searchInput = document.getElementById('search');
+        const pagination = document.querySelector('.pagination');
+        const containerCards = document.querySelector('.container-cards');
+        const allProducts = Object.values(cardData).flat();
+
+        function updateCardContent(card, product) {
+            const titleElement = card.querySelector('.title-tag span');
+            const imgElement = card.querySelector('img');
+            const links = card.querySelectorAll('a');
+            
+            links.forEach(link => {
+                link.href = `./comprar/comprar.html?produto=${product.link}`;
+            });
+            
+            titleElement.textContent = product.title;
+            imgElement.src = product.img;
+            imgElement.alt = product.title;
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+            const filteredProducts = allProducts.filter(product => 
+                product.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(searchTerm)
+            );
+
+            containerCards.classList.toggle('no-animation', searchTerm.length > 0);
+            pagination.style.display = searchTerm.length > 0 ? 'none' : 'flex';
+
+            showSearchResults(filteredProducts);
+        });
+
+        function showSearchResults(results) {
+            let hasResults = false;
+            
+            cards.forEach((card, index) => {
+                if(results[index]) {
+                    updateCardContent(card, results[index]);
+                    card.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            notFoundSection.classList.toggle('show', !hasResults);
+            containerCards.style.display = hasResults ? 'flex' : 'none';
+        }
+
+        const notFoundSection = document.createElement('div');
+        notFoundSection.className = 'not-found';
+        notFoundSection.innerHTML = `
+            <i class="fa-solid fa-ghost"></i>
+            <h2>404 - Produto Não Encontrado</h2>
+            <p>Desculpe, não encontramos resultados para sua pesquisa.</p>
+            <button onclick="resetSearch()">Voltar ao Catálogo</button>
+        `;
+        containerCards.parentNode.insertBefore(notFoundSection, containerCards.nextSibling);
+
+        window.resetSearch = function() {
+            searchInput.value = '';
+            containerCards.classList.remove('no-animation');
+            containerCards.style.display = 'flex';
+            pagination.style.display = 'flex';
+            notFoundSection.classList.remove('show');
+            cards.forEach(card => card.style.display = 'block');
             updateCards(currentPage);
-            setActiveButton(currentPage);
         }
     });
-
-    nextBtn.addEventListener('click', () => {
-    const totalPages = Object.keys(cardData).length;
-    if(currentPage < totalPages) {
-        currentPage++;
-        updateCards(currentPage);
-        setActiveButton(currentPage);
-    }
-});
-
-    // Inicialização
-    let currentPage = 1;
-    updateCards(1);
-    setActiveButton(1);
-});
-
-
-
-
-
-
-
-
-
-const cardData = {
-    1: [
-        { title: 'Camisetas', img: '../images banner/1.webp' },
-        { title: 'Polo', img: '../images banner/2.webp' },
-        { title: 'Aventais', img: '../images banner/3.webp' },
-        { title: 'Sacolas', img: '../images banner/4.webp' },
-        { title: 'Sacochilas', img: '../images banner/5.webp' },
-        { title: 'Máscaras', img: '../images banner/6.webp' }
-    ],
-    2: [
-        { title: 'Ecológico', img: '../images banner/7.webp' },
-        { title: 'Inverno', img: '../images banner/8.webp' },
-        { title: 'Esportivos', img: '../images banner/9.webp' },
-        { title: 'Brindes', img: '../images banner/10.webp' },
-        { title: 'Toalhas', img: '../images banner/11.webp' },
-        { title: 'Bebês', img: '../images banner/12.webp' }
-    ],
-    3: [
-        { title: 'Empresas', img: '../images banner/13.webp' }
-    ]
-};
-
-let allProducts = [];
-Object.values(cardData).forEach(page => {
-    allProducts = allProducts.concat(page);
-});
-
-// Elementos da DOM
-const searchInput = document.getElementById('search');
-const cards = document.querySelectorAll('.card');
-const pagination = document.querySelector('.pagination');
-const containerCards = document.querySelector('.container-cards');
-
-// Variável para controlar animações
-let isSearching = false;
-
-// Configurar pesquisa
-searchInput.addEventListener('input', (e) => {
-    const searchTerm = formatString(e.target.value);
-    const filteredProducts = allProducts.filter(product => 
-        formatString(product.title).includes(searchTerm)
-    );
-
-    isSearching = searchTerm.length > 0;
-    
-    // Adiciona/remove classe para controle de animações
-    containerCards.classList.toggle('no-animation', isSearching);
-
-    if(isSearching) {
-        showSearchResults(filteredProducts);
-        pagination.style.display = 'none';
-    } else {
-        resetSearch();
-        pagination.style.display = 'flex';
-    }
-});
-
-// Função para formatar o texto da pesquisa
-function formatString(value) {
-    return value
-        .toLowerCase()
-        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-        .trim();
-}
-
-// Mostrar resultados da pesquisa sem animação
-function showSearchResults(results) {
-    cards.forEach((card, index) => {
-        if(results[index]) {
-            updateCardContent(card, results[index]);
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
-
-// Atualizar conteúdo do card
-function updateCardContent(card, product) {
-    const titleElement = card.querySelector('.title-tag span');
-    const imgElement = card.querySelector('img');
-    
-    titleElement.textContent = product.title;
-    imgElement.src = product.img;
-    imgElement.alt = product.title;
-}
-
-// Resetar pesquisa com animações
-function resetSearch() {
-    containerCards.classList.remove('no-animation');
-    cards.forEach(card => {
-        card.style.display = 'block';
-    });
-    updateCards(currentPage); // Garante que os cards corretos serão exibidos
-}
-
-// Sistema de paginação (mantido com animações)
-let currentPage = 1;
-
-function updateCards(pageNumber) {
-    const data = cardData[pageNumber];
-    
-    cards.forEach((card, index) => {
-        if(data[index]) {
-            updateCardContent(card, data[index]);
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-    
-    currentPage = pageNumber;
-}
-
-// Adicione este CSS
-const animationStyles = document.createElement('style');
-animationStyles.textContent = `
-    .container-cards.no-animation .card {
-        transition: none !important;
-        animation: none !important;
-    }
-    
-    .card {
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        animation: cardEnter 0.6s ease-out forwards;
-    }
-    
-    @keyframes cardEnter {
-        0% { opacity: 0; transform: translateY(20px) rotateX(15deg); }
-        100% { opacity: 1; transform: translateY(0) rotateX(0); }
-    }
-`;
-document.head.appendChild(animationStyles);
-
-
-
-
-
-
-
-
-
-const notFoundSection = document.createElement('div');
-notFoundSection.className = 'not-found';
-notFoundSection.innerHTML = `
-    <i class="fa-solid fa-ghost"></i>
-    <h2>404 - Produto Não Encontrado</h2>
-    <p>Desculpe, não encontramos resultados para sua pesquisa.</p>
-    <button onclick="resetSearch()">Voltar ao Catálogo</button>
-`;
-
-// Insira a seção 404 após o container de cards
-containerCards.parentNode.insertBefore(notFoundSection, containerCards.nextSibling);
-
-// Modifique a função showSearchResults
-function showSearchResults(results) {
-    let hasResults = false;
-    
-    cards.forEach((card, index) => {
-        if(results[index]) {
-            updateCardContent(card, results[index]);
-            card.style.display = 'block';
-            hasResults = true;
-        } else {
-            card.style.display = 'none';
-        }
-    });
-
-    // Controle da exibição da mensagem 404
-    if(!hasResults) {
-        containerCards.style.display = 'none';
-        pagination.style.display = 'none';
-        notFoundSection.classList.add('show');
-    } else {
-        containerCards.style.display = 'flex';
-        pagination.style.display = 'none';
-        notFoundSection.classList.remove('show');
-    }
-}
-
-// Modifique a função resetSearch
-function resetSearch() {
-    searchInput.value = '';
-    containerCards.classList.remove('no-animation');
-    containerCards.style.display = 'flex';
-    pagination.style.display = 'flex';
-    notFoundSection.classList.remove('show');
-    
-    cards.forEach(card => {
-        card.style.display = 'block';
-    });
-    
-    updateCards(currentPage);
-}
     </script>
 </body>
 </html>
