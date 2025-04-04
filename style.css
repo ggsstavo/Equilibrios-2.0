@@ -528,6 +528,16 @@ nav{
     z-index: 1;
 }
 
+.banner-floresta, .banner-marca {
+  will-change: opacity;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.banner-floresta.loaded, .banner-marca.loaded {
+  opacity: 1;
+}
+
 .overlay {
     position: absolute;
     width: 100%;

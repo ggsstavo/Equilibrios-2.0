@@ -476,27 +476,32 @@ document.querySelectorAll(`
   recordesObserver.observe(img);
 });
 
-const mapObserver = new IntersectionObserver((entries) => {
+// Modificar o observer para os banners
+const bannerObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-      if (entry.isIntersecting) {
-          const container = entry.target;
-          const iframe = container.querySelector('iframe');
-          
-          if (iframe && !iframe.src && iframe.dataset.src) {
-              iframe.src = iframe.dataset.src;
-              iframe.onload = () => {
-                  container.classList.add('loaded'); // Container
-                  iframe.classList.add('loaded'); // Iframe
-              };
-          }
-          mapObserver.unobserve(container);
+    if (entry.isIntersecting) {
+      const img = entry.target;
+      if (img.dataset.src) {
+        // Forçar decodificação assíncrona
+        const promise = new Promise((resolve) => {
+          img.src = img.dataset.src;
+          img.decode().then(resolve);
+        });
+        
+        promise.then(() => {
+          img.classList.add('loaded');
+          img.removeAttribute('data-src');
+          bannerObserver.unobserve(img);
+        });
       }
+    }
   });
 }, { 
-  rootMargin: '300px', 
+  rootMargin: '300px',
   threshold: 0.01 
 });
 
-document.querySelectorAll('.map').forEach(container => {
-  mapObserver.observe(container);
+// Selecione os banners
+document.querySelectorAll('.banner-floresta, .banner-marca').forEach(banner => {
+  bannerObserver.observe(banner);
 });
