@@ -756,6 +756,7 @@ nav{
     filter: grayscale(0);
     transition: all 0.5s ease;
     opacity: 0;
+    will-change: opacity;
 }
 
 .item-slider img{
@@ -763,6 +764,7 @@ nav{
     border-radius: 10px;
     opacity: 0;
     transition: opacity 0.5s ease;
+    will-change: opacity;
 }
 
 .container-slider.loaded .item-slider img{
