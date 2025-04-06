@@ -286,84 +286,7 @@ nav{
 
 /* CARDS */
 
-/* CSS do Skeleton (Otimizado) */
-.skeleton-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 25px;
-    padding: 20px;
-}
-
-.card-skeleton {
-    padding: 2em;
-    border-radius: 10px;
-    background: #f0f0f0;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-}
-
-.skeleton-icon {
-    width: 65px;
-    height: 65px;
-    background: #e0e0e0;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-
-.skeleton-line {
-    height: 12px;
-    background: #e0e0e0;
-    margin-bottom: 10px;
-    border-radius: 4px;
-}
-
-.skeleton-line.short { width: 60%; }
-.skeleton-line.medium { width: 80%; }
-.skeleton-line.long { width: 90%; }
-
-@keyframes skeleton-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
-.card-skeleton * {
-    animation: skeleton-pulse 1.5s ease-in-out infinite;
-}
-
-.cards h2{
-    margin-bottom: 15px;
-    font-weight: 600;
-    color: hsl(0, 0%, 10%);
-    font-size: 18px;
-}
-
-.cards p{
-    color: hsl(0, 0%, 30%);
-}
-
-.cards i{
-    margin-bottom: 10px;
-    color: var(--cor-primaria);
-    height: 70px;
-    font-size: 65px;
-}
-
-/* CSS Original (Modificado) */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 25px;
-    padding: 20px;
-}
-
-.cards {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    padding: 2em;
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-}
-
-/* .cards{
+.cards{
     font-family: var(--main-font);
     padding: 2em;
     border-radius: 10px;
@@ -395,7 +318,7 @@ nav{
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 25px;
     justify-content: center;
-} */
+}
 
 /* PRODUTOS */
 

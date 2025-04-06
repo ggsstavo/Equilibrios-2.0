@@ -530,13 +530,3 @@ const mapObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.map').forEach(container => {
   mapObserver.observe(container);
 });
-
-window.addEventListener('load', () => {
-  const skeleton = document.getElementById('skeletonLoading');
-  const realContent = document.getElementById('realContent');
-  
-  // Esconde skeleton e mostra conteúdo
-  skeleton.style.display = 'none';
-  realContent.style.opacity = '1';
-  realContent.style.transition = 'opacity 0.3s ease';
-});
