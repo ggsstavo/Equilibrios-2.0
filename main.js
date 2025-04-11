@@ -459,7 +459,7 @@ const recordesObserver = new IntersectionObserver((entries) => {
     }
   });
 }, { 
-  rootMargin: '200px', // Carrega 200px antes de entrar na tela
+  rootMargin: '200px',
   threshold: 0.1 
 });
 
@@ -467,12 +467,11 @@ const recordesObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll(`
   .main-image img,
   .small-images img,
-  .mobile-recorde img
+  .mobile-recorde img,
+  img.lazy-img
 `).forEach(img => {
-  // Mantém o lazy loading nativo como fallback
   img.loading = 'lazy';
   
-  // Inicia a observação
   recordesObserver.observe(img);
 });
 

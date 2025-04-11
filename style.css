@@ -1630,6 +1630,15 @@ footer {
     border-radius: 5px;
 }
 
+img.lazy-img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  img.lazy-img.loaded {
+    opacity: 1;
+  }
+
 .artigo-container img:hover{
     opacity: 0.8;
 }
