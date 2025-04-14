@@ -138,6 +138,10 @@ nav{
     list-style: none !important;
 }
 
+.sidebar > .logo-item {
+    margin-left: 0;
+}
+
 /* ===== REDES SOCIAIS ===== */
 .sidebar .logos-container {
     display: flex;

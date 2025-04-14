@@ -23,13 +23,14 @@
 <body>
   <header>
     <nav>
-      <div class="icone">
+      <ul class="icone">
         <li class="logo-item">
-        <a href="./index.html">
-          <abbr title="Home"><img src="./images/logo.webp" alt="Equilibrios | Home"></abbr>
-        </a>
-      </li>
-      </div>
+          <a href="./index.html">
+            <abbr title="Home"><img src="./images/logo.webp" alt="Equilibrios | Home"></abbr>
+          </a>
+        </li>
+      </ul>
+
       <ul class="nav-list">
         <li class="hideOnMobile"><a href="./Produtos/produtos2.html">Produtos</a></li>
         <li class="hideOnMobile"><a href="./Sustentabilidade/sustentabilidade.html">Sustentabilidade</a></li>
@@ -37,10 +38,17 @@
         <li class="hideOnMobile"><a href="#clientes">Clientes</a></li>
         <li class="hideOnMobile"><a href="./Contato/contato.html">Contato</a></li>
         <li class="hideOnMobile"><a href="./Recordes Mundiais/recordes.html"><span>Recordes Mundiais</span></a></li>
-        <li class="menu-buttom" onclick=showSidebar()><button aria-label="Abrir menu de navegação"><i class="fa-solid fa-bars" aria-hidden="true"></i></button></li>
+        <li class="menu-buttom" onclick="showSidebar()">
+          <button aria-label="Abrir menu de navegação">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          </button>
+        </li>
       </ul>
+
       <ul class="nav-list sidebar">
-        <a href="./index.html"><img src="./images/logo.webp" alt="Equilibrios | Home"></a>
+        <li class="logo-item">
+          <a href="./index.html"><img src="./images/logo.webp" alt="Equilibrios | Home"></a>
+        </li>
         <li><a href="./Produtos/produtos2.html">Produtos</a></li>
         <li><a href="./Sustentabilidade/sustentabilidade.html">Sustentabilidade</a></li>
         <li><a href="./Quem Somos/quemsomos.html">Quem somos</a></li>
@@ -52,38 +60,38 @@
              target="_blank" 
              rel="noopener noreferrer"
              aria-label="YouTube (abre em nova janela)">
-              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
           </a>
           <a href="https://www.facebook.com/equilibriospromocionais" 
              target="_blank" 
              rel="noopener noreferrer"
              aria-label="Facebook (abre em nova janela)">
-              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
           </a>
           <a href="https://www.instagram.com/equilibrios.camisetas/" 
              target="_blank" 
              rel="noopener noreferrer"
              aria-label="Instagram (abre em nova janela)">
-              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
           </a>
           <a href="https://www.linkedin.com/company/equilibrioscamisetaspromocionais" 
              target="_blank" 
              rel="noopener noreferrer"
              aria-label="LinkedIn (abre em nova janela)">
-              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
           </a>
-      </li>
-      <li class="fechar-wrapper"> <!-- Alterado para li -->
-    <div class="fechar" onclick="hideSidebar()">
-        <button aria-label="Fechar menu">
-            <i class="fa-regular fa-circle-xmark"></i>
-        </button>
-        <p>fechar</p>
-    </div>
-</li>
+        </li>
+        <li class="fechar-wrapper">
+          <div class="fechar" onclick="hideSidebar()">
+            <button aria-label="Fechar menu">
+              <i class="fa-regular fa-circle-xmark"></i>
+            </button>
+            <p>fechar</p>
+          </div>
+        </li>
       </ul>
     </nav>
-  </header>
+</header>
 
   <section class="banner">
     <img src="./images/img1 (1).webp" alt="Banner principal" class="banner__img" loading="eager" width="1200" height="300" decoding="sync">
