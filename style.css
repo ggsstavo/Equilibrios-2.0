@@ -19,6 +19,11 @@
     margin-top: 10px;
 }
 
+.icone img{
+    width: auto;
+    height: auto;
+}
+
 nav{
     font-family: 'Poppins', sans-serif;
     margin-top: 20px;
@@ -1502,6 +1507,7 @@ footer {
 
 #footer_contacts img{
     width: 85%;
+    height: auto;
 }
 
 #footer_contacts .footer-contato{
