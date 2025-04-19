@@ -1141,7 +1141,7 @@ nav{
     font-weight: 500;
     margin: 6px 0 0;
     font-size: 1em;
-    color: hsl(0, 0%, 60%);
+    color: hsl(0, 0%, 70%);
 }
 
 .main-image .bottom-info a{
@@ -1154,7 +1154,7 @@ nav{
 
 .main-image .bottom-info a:hover{
     text-decoration: underline;
-    color: hsl(211, 95%, 45%);
+    color: hsl(211, 95%, 75%);
 }
 
 .main-image .bottom-info p{
@@ -1165,13 +1165,13 @@ nav{
 
 .main-image .bottom-info span{
     padding: 0px 10px;
-    color: hsl(0, 0%, 50%);
+    color: hsl(0, 0%, 70%);
     font-weight: 300;
     font-size: 1.2em;
 }
 
 .main-image .bottom-info a:nth-child(1){
-    color: hsl(0, 0%, 60%);
+    color: hsl(0, 0%, 70%);
     font-size: 15px;
 }
 
