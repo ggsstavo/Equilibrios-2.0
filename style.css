@@ -1145,11 +1145,12 @@ nav{
 }
 
 .main-image .bottom-info a{
-    color: hsl(211, 95%, 52%);
+    color: hsl(211, 100%, 60%); 
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;
     display: inline-block;
+    transition: all 0.3s ease-in-out;
 }
 
 .main-image .bottom-info a:hover{
