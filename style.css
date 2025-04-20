@@ -1193,7 +1193,7 @@ nav{
 
 .image-container img{
     width: 150px;
-    height: auto;
+    height: 180px;
     border-radius: 5px;
     transition: transform 0.3s ease;
     object-fit: cover;
@@ -1260,6 +1260,7 @@ nav{
     font-size: 18px;
     font-weight: 500;
     display: inline-block;
+    transition: all 0.3s ease-in-out;
 }
 
 .small-images a:hover{
@@ -1343,7 +1344,7 @@ nav{
   
     .image img {
       width: 100px;
-      height: auto;
+      height: 125px;
       object-fit: cover;
     }
   
