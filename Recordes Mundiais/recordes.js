@@ -214,3 +214,57 @@ document.addEventListener('DOMContentLoaded', () => {
         imageObserver.observe(img);
     });
 });
+
+// Observer para containers de vídeo
+const videoContainerObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const container = entry.target;
+        const thumbnail = container.querySelector('.youtube-thumbnail');
+        const videoId = container.dataset.videoId;
+  
+        // 1. Carrega a miniatura
+        if (thumbnail && thumbnail.dataset.src) {
+          thumbnail.src = thumbnail.dataset.src;
+          thumbnail.onload = () => container.classList.add('thumb-loaded');
+        }
+  
+        // 2. Pré-conecta ao domínio do YouTube
+        const preconnectLink = document.createElement('link');
+        preconnectLink.rel = 'preconnect';
+        preconnectLink.href = 'https://www.youtube-nocookie.com';
+        document.head.appendChild(preconnectLink);
+  
+        // 3. Pré-carrega o iframe em segundo plano
+        const preloadIframe = document.createElement('link');
+        preloadIframe.rel = 'preload';
+        preloadIframe.as = 'iframe';
+        preloadIframe.href = `https://www.youtube-nocookie.com/embed/${videoId}`;
+        document.head.appendChild(preloadIframe);
+  
+        // 4. Marca container como carregado
+        container.classList.add('video-loaded');
+        observer.unobserve(container);
+      }
+    });
+  }, {
+    rootMargin: '500px',
+    threshold: 0.01
+  });
+  
+  // Inicialização otimizada
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.video-container').forEach(container => {
+      // Configuração inicial
+      const thumbnail = container.querySelector('.youtube-thumbnail');
+      
+      // Move src para data-src
+      if (thumbnail && !thumbnail.complete) {
+        thumbnail.dataset.src = thumbnail.src;
+        thumbnail.removeAttribute('src');
+        thumbnail.classList.add('lazy-thumb');
+      }
+  
+      videoContainerObserver.observe(container);
+    });
+  });

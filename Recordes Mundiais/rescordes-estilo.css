@@ -309,7 +309,7 @@ nav{
 /* Estilo de parágrafo largo */
 .paragrafo-largo {
     font-family: var(--main-font);
-    font-size: clamp(16px, 0.54347826vw + 11.82608696px, 22.5px);
+    font-size: clamp(15px, 0.54347826vw + 10.82608696px, 19px);
     line-height: 1.5;
     text-align: center;
     color: #555;
@@ -512,6 +512,7 @@ nav{
     opacity: 0; /* Começa invisível */
     transform: translateY(20px); /* Efeito suave de entrada */
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform, opacity;
 }
 
 .timeline_image-wrapper img.loaded {
@@ -1108,6 +1109,14 @@ nav{
         width: 0.8rem;
         height: 0.8rem;
         top: 2em;
+    }
+}
+
+@media (max-width: 700px) {
+    .destaque-list p::before {
+        width: 0.8rem;
+        height: 0.8rem;
+        top: 2.2em;
     }
 }
 

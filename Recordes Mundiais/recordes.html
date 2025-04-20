@@ -85,7 +85,7 @@
                     <div class="timeline_progresso">
                         <div class="timeline_progresso-barra"></div>
                     </div>
-                    <div class="timeline_item">
+                    <div class="timeline_item" id="maior-camiseta">
                         <div class="timeline_esquerda">
                           <div class="timeline_data-texto autoBLur">Outubro 2014</div>
                         </div>
@@ -108,7 +108,7 @@
                                     <div class="youtube-placeholder" data-video-id="cpUtlQjouts" data-params="?rel=0&modestbranding=1&controls=1"
                                         onclick="loadYouTubeIframe(this)">
                                     
-                                        <img src="https://img.youtube.com/vi/cpUtlQjouts/mqdefault.jpg" alt="Pré-visualização" class="youtube-thumbnail">
+                                        <img src="https://img.youtube.com/vi/cpUtlQjouts/mqdefault.jpg" alt="Pré-visualização" class="youtube-thumbnail" loading="eager" decoding="sync">
                                     
                                         <div class="play-button"></div>
                                     </div>
@@ -122,11 +122,11 @@
                                             Ecológica do Mundo</a></p>
                                 </div>
                                 <div class="timeline_image-wrapper">
-                                    <img data-src="../Recordes Mundiais/guinness/recorde camiseta.webp" alt="Maior manto" loading="lazy">
+                                    <img data-src="../Recordes Mundiais/guinness/recorde camiseta.webp" alt="Maior manto" loading="eager" decoding="sync">
                                 </div>
                          </div>
                     </div>
-                    <div class="timeline_item">
+                    <div class="timeline_item" id="maior-manto">
                         <div class="timeline_esquerda">
                             <div class="timeline_data-texto autoBLur">Fevereiro 2018</div>
                         </div>
@@ -157,11 +157,11 @@
                                 </div>
                             </div>
                             <div class="timeline_image-wrapper">
-                                <img data-src="../Recordes Mundiais/guinness/recorde manto.webp" alt="Maior manto" loading="lazy">
+                                <img data-src="../Recordes Mundiais/guinness/recorde manto.webp" alt="Maior manto" loading="lazy" decoding="async" fetchpriority="low">
                             </div>
                         </div>
                     </div>
-                    <div class="timeline_item">
+                    <div class="timeline_item" id="maior-mascara">
                         <div class="timeline_esquerda">
                             <div class="timeline_data-texto autoBLur">Maio 2020</div>
                         </div>
@@ -199,7 +199,7 @@
                                 </p>
                             </div>
                             <div class="timeline_image-wrapper">
-                                <img data-src="../images/mascara (1).webp" alt="Maior manto" loading="lazy">
+                                <img data-src="../images/mascara (1).webp" alt="Maior manto" loading="lazy" decoding="async" fetchpriority="low">
                             </div>
                         </div>
                     </div>
@@ -214,7 +214,7 @@
     <h2>Infográfico</h2>
 </div>
     <div class="container-comparacao">
-        <img src="../Recordes Mundiais/guinness/maior camiseta.webp" alt="Imagem da Maior Camiseta do Mundo" loading="lazy">
+        <img src="../Recordes Mundiais/guinness/maior camiseta.webp" alt="Imagem da Maior Camiseta do Mundo" loading="lazy" decoding="async" fetchpriority="low">
         <div class="onibus-section">
             <div class="medidor">
                 <!-- Linhas menores na vertical simulando uma régua -->
@@ -273,7 +273,7 @@
     </div>
 
     <div class="container-comparacao">
-        <img src="../Recordes Mundiais/guinness/manto (1).webp" alt="Imagem do Maior Manto do Mundo" class="manto-img" loading="lazy">
+        <img src="../Recordes Mundiais/guinness/manto (1).webp" alt="Imagem do Maior Manto do Mundo" class="manto-img" loading="lazy" decoding="async" fetchpriority="low">
         <div class="onibus-section">
             <div class="medidor">
                 <!-- Linhas menores na vertical simulando uma régua -->
@@ -333,7 +333,10 @@
     </div>
 
     <div class="container-comparacao">
-        <img src="../images/mascara (1).webp" alt="Imagem da Maior Máscara do Mundo" loading="lazy">
+        <img src="../images/mascara (1).webp" alt="Imagem da Maior Máscara do Mundo" loading="lazy" decoding="async" fetchpriority="low"
+        
+        
+        >
         <div class="onibus-section">
             <div class="medidor">
                 <!-- Linhas menores na vertical simulando uma régua -->
