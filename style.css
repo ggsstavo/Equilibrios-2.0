@@ -1288,7 +1288,7 @@ nav{
     display: none;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 864px) {
 
     .container-recordes{
         height: auto;
