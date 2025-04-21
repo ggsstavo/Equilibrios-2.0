@@ -1254,7 +1254,7 @@ nav{
     color: #6B6B6B;
 }
 
-.small-images a{
+.small-images .text a{
     color: #0D6EFD;
     text-decoration: none;
     font-size: 18px;
@@ -1328,7 +1328,7 @@ nav{
       display: none;
     }
   
-    .small-images {
+    .small-images a{
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -1349,9 +1349,9 @@ nav{
     }
   
     /* Removendo a quebra de linha nos textos das small-images */
-    .small-images h4, 
-    .small-images a, 
-    .small-images span {
+    .small-images .text h4, 
+    .small-images .text a, 
+    .small-images .text span {
       white-space: nowrap; /* Impede a quebra de linha */
     }
   
