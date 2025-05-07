@@ -436,6 +436,7 @@ body {
     font-size: 2.5rem;
     margin-bottom: 25px;
     line-height: 1.2;
+    margin: 0;
 }
 
 /* Lista com Bullets */
@@ -484,6 +485,7 @@ body {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s ease;
+  border-bottom: 3.5px solid var(--primary-color);
 }
 
 .accordion:hover {
@@ -495,7 +497,7 @@ body {
   width: 100%;
   padding: 20px;
   border: none;
-  background: #f8f9fa;
+  background: #eceaea;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -599,7 +601,7 @@ body {
 /* Aviso Estilizado */
 .aviso {
     background: #fff;
-    padding: 25px;
+    padding: 20px 25px;
     border-radius: 10px;
     box-shadow: 0 2px 15px rgba(0,0,0,0.08);
     margin: 30px 0;
@@ -615,6 +617,11 @@ body {
     font-size: 1em;
     color: var(--text-color);
     margin-bottom: 10px;
+}
+
+.aviso i{
+  font-size: 1.1em;
+  padding-right: 0.2em;
 }
 
 /* Botão de Orçamento */
@@ -714,415 +721,686 @@ body {
     }
 }
 
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 200px;
+  background: #ddd;
+  border-radius: 8px 8px 0 0;
+}
+
+.skeleton-text {
+  width: 80%;
+  height: 16px;
+  margin: 8px auto;
+  background: #eee;
+}
+
+.skeleton-text-short {
+  width: 60%;
+  height: 14px;
+  background: #eee;
+}
+
+@keyframes skeleton-loading {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 200px;
+  background: #ddd;
+  border-radius: 8px 8px 0 0;
+}
+
+.skeleton-text {
+  width: 80%;
+  height: 16px;
+  margin: 8px auto;
+  background: #eee;
+}
+
+.skeleton-text-short {
+  width: 60%;
+  height: 14px;
+  background: #eee;
+}
+
+@keyframes skeleton-loading {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Produtos Relacionados */
+.related-products {
+  padding: 100px 20px;
+  background: #f9f9f9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: #f5f5f5;
+}
+
+.related-products h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: clamp(1.5rem, 4vw + 1rem, 2.5rem);
+  color: #333;
+  letter-spacing: -0.5px;
+}
+
+.related-container {
+  position: relative;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.related-products-carousel {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.related-products-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.related-product-card {
+  flex: 0 0 calc(25% - 12px); /* Exibe exatamente 4 cards */
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  border-bottom: 4px solid grey;
+}
+
+.related-product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.related-product-image {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.related-product-card:hover .related-product-image {
+  transform: scale(1.03);
+}
+
+.related-product-info {
+  padding: 16px;
+  text-align: center;
+}
+
+.related-product-info h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #171717;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.related-product-info p {
+  font-size: 14px;
+  color: #718096;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.related-arrow {
+  position: absolute;
+  top: 43%;
+  background: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.related-arrow:hover {
+  background: #f8f9fa;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  transform: scale(1.1);
+}
+
+.related-arrow i {
+  font-size: 18px;
+  color: #4a5568;
+}
+
+.related-arrow.prev-related {
+  left: -20px;
+}
+
+.related-arrow.next-related {
+  right: -20px;
+}
+
+@media (max-width: 768px) {
+  .related-product-card {
+    flex: 0 0 calc(50% - 8px); /* 2 cards em mobile */
+  }
+  
+  .related-arrow {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .related-arrow.prev-related {
+    left: 5px;
+  }
+  
+  .related-arrow.next-related {
+    right: 5px;
+  }
+  
+  .related-product-info h3 {
+    font-size: 15px;
+  }
+  
+  .related-product-info p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .related-products {
+    padding: 30px 15px;
+  }
+  
+  .related-product-card {
+    flex: 0 0 calc(100% - 0px); /* 1 card em telas muito pequenas */
+  }
+
+  .related-container {
+    padding: 0 35px; /* deixa 50px de “margem” para as setas */
+  }
+}
+
+/* Estilo para o texto de mais vendido */
+.best-seller-tag {
+  color: #e74c3c;
+  font-weight: 500;
+  margin: -10px 0;
+  font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+  position: relative;
+  padding: 4px 10px 4px 35px;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 165, 0, 0.2);
+  border-radius: 5px;
+  border-bottom: 3px solid #ffa500;
+  gap: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.best-seller-tag:hover{
+  transform: translateY(-5px);
+  box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+.best-seller-tag::before {
+  content: "🔥";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 3vw, 20px);
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
 /* FOOTER */
 
 footer {
-    width: 100%;
-    color: var(--cor-primaria);
-    overflow: hidden; /* Previne problemas de overflow */
+  width: 100%;
+  color: var(--cor-primaria);
+  overflow: hidden; /* Previne problemas de overflow */
+}
+
+.footer-link{
+  text-decoration: none;
+}
+
+#footer_content{
+  background-color: #171717;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 3rem 3.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+#footer_contacts img{
+  width: 85%;
+  height: auto;
+}
+
+#footer_contacts .footer-contato{
+  display: block;
+  width: max-content;
+  margin-bottom: 0.85rem;
+  color: #B8B4B0;
+  transition: 0.5s;
+  text-decoration: underline;
+}
+
+#footer_contacts .footer-contato:hover{
+  color: #ff5c54;
+}
+
+#footer_contacts .footer-numero{
+  display: block;
+  width: max-content;
+  margin-bottom: 0.85rem;
+  color: #fff;
+  transition: 0.5s;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+#footer_contacts .footer-numero:hover{
+  color: #ff5c54;
+}
+
+#footer_contacts p{
+  margin-bottom: 0.85rem;
+  color: #8F8A87;
+}
+
+#footer_media{
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.0rem;
+}
+
+#footer_media .footer-link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  color: #fff;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+#footer_media .footer-link i{
+  font-size: 1.25rem;
+}
+
+#footer_media .footer-link:hover{
+  opacity: 0.8;
+}
+
+#instagram{
+  background: linear-gradient(#7f37c9, #ff2992, #ff9807);
+}
+
+#facebook{
+  background-color: #4267b3;
+}
+
+#youtube{
+  background-color: #FF0000;
+}
+
+#linkedin{
+  background-color: #0077B5;
+}
+
+.footer-list{
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+  margin-left: 8.5rem;
+}
+
+.footer-list h3{
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #E74C3C;
+}
+
+.footer-list .linha{
+  margin-top: 0.3rem;
+  width: 25%;
+  height: 1%;
+  background-color: #fff;
+  margin-bottom: 25px;
+}
+
+.artigo-container{
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 10px;
+}
+
+.artigo-texto{
+  width: 300px;
+}
+
+.artigo-texto p{
+  color: #a8a29e;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.artigo-texto a{
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.artigo-texto a:hover{
+  color: #ff5c54;
+}
+
+.artigo-container img {
+  width: 75px;
+  height: 55px;
+  object-fit: cover;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+img.lazy-img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+img.lazy-img.loaded {
+  opacity: 1;
+}
+
+.artigo-container img:hover{
+  opacity: 0.8;
+}
+
+.footer-list .footer-link{
+  color: #a8a29e;
+  transition: 0.5s;
+}
+
+.footer-list .footer-link:hover{
+  color: #ff5c54;
+}
+
+.footer-sustentabilidade{
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+  margin-left: -1rem;
+}
+
+.footer-sustentabilidade h3{
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #E74C3C;
+}
+
+.footer-sustentabilidade .linha{
+  margin-top: 0.3rem;
+  width: 25%;
+  height: 1%;
+  background-color: #fff;
+  margin-bottom: 25px;
+}
+
+.footer-sustentabilidade .footer-link{
+  color: #a8a29e;
+  transition: 0.5s;
+}
+
+.footer-sustentabilidade .footer-link:hover{
+  color: #ff5c54;
+}
+
+.footer-desenvolvido{
+  display: flex;
+  justify-content: center;
+  background-color: #171717;
+  padding-bottom: 1.5rem;
+  font-weight: 100;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.footer-desenvolvido a{
+  color: #E0E0E0;
+  font-size: 0.9rem;
+  transition: 0.5s;
+}
+
+.footer-desenvolvido a:hover{
+  color: #fff;
+}
+
+#footer_copyright{
+  display: flex;
+  justify-content: center;
+  background-color: #171717;
+  font-size: 0.9rem;
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 100;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: #fff;
+}
+
+/* Container das ondas */
+.waves-container {
+  position: relative;
+  width: 100%;
+  height: 150px; /* Altura das ondas */
+  overflow: hidden;
+  top: 2px;
+}
+
+.waves-container svg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  #footer_content {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 3rem 2rem;
+      gap: 1.5rem;
+      justify-items: center; /* Centraliza colunas do grid */
   }
   
-  .footer-link{
-    text-decoration: none;
+  .footer-list,
+  .footer-sustentabilidade {
+      margin-left: 0 !important; /* Remove margem esquerda */
+      padding-top: 0.5rem;
+      text-align: center; /* Centraliza texto */
   }
-  
-  #footer_content{
-    background-color: #171717;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 3rem 3.5rem;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Centraliza ícones */
+  #footer_media {
+      justify-content: center !important;
   }
-  
-  #footer_contacts img{
-    width: 85%;
+
+  .artigo-container {
+      gap: 0.5rem !important;
+      align-items: center; /* Centraliza verticalmente imagem/texto */
+      max-width: 300px; /* Limita largura do container */
+      margin: 0 auto; /* Centraliza container */
   }
-  
-  #footer_contacts .footer-contato{
-    display: block;
-    width: max-content;
-    margin-bottom: 0.85rem;
-    color: rgb(218, 215, 215);
-    transition: 0.5s;
-    text-decoration: underline;
-  }
-  
-  #footer_contacts .footer-contato:hover{
-    color: #ff5c54;
-  }
-  
-  #footer_contacts .footer-numero{
-    display: block;
-    width: max-content;
-    margin-bottom: 0.85rem;
-    color: #fff;
-    transition: 0.5s;
-    font-size: 1.5rem;
-    margin-top: 2rem;
-  }
-  
-  #footer_contacts .footer-numero:hover{
-    color: #ff5c54;
-  }
-  
-  #footer_contacts p{
-    margin-bottom: 0.85rem;
-    color: #a8a29e;
-  }
-  
-  #footer_media{
-    display: flex;
-    gap: 2rem;
-    margin-top: 2.0rem;
-  }
-  
-  #footer_media .footer-link{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2.5rem;
-    width: 2.5rem;
-    color: #fff;
-    border-radius: 50%;
-    transition: 0.4s;
-  }
-  
-  #footer_media .footer-link i{
-    font-size: 1.25rem;
-  }
-  
-  #footer_media .footer-link:hover{
-    opacity: 0.8;
-  }
-  
-  #instagram{
-    background: linear-gradient(#7f37c9, #ff2992, #ff9807);
-  }
-  
-  #facebook{
-    background-color: #4267b3;
-  }
-  
-  #youtube{
-    background-color: #FF0000;
-  }
-  
-  #linkedin{
-    background-color: #0077B5;
-  }
-  
-  .footer-list{
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    list-style: none;
-    margin-left: 8.5rem;
-  }
-  
-  .footer-list h3{
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  .footer-list .linha{
-    margin-top: 0.3rem;
-    width: 25%;
-    height: 1%;
-    background-color: #fff;
-    margin-bottom: 25px;
-  }
-  
-  .artigo-container{
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 10px;
-  }
-  
-  .artigo-texto{
-    width: 300px;
-  }
-  
-  .artigo-texto p{
-    color: #a8a29e;
-    margin-bottom: 8px;
-    font-size: 12px;
-  }
-  
-  .artigo-texto a{
-    font-size: 15px;
-    font-weight: 500;
-    color: #fff;
-    transition: 0.5s;
-  }
-  
-  .artigo-texto a:hover{
-    color: #ff5c54;
-  }
-  
+
   .artigo-container img {
-    width: 75px;
-    height: 55px;
-    object-fit: cover;
-    transition: 0.5s;
-    border-radius: 5px;
+      width: 70px !important;
+      height: 50px !important;
+      margin-right: 0.3rem; /* Espaço mínimo entre imagem/texto */
   }
-  
-  .artigo-container img:hover{
-    opacity: 0.8;
+
+  .artigo-texto {
+      text-align: left; /* Alinha texto à esquerda */
+      width: calc(100% - 80px); /* Aproveita espaço restante */
   }
+
+  /* Garante alinhamento com o título */
   
-  .footer-list .footer-link{
-    color: #a8a29e;
-    transition: 0.5s;
+  .footer-list .linha,
+  .footer-sustentabilidade .linha {
+      width: 35%;
+      margin: 0 auto 15px !important; /* Centraliza linha */
   }
-  
-  .footer-list .footer-link:hover{
-    color: #ff5c54;
+
+  .waves-container{
+      top: 4px
   }
-  
-  .footer-sustentabilidade{
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    list-style: none;
-    margin-left: -1rem;
+}
+
+/* ========== AJUSTES 600px ========== */
+@media screen and (max-width: 600px) {
+  .artigo-container {
+      flex-direction: column;
+      text-align: center !important;
   }
-  
-  .footer-sustentabilidade h3{
-    text-transform: uppercase;
-    letter-spacing: 1px;
+
+  .artigo-texto {
+      text-align: center !important; /* Centraliza texto */
+      width: 100% !important;
   }
-  
-  .footer-sustentabilidade .linha{
-    margin-top: 0.3rem;
-    width: 25%;
-    height: 1%;
-    background-color: #fff;
-    margin-bottom: 25px;
+
+  .artigo-container img {
+      margin-right: 0 !important;
+      margin-bottom: 0.5rem;
   }
-  
-  .footer-sustentabilidade .footer-link{
-    color: #a8a29e;
-    transition: 0.5s;
-  }
-  
-  .footer-sustentabilidade .footer-link:hover{
-    color: #ff5c54;
-  }
-  
-  .footer-desenvolvido{
-    display: flex;
-    justify-content: center;
-    background-color: #171717;
-    padding-bottom: 1.5rem;
-    font-weight: 100;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  }
-  
-  .footer-desenvolvido a{
-    color: #E0E0E0;
-    font-size: 0.9rem;
-    transition: 0.5s;
-  }
-  
-  .footer-desenvolvido a:hover{
-    color: #fff;
-  }
-  
-  #footer_copyright{
-    display: flex;
-    justify-content: center;
-    background-color: #171717;
-    font-size: 0.9rem;
-    padding-top: 1.5rem;
-    padding-bottom: 0.5rem;
-    font-weight: 100;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    color: #fff;
-  }
-  
-  /* Container das ondas */
+
   .waves-container {
-    position: relative;
-    width: 100%;
-    height: 150px; /* Altura das ondas */
-    overflow: hidden;
-    top: 2px;
+      height: 100px; /* Reduz altura em mobile */
+    }
+}
+
+/* ========== AJUSTES 768px ========== */
+@media screen and (max-width: 768px) {
+  #footer_content {
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: center; /* Centraliza colunas */
   }
   
-  .waves-container svg {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
+  #footer_contacts {
+      grid-column: 1 / -1;
+      text-align: center;
   }
   
-  @media screen and (max-width: 1200px) {
-    #footer_content {
-        grid-template-columns: repeat(3, 1fr);
-        padding: 3rem 2rem;
-        gap: 1.5rem;
-        justify-items: center; /* Centraliza colunas do grid */
-    }
-    
-    .footer-list,
-    .footer-sustentabilidade {
-        margin-left: 0 !important; /* Remove margem esquerda */
-        padding-top: 0.5rem;
-        text-align: center; /* Centraliza texto */
-    }
-  
-    /* Centraliza ícones */
-    #footer_media {
-        justify-content: center !important;
-    }
-  
-    .artigo-container {
-        gap: 0.5rem !important;
-        align-items: center; /* Centraliza verticalmente imagem/texto */
-        max-width: 300px; /* Limita largura do container */
-        margin: 0 auto; /* Centraliza container */
-    }
-  
-    .artigo-container img {
-        width: 70px !important;
-        height: 50px !important;
-        margin-right: 0.3rem; /* Espaço mínimo entre imagem/texto */
-    }
-  
-    .artigo-texto {
-        text-align: left; /* Alinha texto à esquerda */
-        width: calc(100% - 80px); /* Aproveita espaço restante */
-    }
-  
-    /* Garante alinhamento com o título */
-    
-    .footer-list .linha,
-    .footer-sustentabilidade .linha {
-        width: 35%;
-        margin: 0 auto 15px !important; /* Centraliza linha */
-    }
-  
-    .waves-container{
-        top: 4px
-    }
+  .footer-list, .footer-sustentabilidade {
+      text-align: center; /* Garante centralização */
+      margin-left: 0 !important;
+  }
+
+  .artigo-texto {
+      width: auto;
+  }
+
+  .footer-list h3, .footer-sustentabilidade h3 {
+      padding-top: 0.8rem !important;
+      margin-top: 0.5rem !important;
+  }
+
+  .footer-list .linha, .footer-sustentabilidade .linha {
+      margin: 0 auto 15px !important; /* Centraliza linha */
+  }
+}
+
+/* ========== MOBILE 600px ========== */
+@media screen and (max-width: 600px) {
+  #footer_content {
+      grid-template-columns: 1fr;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      justify-items: center;
   }
   
-  /* ========== AJUSTES 600px ========== */
-  @media screen and (max-width: 600px) {
-    .artigo-container {
-        flex-direction: column;
-        text-align: center !important;
-    }
-  
-    .artigo-texto {
-        text-align: center !important; /* Centraliza texto */
-        width: 100% !important;
-    }
-  
-    .artigo-container img {
-        margin-right: 0 !important;
-        margin-bottom: 0.5rem;
-    }
-  
-    .waves-container {
-        height: 100px; /* Reduz altura em mobile */
-      }
+  .footer-list h3,
+  .footer-sustentabilidade h3 {
+      font-size: 1.25rem;
+      padding-top: 1.2rem !important;
   }
   
-  /* ========== AJUSTES 768px ========== */
-  @media screen and (max-width: 768px) {
-    #footer_content {
-        grid-template-columns: repeat(2, 1fr);
-        justify-items: center; /* Centraliza colunas */
-    }
-    
-    #footer_contacts {
-        grid-column: 1 / -1;
-        text-align: center;
-    }
-    
-    .footer-list, .footer-sustentabilidade {
-        text-align: center; /* Garante centralização */
-        margin-left: 0 !important;
-    }
-  
-    .artigo-texto {
-        width: auto;
-    }
-  
-    .footer-list h3, .footer-sustentabilidade h3 {
-        padding-top: 0.8rem !important;
-        margin-top: 0.5rem !important;
-    }
-  
-    .footer-list .linha, .footer-sustentabilidade .linha {
-        margin: 0 auto 15px !important; /* Centraliza linha */
-    }
+  .linha {
+      margin: 0 auto 25px !important;
+      width: 50px !important;
   }
   
-  /* ========== MOBILE 600px ========== */
-  @media screen and (max-width: 600px) {
-    #footer_content {
-        grid-template-columns: 1fr;
-        padding: 2rem 1.5rem;
-        text-align: center;
-        justify-items: center;
-    }
-    
-    .footer-list h3,
-    .footer-sustentabilidade h3 {
-        font-size: 1.25rem;
-        padding-top: 1.2rem !important;
-    }
-    
-    .linha {
-        margin: 0 auto 25px !important;
-        width: 50px !important;
-    }
-    
-    .artigo-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem !important;
-        text-align: center;
-    }
-    
-    .artigo-texto p {
-        margin-bottom: 0.2rem !important;
-    }
+  .artigo-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem !important;
+      text-align: center;
   }
   
-  /* ========== PEQUENOS AJUSTES 480px ========== */
-  @media screen and (max-width: 480px) {
-    #footer_content {
-        text-align: center;
-    }
-    
-    .artigo-container {
-        gap: 0.3rem !important;
-        text-align: center;
-    }
-    
-    .artigo-texto a {
-        font-size: 0.9rem !important;
-    }
-    
-    .footer-list .footer-link {
-        font-size: 0.9rem;
-    }
-    
-    /* Garante centralização total */
-    .footer-list, .footer-sustentabilidade {
-        width: 100%;
-        text-align: center;
-    }
-  
-    .waves-container {
-        height: 70px;
-      }
-  
-      footer {
-    padding-top: 30px;
+  .artigo-texto p {
+      margin-bottom: 0.2rem !important;
   }
+}
+
+/* ========== PEQUENOS AJUSTES 480px ========== */
+@media screen and (max-width: 480px) {
+  #footer_content {
+      text-align: center;
   }
+  
+  .artigo-container {
+      gap: 0.3rem !important;
+      text-align: center;
+  }
+  
+  .artigo-texto a {
+      font-size: 0.9rem !important;
+  }
+  
+  .footer-list .footer-link {
+      font-size: 0.9rem;
+  }
+  
+  /* Garante centralização total */
+  .footer-list, .footer-sustentabilidade {
+      width: 100%;
+      text-align: center;
+  }
+
+  .waves-container {
+      height: 70px;
+    }
+
+    footer {
+  padding-top: 30px;
+}
+}
