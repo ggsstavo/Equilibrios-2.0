@@ -91,17 +91,18 @@
 </section>
 
 <div id="container-search">
-    <div class="input-group">
-        <div class="input-icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-
-        <input type="text" id="search" class="input-field" placeholder="Pesquisar...">
-        <div class="input-icon">
-            <i class="fa-solid fa-arrow-right"></i>
-        </div>
+    <div class="input-group" style="position: relative;">
+      <div class="input-icon">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <input type="text" id="search" class="input-field" placeholder="Pesquisar..." autocomplete="off">
+      <div class="close-icon">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <!-- dropdown de sugestões -->
+      <ul id="suggestions" class="autocomplete-list"></ul>
     </div>
-</div>
+  </div>
 
 
     <section>
@@ -123,7 +124,7 @@
                         </div>
                         <a href="./comprar/comprar.html?produto=camisetas" class="product-link">
                         <div class="img-box">
-                            <img src="../images banner/1.webp" alt="Produto 1">
+                            <img src="../images banner/1.webp" alt="Produto 1" decoding="sync" loading="eager">
                         </div>
                         </a>
                         <div class="icon">
@@ -147,7 +148,7 @@
                         </div>
                         <a href="./comprar/comprar.html?produto=polo">
                         <div class="img-box">
-                            <img src="../images banner/2.webp" alt="Produto 2">
+                            <img src="../images banner/2.webp" alt="Produto 2" decoding="sync" loading="eager">
                         </div>
                         </a>
                         <div class="icon">
@@ -171,7 +172,7 @@
                         </div>
                         <a href="./comprar/comprar.html?produto=aventais">
                         <div class="img-box">
-                            <img src="../images banner/3.webp" alt="Produto 3">
+                            <img src="../images banner/3.webp" alt="Produto 3" decoding="sync" loading="eager">
                         </div>
                         </a>
                         <div class="icon">
@@ -195,7 +196,7 @@
                         </div>
                         <a href="./comprar/comprar.html?produto=sacolas">
                         <div class="img-box">
-                            <img src="../images banner/4.webp" alt="Produto 4">
+                            <img src="../images banner/4.webp" alt="Produto 4" decoding="sync" loading="eager">
                         </div>
                         </a>
                         <div class="icon">
@@ -219,7 +220,7 @@
                         </div>
                         <a href="./comprar/comprar.html?produto=sacochilas">
                         <div class="img-box">
-                            <img src="../images banner/5.webp" alt="Produto 5">
+                            <img src="../images banner/5.webp" alt="Produto 5" decoding="sync" loading="eager">
                         </div>
                         </a>
                         <div class="icon">
@@ -243,7 +244,7 @@
                         </div>
                         <a href="./comprar/comprar.html?produto=mascaras">
                         <div class="img-box">
-                            <img src="../images banner/6.webp" alt="Produto 6">
+                            <img src="../images banner/6.webp" alt="Produto 6" decoding="sync" loading="eager">
                         </div>
                         </a>
                         <div class="icon">
@@ -275,134 +276,130 @@
     </div>
 
     <footer>
-        <div class="waves-container">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-            <path fill="#171717" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,128C384,139,480,181,576,170.7C672,160,768,96,864,90.7C960,85,1056,139,1152,160C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-            </path>
-          </svg>
+      <div class="waves-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <path fill="#171717" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,128C384,139,480,181,576,170.7C672,160,768,96,864,90.7C960,85,1056,139,1152,160C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+          </path>
+        </svg>
+      </div>
+      <div id="footer_content">
+        <div id="footer_contacts">
+          <a href="../index.html"><img data-src="../images/logo.webp" alt="Equilibrios | Home" fetchpriority="low" decoding="async" loading="lazy" class="lazy-img" width="196" height="40"></a>
+          <a href="https://wa.me/554734081500" target="_blank" rel="noopener noreferrer" class="footer-numero">(47) 3408-1500</a>
+          <a href="mailto:vendas@equilibrios.com.br?subject=Orçamento&body=Gostaria de solicitar um orçamento" class="footer-contato">vendas@equilibrios.com.br</a>
+          <p>Br. 470 - km 06 nº 5500, Machados
+            Navegantes - SC - Brasil</p>
+          <p>CEP: 88371-624</p>
+  
+            <div id="footer_media">
+              <a href="https://www.instagram.com/equilibrios.camisetas/" class="footer-link" id="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram (abre em nova janela)">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+              </a>
+  
+              <a href="https://www.facebook.com/equilibriospromocionais" class="footer-link" id="facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook (abre em nova janela)">
+                <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+              </a>
+  
+              <a href="https://www.youtube.com/user/blogequilibrios" class="footer-link" id="youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube (abre em nova janela)">
+                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+              </a>
+  
+              <a href="https://br.linkedin.com/company/equilibrioscamisetaspromocionais" class="footer-link" id="linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (abre em nova janela)">
+                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+              </a>
+            </div>
         </div>
-        <div id="footer_content">
-          <div id="footer_contacts">
-            <a href=""><img src="../images/logo.webp" alt="Equilibrios | Home"></a>
-            <a href="" class="footer-numero">(47) 3408-1500</a>
-            <a href="" class="footer-contato">vendas@equilibrios.com.br</a>
-            <p>Br. 470 - km 06 nº 5500, Machados
-              Navegantes - SC - Brasil</p>
-            <p>CEP: 88371-624</p>
-    
-              <div id="footer_media">
-                <a href="" class="footer-link" id="instagram">
-                  <i class="fa-brands fa-instagram"></i>
-                </a>
-    
-                <a href="" class="footer-link" id="facebook">
-                  <i class="fa-brands fa-facebook-f"></i>
-                </a>
-    
-                <a href="" class="footer-link" id="youtube">
-                  <i class="fa-brands fa-youtube"></i>
-                </a>
-    
-                <a href="" class="footer-link" id="linkedin">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                </a>
+  
+        <ul class="footer-list">
+          <li>
+            <h3>MENU</h3>
+            <div class="linha"></div>
+          </li>
+          <li>
+            <a href="../Produtos/produtos2.html" class="footer-link">Produtos</a>
+          </li>
+  
+          <li>
+            <a href="../Sustentabilidade/sustentabilidade.html" class="footer-link">Sustentabilidade</a>
+          </li>
+          
+          <li>
+            <a href="../Quem Somos/quemsomos.html" class="footer-link">Quem Somos</a>
+          </li>
+  
+          <li>
+            <a href="../Recordes Mundiais/recordes.html" class="footer-link">Recordes</a>
+          </li>
+  
+          <li>
+            <a href="../Contato/contato.html" class="footer-link">Contato</a>
+          </li>
+        </ul>
+  
+        <ul class="footer-list">
+          <li>
+            <h3>Artigos Recentes</h3>
+            <div class="linha"></div>
+          </li>
+          <li>
+            <div class="artigo-container">
+              <a href="../Quem Somos/quemsomos.html"><img data-src="../images/equilibrios.webp" alt="Frente" fetchpriority="low" decoding="async" loading="lazy" class="lazy-img" width="70" height="50"></a>
+              <div class="artigo-texto">
+                <p>24 de Fevereiro de 2023</p>
+                <a href="../Quem Somos/quemsomos.html">Orgulho do nosso país!</a>
               </div>
-          </div>
-    
-          <ul class="footer-list">
-            <li>
-              <h3>MENU</h3>
-              <div class="linha"></div>
-            </li>
-            <li>
-              <a href="" class="footer-link">Produtos</a>
-            </li>
-    
-            <li>
-              <a href="" class="footer-link">Sustentabilidade</a>
-            </li>
-            
-            <li>
-              <a href="" class="footer-link">Quem Somos</a>
-            </li>
-    
-            <li>
-              <a href="" class="footer-link">Artigos</a>
-            </li>
-    
-            <li>
-              <a href="" class="footer-link">Recordes</a>
-            </li>
-    
-            <li>
-              <a href="" class="footer-link">Contato</a>
-            </li>
-          </ul>
-    
-          <ul class="footer-list">
-            <li>
-              <h3>Artigos Recentes</h3>
-              <div class="linha"></div>
-            </li>
-            <li>
-              <div class="artigo-container">
-                <a href=""><img src="../images/equilibrios.webp" alt=""></a>
-                <div class="artigo-texto">
-                  <p>24 de Fevereiro de </p>
-                  <a href="">Orgulho do nosso país!</a>
-                </div>
+            </div>
+          </li>
+          <li>
+            <div class="artigo-container">
+              <a href="../Recordes Mundiais/recordes.html#maior-mascara"><img data-src="../images/mascara (1).webp" alt="Máscara" fetchpriority="low" decoding="async" loading="lazy" class="lazy-img" width="70" height="50"></a>
+              <div class="artigo-texto">
+                <p>17 de Agosto de 2020</p>
+                <a href="../Recordes Mundiais/recordes.html#maior-mascara">Máscara Gigante</a>
               </div>
-            </li>
-            <li>
-              <div class="artigo-container">
-                <a href=""><img src="../images/mascara (1).webp" alt=""></a>
-                <div class="artigo-texto">
-                  <p>17 de Agosto de</p>
-                  <a href="">Máscara Gigante</a>
-                </div>
-              </div>
-            </li>
-          </ul>
-    
-          <ul class="footer-sustentabilidade">
-            <li>
-              <h3>Sustentabilidade</h3>
-              <div class="linha"></div>
-            </li>
-            <li>
-              <a href="" class="footer-link">Sou Amigo do Planeta</a>
-            </li>
-    
-            <li>
-              <a href="" class="footer-link">Coleta de Reciclados</a>
-            </li>
-            
-            <li>
-              <a href="" class="footer-link">Proteja-se, Use Máscara!</a>
-            </li>
-    
-            <li>
-              <a href="" class="footer-link">Produtos PET Reciclados</a>
-            </li>
-    
-            <li>
-              <a href="" class="footer-link">Aproveitamento da Água</a>
-            </li>
-    
-            <li>
-              <a href="" class="footer-link">Combate ao Câncer de Mama</a>
-            </li>
-          </ul>
-        </div>
-    
-        <div id="footer_copyright">
-          &#169
-          2025 all rights reserved
-        </div>
-        <div class="footer-desenvolvido">
-          <a href="">Desenvolvido por: Gustavo Carvalho</a>
-        </div>
-      </footer>
+            </div>
+          </li>
+        </ul>
+  
+        <ul class="footer-sustentabilidade">
+          <li>
+            <h3>Sustentabilidade</h3>
+            <div class="linha"></div>
+          </li>
+          <li>
+            <a href="../Sustentabilidade/projetos/sou-amigo-do-planeta.html" class="footer-link">Sou Amigo do Planeta</a>
+          </li>
+  
+          <li>
+            <a href="../Sustentabilidade/projetos/coleta.html" class="footer-link">Coleta de Reciclados</a>
+          </li>
+          
+          <li>
+            <a href="../Sustentabilidade/projetos/mascara.html" class="footer-link">Proteja-se, Use Máscara!</a>
+          </li>
+  
+          <li>
+            <a href="../Sustentabilidade/projetos/reciclados.html" class="footer-link">Produtos PET Reciclados</a>
+          </li>
+  
+          <li>
+            <a href="../Sustentabilidade/projetos/agua.html" class="footer-link">Aproveitamento da Água</a>
+          </li>
+  
+          <li>
+            <a href="../Sustentabilidade/projetos/camiseta.html" class="footer-link">Combate ao Câncer de Mama</a>
+          </li>
+        </ul>
+      </div>
+  
+      <div id="footer_copyright">
+        &#169
+        2025 all rights reserved
+      </div>
+      <div class="footer-desenvolvido">
+        <a href="https://www.linkedin.com/in/gustavo-carvalho-1a204a331/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Gustavo Carvalho (abre em nova janela)">Desenvolvido por: Gustavo Carvalho</a>
+      </div>
+    </footer>
     <script>
         function showSidebar() {
         const sidebar = document.querySelector('.sidebar');
@@ -431,6 +428,34 @@
             }
         });
     });
+
+function easeInOutCubic(t) {
+    return t < 0.5
+      ? 4 * t * t * t
+      : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
+  function smoothScrollTo(targetY, duration = 600) {
+    const startY = window.pageYOffset;
+    const distance = targetY - startY;
+    let startTime;
+    function step(time) {
+      if (!startTime) startTime = time;
+      const t = Math.min((time - startTime) / duration, 1);
+      window.scrollTo(0, startY + distance * easeInOutCubic(t));
+      if (time - startTime < duration) {
+        requestAnimationFrame(step);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  function scrollToCatalogAnimated() {
+    const heading = document.querySelector('.heading');
+    if (!heading) return;
+    const targetY = heading.getBoundingClientRect().top + window.pageYOffset;
+    smoothScrollTo(targetY, 800);
+  }
 
     document.addEventListener('DOMContentLoaded', () => {
         const cardData = {
@@ -462,47 +487,51 @@
         let currentPage = 1;
 
         function updateCards(pageNumber) {
-            const data = cardData[pageNumber];
-            
-            cards.forEach(card => {
-                card.classList.add('card-out');
-            });
+  const data = cardData[pageNumber];
 
-            setTimeout(() => {
-                cards.forEach((card, index) => {
-                    if(data[index]) {
-                        const links = card.querySelectorAll('a');
-                        const productLink = data[index].link;
-                        
-                        // Atualiza links
-                        links.forEach(link => {
-                            link.href = `./comprar/comprar.html?produto=${productLink}`;
-                        });
+  // 1) dispara animação de saída em todos
+  cards.forEach(card => {
+    card.classList.add('card-out');
+  });
 
-                        const iconSpan = card.querySelector('.icon span');
-                        const titleTag = card.querySelector('.title-tag span');
-                        const img = card.querySelector('img');
+  setTimeout(() => {
+    cards.forEach((card, index) => {
+      if (data[index]) {
+        // ─── Cartão válido: mostra, atualiza e anima a entrada ───
+        card.style.display = 'block';             // volta a ocupar espaço
+        card.classList.remove('card-out');       // limpa estado de saída
+        card.classList.add('card-in');           // dispara animação de entrada
 
-                        iconSpan.style.backgroundColor = data[index].color;
-                        titleTag.textContent = data[index].title;
-                        
-                        img.style.opacity = 0;
-                        img.src = data[index].img;
-                        img.alt = data[index].title;
-                        
-                        img.onload = () => {
-                            img.style.opacity = 1;
-                            card.classList.remove('card-out');
-                            card.classList.add('card-in');
-                            
-                            setTimeout(() => {
-                                card.classList.remove('card-in');
-                            }, 500);
-                        };
-                    }
-                });
-            }, 300);
-        }
+        // atualiza conteúdo
+        const product = data[index];
+        card.querySelectorAll('a').forEach(a =>
+          a.href = `./comprar/comprar.html?produto=${product.link}`
+        );
+        card.querySelector('.title-tag span').textContent = product.title;
+        const img = card.querySelector('img');
+        img.style.opacity = 0;
+        img.src = product.img;
+        img.alt = product.title;
+        img.onload = () => {
+          img.style.opacity = 1;
+        };
+
+        // remove classe de entrada após o fim da animação (0.6s)
+        setTimeout(() => {
+          card.classList.remove('card-in');
+        }, 500);
+
+      } else {
+        // ─── Sem produto nesta posição: some totalmente ───
+        card.style.display = 'none';
+      }
+    });
+
+    // 3) atualiza estado dos botões de paginação
+    setActiveButton(pageNumber);
+  }, 300);  // aguarda 300ms para a animação de saída
+
+}
 
         function setActiveButton(activePage) {
             paginationButtons.forEach(btn => {
@@ -553,6 +582,7 @@
                 currentPage = page;
                 updateCards(page);
                 setActiveButton(page);
+                scrollToCatalogAnimated();
             });
         });
 
@@ -561,6 +591,7 @@
                 currentPage--;
                 updateCards(currentPage);
                 setActiveButton(currentPage);
+                scrollToCatalogAnimated();
             }
         });
 
@@ -569,7 +600,8 @@
             if(currentPage < totalPages) {
                 currentPage++;
                 updateCards(currentPage);
-                setActiveButton(currentPage);
+                setActiveButton(currentPage)
+                scrollToCatalogAnimated();
             }
         });
 
@@ -582,6 +614,91 @@
         const pagination = document.querySelector('.pagination');
         const containerCards = document.querySelector('.container-cards');
         const allProducts = Object.values(cardData).flat();
+    const allTitles = [...new Set(allProducts.map(p => p.title))];
+    let currentIndex = -1;
+
+    function normalize(str) {
+      return str.toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function updateSuggestions() {
+      const term = normalize(searchInput.value.trim());
+      if (!term) return suggestions.classList.add('hidden');
+      const matches = allTitles
+        .filter(t => normalize(t).includes(term))
+        .slice(0, 5);
+      if (!matches.length) return suggestions.classList.add('hidden');
+
+      suggestions.innerHTML = matches
+  .map((t,i) =>
+    `<li data-index="${i}">
+       <i class="fa-solid fa-chart-line"></i>
+       <span class="suggestion-text">${t}</span>
+     </li>`
+  )
+  .join('');
+      suggestions.classList.remove('hidden');
+      currentIndex = -1;
+    }
+
+    function selectSuggestion(text) {
+  const clean = text.trim();        // remove espaços e quebras de linha
+  searchInput.value = clean;
+  suggestions.classList.add('hidden');
+  searchInput.dispatchEvent(new Event('input'));
+}
+
+    // adapta seu listener original para chamar também o autocomplete
+    searchInput.addEventListener('input', () => {
+      const term = normalize(searchInput.value.trim());
+      updateSuggestions();
+
+      // seu filtro de cards
+      const filtered = allProducts.filter(p =>
+        normalize(p.title).includes(term)
+      );
+      containerCards.classList.toggle('no-animation', term.length > 0);
+      pagination.style.display = term.length > 0 ? 'none' : 'flex';
+      showSearchResults(filtered);
+    });
+
+    // navegação por teclado
+    searchInput.addEventListener('keydown', e => {
+      const items = suggestions.querySelectorAll('li');
+      if (!items.length) return;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        currentIndex = (currentIndex + 1) % items.length;
+        highlight(items);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        highlight(items);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (currentIndex >= 0) {
+          selectSuggestion(items[currentIndex].textContent.trim());
+        }
+      }
+    });
+
+    function highlight(items) {
+      items.forEach((li,i) => li.classList.toggle('active', i === currentIndex));
+    }
+
+    // clique em sugestão
+    suggestions.addEventListener('click', e => {
+      if (e.target.tagName === 'LI') selectSuggestion(e.target.textContent);
+    });
+
+    // fechar ao clicar fora
+    document.addEventListener('click', e => {
+      if (!searchInput.contains(e.target) && !suggestions.contains(e.target)) {
+        suggestions.classList.add('hidden');
+      }
+    });
 
         function updateCardContent(card, product) {
             const titleElement = card.querySelector('.title-tag span');
@@ -646,6 +763,36 @@
             updateCards(currentPage);
         }
     });
+
+    document.addEventListener("DOMContentLoaded", () => {
+  // Observer para as imagens do footer
+  const footerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        
+        // Carrega a imagem quando estiver visível
+        if (img.dataset.src && !img.src) {
+          img.src = img.dataset.src;
+        }
+
+        // Adiciona classe de transição quando carregada
+        img.onload = () => img.classList.add('loaded');
+        
+        footerObserver.unobserve(img);
+      }
+    });
+  }, { 
+    rootMargin: '200px',
+    threshold: 0.1
+  });
+
+  // Aplica apenas nas imagens do footer
+  document.querySelectorAll('footer img.lazy-img').forEach(img => {
+    img.loading = 'lazy';
+    footerObserver.observe(img);
+  });
+});
     </script>
 </body>
 </html>
