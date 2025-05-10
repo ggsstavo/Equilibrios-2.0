@@ -957,19 +957,71 @@ aviso.style.display = produto.config.exibirAvisoVariacao ? 'block' : 'none';
         });
 
     const botaoOrcamento = document.querySelector('.btn-orcamento');
-    const produto = produtos[produtoSelecionado];
-    const emailDestino = 'vendas@equilibrios.com.br';
-    const assunto = encodeURIComponent(`Orçamento - ${produto.titulo}`);
-    const corpoLinhas = [
-      'Olá,','',
-      `Gostaria de solicitar um orçamento para: ${produto.titulo}`,
-      'Detalhes adicionais:',
-      '- Quantidade: [informe aqui]',
-      '- Prazos: [informe aqui]','',
-      'Obrigado!','[Seu Nome / Empresa]'
-    ];
-    const corpo = encodeURIComponent(corpoLinhas.join('\r\n'));
-    botaoOrcamento.href = `mailto:${emailDestino}?subject=${assunto}&body=${corpo}`;
+const produto         = produtos[produtoSelecionado];
+const emailDestino    = 'vendas@equilibrios.com.br';
+
+// Montagem das mensagens (igual antes)
+const corpoLinhas = [
+  'Olá,',
+  '',
+  `Gostaria de solicitar um orçamento para: ${produto.titulo}`,
+  '',
+  'Especificações do Pedido:',
+  '- Quantidade total: [informe aqui]',
+  '- Tamanhos: P [–], M [–], G [–], GG [–]',
+  '- Cores: [referência ou código]',
+  '- Material: [algodão 100%, poliéster, etc.]',
+  '- Tipo de impressão: [silk, sublimação, bordado, etc.]',
+  '',
+  'Prazos e Entrega:',
+  '- Prazo de entrega: [data desejada]',
+  '- Endereço: [Rua, nº, bairro, CEP, cidade]',
+  '',
+  'Orçamento e Pagamento:',
+  '- Faixa de preço esperada: [R$ …]',
+  '',
+  'Arte e Logotipo:',
+  '- Arquivos em vetor: [sim/não]',
+  '- Preciso de criação de layout: [sim/não]',
+  '',
+  'Contato:',
+  '- Telefone/WhatsApp: [seu telefone]',
+  '- E-mail alternativo: [outro e-mail]',
+  '',
+  'Obrigado!',
+  '[Seu Nome / Empresa]'
+];
+const assuntoMailto = encodeURIComponent(`Orçamento - ${produto.titulo}`);
+const corpoMailto   = encodeURIComponent(corpoLinhas.join('\r\n'));
+const mailtoLink    = `mailto:${emailDestino}?subject=${assuntoMailto}&body=${corpoMailto}`;
+
+const assuntoGmail  = encodeURIComponent(`Orçamento - ${produto.titulo}`);
+const corpoGmail    = encodeURIComponent(corpoLinhas.join('\n'));
+const gmailLink     =
+  `https://mail.google.com/mail/?view=cm&fs=1` +
+  `&to=${encodeURIComponent(emailDestino)}` +
+  `&su=${assuntoGmail}` +
+  `&body=${corpoGmail}`;
+
+// No clique...
+botaoOrcamento.addEventListener('click', e => {
+  e.preventDefault();
+
+  // 1) Cria a aba de fallback **dentro** do gesto de clique
+  const fallbackWin = window.open('', '_blank');
+
+  // 2) Tenta abrir o mailto na aba atual
+  window.location.href = mailtoLink;
+
+  // 3) Se depois de 0.5s você ainda estiver na mesma aba,
+  //    manda a aba de fallback carregar o Gmail
+  setTimeout(() => {
+    // verifica se ainda existe e não foi fechada pelo cliente local
+    if (fallbackWin && !fallbackWin.closed) {
+      fallbackWin.location = gmailLink;
+    }
+  }, 500);
+});
 
         let relatedScrollPos = 0;
 
