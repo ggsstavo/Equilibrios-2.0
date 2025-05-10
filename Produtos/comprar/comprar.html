@@ -159,9 +159,9 @@
                 <p><i class="fas fa-arrows-alt-h"></i> Pode haver variação de até 2cm devido características naturais do produto.</p>
             </div>
 
-            <a href="#orcamento" class="btn-orcamento">
-                <i class="fas fa-envelope"></i>
-                Solicitar Orçamento
+            <a href="#" class="btn-orcamento">
+            <i class="fas fa-envelope"></i>
+            Solicitar Orçamento
             </a>
         </div>
     </div>
@@ -955,6 +955,21 @@ aviso.style.display = produto.config.exibirAvisoVariacao ? 'block' : 'none';
                 }
             });
         });
+
+    const botaoOrcamento = document.querySelector('.btn-orcamento');
+    const produto = produtos[produtoSelecionado];
+    const emailDestino = 'vendas@equilibrios.com.br';
+    const assunto = encodeURIComponent(`Orçamento - ${produto.titulo}`);
+    const corpoLinhas = [
+      'Olá,','',
+      `Gostaria de solicitar um orçamento para: ${produto.titulo}`,
+      'Detalhes adicionais:',
+      '- Quantidade: [informe aqui]',
+      '- Prazos: [informe aqui]','',
+      'Obrigado!','[Seu Nome / Empresa]'
+    ];
+    const corpo = encodeURIComponent(corpoLinhas.join('\r\n'));
+    botaoOrcamento.href = `mailto:${emailDestino}?subject=${assunto}&body=${corpo}`;
 
         let relatedScrollPos = 0;
 

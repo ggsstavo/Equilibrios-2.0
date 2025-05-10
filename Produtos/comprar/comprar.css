@@ -782,9 +782,10 @@ body {
 /* Produtos Relacionados */
 .related-products {
   padding: 100px 20px;
-  background: #f9f9f9;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   background-color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+               "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .related-products h2 {
@@ -795,29 +796,32 @@ body {
   letter-spacing: -0.5px;
 }
 
+/* Container geral */
 .related-container {
   position: relative;
   max-width: 1150px;
   margin: 0 auto;
 }
 
+/* Carrossel */
 .related-products-carousel {
   display: flex;
   gap: 15px;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px 0;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* IE 10+ */
 }
 
 .related-products-carousel::-webkit-scrollbar {
-  display: none;
+  display: none;              /* Chrome, Safari, Opera */
 }
 
+/* Cartões de produto */
 .related-product-card {
-  flex: 0 0 calc(25% - 12px); /* Exibe exatamente 4 cards */
-  background: white;
+  flex: 0 0 calc(25% - 7.5px);  /* 4 cards em desktop (25% cada, subtraindo metade do gap) */
+  background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -830,6 +834,7 @@ body {
   box-shadow: 0 6px 12px rgba(0,0,0,0.12);
 }
 
+/* Imagem dentro do cartão */
 .related-product-image {
   width: 100%;
   height: 250px;
@@ -842,6 +847,7 @@ body {
   transform: scale(1.03);
 }
 
+/* Informações do produto */
 .related-product-info {
   padding: 16px;
   text-align: center;
@@ -862,6 +868,7 @@ body {
   line-height: 1.4;
 }
 
+/* Botões de navegação */
 .related-arrow {
   position: absolute;
   top: 43%;
@@ -898,44 +905,55 @@ body {
   right: -20px;
 }
 
+/* Tablet: 2 cards */
 @media (max-width: 768px) {
   .related-product-card {
-    flex: 0 0 calc(50% - 8px); /* 2 cards em mobile */
+    flex: 0 0 calc(50% - 7.5px);
   }
-  
   .related-arrow {
     width: 36px;
     height: 36px;
   }
-  
   .related-arrow.prev-related {
     left: 5px;
   }
-  
   .related-arrow.next-related {
     right: 5px;
   }
-  
   .related-product-info h3 {
     font-size: 15px;
   }
-  
   .related-product-info p {
     font-size: 13px;
   }
 }
 
+/* Mobile estreito: 1 card */
 @media (max-width: 480px) {
   .related-products {
     padding: 30px 15px;
   }
-  
   .related-product-card {
-    flex: 0 0 calc(100% - 0px); /* 1 card em telas muito pequenas */
+    flex: 0 0 100%;
   }
-
   .related-container {
-    padding: 0 35px; /* deixa 50px de “margem” para as setas */
+    padding: 0 35px; /* margem para as setas */
+  }
+  .related-arrow {
+    width: 35px;
+    height: 35px;
+  }
+  .related-arrow.prev-related {
+    left: 5px;
+  }
+  .related-arrow.next-related {
+    right: 5px;
+  }
+  .related-product-info h3 {
+    font-size: 14px;
+  }
+  .related-product-info p {
+    font-size: 12px;
   }
 }
 
