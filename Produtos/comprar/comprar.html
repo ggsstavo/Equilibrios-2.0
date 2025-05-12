@@ -960,42 +960,35 @@ aviso.style.display = produto.config.exibirAvisoVariacao ? 'block' : 'none';
 const produto         = produtos[produtoSelecionado];
 const emailDestino    = 'vendas@equilibrios.com.br';
 
-// Montagem das mensagens (igual antes)
+// Montagem das mensagens
 const corpoLinhas = [
-  'Olá,',
-  '',
-  `Gostaria de solicitar um orçamento para: ${produto.titulo}`,
-  '',
+  'Olá,','',
+  `Gostaria de solicitar um orçamento para: ${produto.titulo}`,'',
   'Especificações do Pedido:',
   '- Quantidade total: [informe aqui]',
   '- Tamanhos: P [–], M [–], G [–], GG [–]',
   '- Cores: [referência ou código]',
   '- Material: [algodão 100%, poliéster, etc.]',
-  '- Tipo de impressão: [silk, sublimação, bordado, etc.]',
-  '',
+  '- Tipo de impressão: [silk, sublimação, bordado, etc.]','',
   'Prazos e Entrega:',
   '- Prazo de entrega: [data desejada]',
-  '- Endereço: [Rua, nº, bairro, CEP, cidade]',
-  '',
+  '- Endereço: [Rua, nº, bairro, CEP, cidade]','',
   'Orçamento e Pagamento:',
-  '- Faixa de preço esperada: [R$ …]',
-  '',
+  '- Faixa de preço esperada: [R$ …]','',
   'Arte e Logotipo:',
   '- Arquivos em vetor: [sim/não]',
-  '- Preciso de criação de layout: [sim/não]',
-  '',
+  '- Preciso de criação de layout: [sim/não]','',
   'Contato:',
   '- Telefone/WhatsApp: [seu telefone]',
-  '- E-mail alternativo: [outro e-mail]',
-  '',
-  'Obrigado!',
-  '[Seu Nome / Empresa]'
+  '- E-mail alternativo: [outro e-mail]','',
+  'Obrigado!','[Seu Nome / Empresa]'
 ];
+
 const assuntoMailto = encodeURIComponent(`Orçamento - ${produto.titulo}`);
 const corpoMailto   = encodeURIComponent(corpoLinhas.join('\r\n'));
 const mailtoLink    = `mailto:${emailDestino}?subject=${assuntoMailto}&body=${corpoMailto}`;
 
-const assuntoGmail  = encodeURIComponent(`Orçamento - ${produto.titulo}`);
+const assuntoGmail  = assuntoMailto;
 const corpoGmail    = encodeURIComponent(corpoLinhas.join('\n'));
 const gmailLink     =
   `https://mail.google.com/mail/?view=cm&fs=1` +
@@ -1003,24 +996,36 @@ const gmailLink     =
   `&su=${assuntoGmail}` +
   `&body=${corpoGmail}`;
 
-// No clique...
+// função de detecção "mobile" robusta
+function isMobileDevice() {
+  // userAgentData.mobile disponível em Chrome 89+, Edge, etc.
+  if (navigator.userAgentData && typeof navigator.userAgentData.mobile === 'boolean') {
+    return navigator.userAgentData.mobile;
+  }
+  // fallback por userAgent
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    return true;
+  }
+  // fallback por tamanho de viewport
+  return window.matchMedia("(max-width: 768px)").matches;
+}
+
 botaoOrcamento.addEventListener('click', e => {
   e.preventDefault();
 
-  // 1) Cria a aba de fallback **dentro** do gesto de clique
-  const fallbackWin = window.open('', '_blank');
-
-  // 2) Tenta abrir o mailto na aba atual
-  window.location.href = mailtoLink;
-
-  // 3) Se depois de 0.5s você ainda estiver na mesma aba,
-  //    manda a aba de fallback carregar o Gmail
-  setTimeout(() => {
-    // verifica se ainda existe e não foi fechada pelo cliente local
-    if (fallbackWin && !fallbackWin.closed) {
-      fallbackWin.location = gmailLink;
-    }
-  }, 500);
+  if (isMobileDevice()) {
+    // em mobile, abre apenas mailto: (disparando o app nativo)
+    window.location.href = mailtoLink;
+  } else {
+    // em desktop, faz fallback híbrido para Gmail Web
+    const fallbackWin = window.open('', '_blank');
+    window.location.href = mailtoLink;
+    setTimeout(() => {
+      if (fallbackWin && !fallbackWin.closed) {
+        fallbackWin.location = gmailLink;
+      }
+    }, 500);
+  }
 });
 
         let relatedScrollPos = 0;
