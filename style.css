@@ -84,7 +84,7 @@ nav{
 .sidebar{
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -120%;
     height: 100%;
     width: 250px;
     background-color: rgba(255, 255, 255, 0.2);
@@ -2004,6 +2004,10 @@ img.lazy-img {
 
 html {
     scroll-behavior: smooth;
+}
+
+body{
+    overflow-x: hidden;
 }
 
 /* Se precisar ajustar o scroll offset para não cortar conteúdo */
