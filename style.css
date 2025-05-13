@@ -2001,8 +2001,9 @@ img.lazy-img {
 
 /* SCROLL */
 
-html{
+html, body{
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 /* Se precisar ajustar o scroll offset para não cortar conteúdo */
