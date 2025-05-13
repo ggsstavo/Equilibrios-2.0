@@ -2002,11 +2002,8 @@ img.lazy-img {
 
 /* SCROLL */
 
-html {
+html, body{
     scroll-behavior: smooth;
-}
-
-body{
     overflow-x: hidden;
 }
 
