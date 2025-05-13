@@ -1981,7 +1981,6 @@ img.lazy-img {
     .fixado a {
         right: auto;
         left: clamp(10px, 3vw, 15px);
-        margin-right: env(safe-area-inset-right); /* Para iPhones com notch */
     }
 }
 
@@ -2002,9 +2001,8 @@ img.lazy-img {
 
 /* SCROLL */
 
-html, body{
+html{
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 /* Se precisar ajustar o scroll offset para não cortar conteúdo */
